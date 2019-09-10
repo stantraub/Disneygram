@@ -6,17 +6,23 @@ class User < ApplicationRecord
 
     has_many :posts, 
         foreign_key: :author_id,
-        class_name: 'Post'
+        class_name: :Post
     
     has_many :comments, 
         foreign_key: :author_id,
-        class_name: 'Comment'
+        class_name: :Comment
 
     has_many :likes, 
         foreign_key: :user_id,
-        class_name: 'Like'
+        class_name: :Like
 
-    
+    has_many :follows,
+        foreign_key: :follower_id,
+        class_name: :Follow
+
+    has_many :followers,
+        foreign_key: :following_id,
+        class_name: :Follow
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
