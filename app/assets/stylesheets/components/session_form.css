@@ -1,0 +1,21 @@
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 850px;
+    padding-bottom: 25%;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    color: black;
+    justify-content: center;
+    margin: auto;
+    margin-top: 25px;
+    font-size: 36px;
+    font-family: 'Grand Hotel', cursive;
+}

@@ -24,26 +24,32 @@ class SessionForm extends React.Component {
     }
     render() {
         return (
-            <div className="session-form">
-                <h2>Sign Up!</h2>
-                <form>
-                    <label>Username:
-            <input
-                            type="text"
-                            value={this.state.username}
-                            onChange={this.handleInput('username')}
-                        />
-                    </label>
+            <div>
+                <div className="signup-form">
+                    <h1 className="logo">Disneygram</h1>
+                    <form>
+                        <label>
+                    <div>
+                    <input      placeholder="Username"
+                                type="text"
+                                value={this.state.username}
+                                onChange={this.handleInput('username')}
+                            />
+                    </div>
+                        </label>
 
-                    <label>Password:
-            <input
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.handleInput('password')}
-                        />
-                        <button onClick={this.handleSubmit}>Sign Up!</button>
-                    </label>
-                </form>
+                        <label>
+                            <div>
+                    <input      placeholder="Password"
+                                type="password"
+                                value={this.state.password}
+                                onChange={this.handleInput('password')}
+                            />
+                    </div>
+                            <button onClick={this.handleSubmit}>Sign Up!</button>
+                        </label>
+                    </form>
+                </div>
             </div>
         );
     }
