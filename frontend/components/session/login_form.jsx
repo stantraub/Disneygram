@@ -25,23 +25,28 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div className="session-form">
-                <h2>Log in!</h2>
+                <h2 className="logo">Disneygram</h2>
                 <form>
-                    <label>Username:
-            <input
+                    <label>
+                        <div>
+                            <input  placeholder="Username"
+                            className="signup-input"
                             type="text"
                             value={this.state.username}
                             onChange={this.handleInput('username')}
-                        />
+                            />
+                        </div>
                     </label>
 
-                    <label>Password:
-            <input
+                    <label>
+                    <input          
+                            placeholder="Password"
+                            className="signup-input"
                             type="password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
                         />
-                        <button onClick={this.handleSubmit}>Log in!</button>
+                        <button className="session-button" onClick={this.handleSubmit}>Log in</button>
                     </label>
                 </form>
             </div>

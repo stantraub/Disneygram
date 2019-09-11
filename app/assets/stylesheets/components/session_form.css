@@ -1,21 +1,40 @@
-.signup-form {
+/* .signup-form {  
+    background: #fafafa;
+} */
+
+.signup-form  {
+    border: 1px solid black;
     display: flex;
     justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 850px;
-    padding-bottom: 25%;
-    width: 100%;
+    text-align: center;
+    width: 50%;
+    /* height: 50%; */
+    background: #fafafa;
 }
 
+
 .logo {
-    display: flex;
-    color: black;
-    justify-content: center;
-    margin: auto;
-    margin-top: 25px;
-    font-size: 36px;
-    font-family: 'Grand Hotel', cursive;
+    font-family:  cursive;
+    width: 125px;
+    height: 56px;
+    margin-top: 22px;
+    margin-bottom: 8px;
+    margin-left: 2px;
+}
+
+.signup-input {
+    height: 30px;
+    background: #fafafa;
+    border-radius: 2px;
+    border: 1px solid #e6e6e6;
+    font-size: 10px;
+    padding-left: 5px;
+}
+
+.session-button {
+    background-color: #3897F0;
+    border: 1px solid #3897F0;
+    color: white;
+    border-radius: 4px;
+    position: relative;
 }
