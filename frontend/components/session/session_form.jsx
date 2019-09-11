@@ -25,8 +25,9 @@ class SessionForm extends React.Component {
     }
     render() {
         return (
+
             <div className="signup-form">
-                <form>
+                <form className="signup-form-inner">
                     <h1 className="logo">Disneygram</h1>
                     <h2 className="signup-header">
                         Sign up to see photos and videos from your friends.

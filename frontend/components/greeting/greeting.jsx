@@ -11,9 +11,9 @@ export default ({ currentUser, logout }) => {
     ) : (
             // not logged in
             <div>
-                <Link className="btn" to="/signup">Sign up</Link>
+                {/* <Link className="btn" to="/signup">Sign up</Link>
                 &nbsp; or &nbsp;
-                <Link className="btn" to="/login">Log in</Link>
+                <Link className="btn" to="/login">Log in</Link> */}
             </div>
         );
 

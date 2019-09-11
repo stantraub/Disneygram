@@ -1,18 +1,24 @@
 .signup-form {
     display: flex;
-    border: 1px solid #e6e6e6;
-    background-color: #ffffff;
     align-items: stretch;
     flex-direction: column;
     text-align: center;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    margin-top: 140px;
     margin-left: auto;
     margin-right: auto;
     max-width: 500px;
     padding: 10px 0;
     width: 350px;
+    padding-bottom: 20px;
+}
+
+.signup-form-inner {
+    border: 1px solid #e6e6e6;
+    background-color: #ffffff;
+    padding-bottom: 25px;
 }
 
 .logo {
@@ -39,6 +45,8 @@
     background-color: #3897F0;
     border: 1px solid #3897F0;
     padding: 3px;
+    margin-top: 4px;
+    margin-bottom: 7px;
     color: white;
     font: 400 14px system-ui;
     font-weight: bold;
@@ -71,7 +79,7 @@
     height: 30px;
     background: #fafafa;
     border-radius: 2px;
-    font: 400 14px system-ui;
+    font: 400 13px system-ui;
     padding: 9px 0 7px 8px;
     box-sizing: border-box;
 }
@@ -92,5 +100,12 @@
     margin-top: 10px;
     text-align: center;
     font-family: -apple-system,system-ui,"Segoe UI", Roboto, Helvetica,     Arial, sans-serif;
-    transform: translateY(100px);
+    /* transform: translateY(100px); */
+}
+
+.iphone-image {
+    /* width: 430px;
+    height: 618px;
+    position: relative;
+    z-index: 3; */
 }
