@@ -529,6 +529,12 @@ function (_React$Component) {
         value: this.state.username,
         onChange: this.handleInput('username')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "Full Name",
+        className: "signup-input",
+        type: "text" // value={this.state.username}
+        // onChange={this.handleInput('username')}
+
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         placeholder: "Password",
         className: "signup-input",
         type: "password",
