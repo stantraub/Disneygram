@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -24,26 +25,38 @@ class SessionForm extends React.Component {
     }
     render() {
         return (
-            <div className="session-form">
-                <h2>Log in!</h2>
+            <div className="signup-form">
+                
                 <form>
-                    <label>Username:
-            <input
+                    <h1 className="logo">Disneygram</h1>
+                    <h2 className="signup-header">
+                        Log in to see photos and videos from your friends.
+                    </h2>
+                    <div>
+                        <input
+                            placeholder="Username"
+                            className="signup-input"
                             type="text"
                             value={this.state.username}
                             onChange={this.handleInput('username')}
                         />
-                    </label>
-
-                    <label>Password:
-            <input
+                    </div>
+                    <div>
+                        <input
+                            placeholder="Password"
+                            className="signup-input"
                             type="password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
                         />
-                        <button onClick={this.handleSubmit}>Log in!</button>
-                    </label>
+                    </div>
+                    <div>
+                        <button className="session-button" onClick={this.handleSubmit}>Log in</button>
+                    </div>
                 </form>
+                <div className="switch-session">
+                    Don't have an account? <Link to="/signup" style={{ textDecoration: 'none' }} >Sign up</Link>
+                </div>
             </div>
         );
     }

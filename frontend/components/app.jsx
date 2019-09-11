@@ -9,11 +9,13 @@ const App = () => (
     <div>
         <header>
             <h1>Disneygram</h1>
-            <GreetingContainer />
+            <Route path="/" component={GreetingContainer} />
         </header>
-
+        
+        
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
+        {/* <ProtectedRoute path="/post-index" component={PostIndexContainer} /> */}
     </div>
 );
 

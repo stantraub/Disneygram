@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -24,31 +25,36 @@ class SessionForm extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div className="signup-form">
+            <div className="signup-form">
+                <form>
                     <h1 className="logo">Disneygram</h1>
-                    <form>
-                        <label>
+                    <h2 className="signup-header">
+                        Sign up to see photos and videos from your friends.
+                    </h2>
                     <div>
-                    <input      placeholder="Username"
-                                type="text"
-                                value={this.state.username}
-                                onChange={this.handleInput('username')}
-                            />
+                        <input      
+                            placeholder="Username"
+                            className="signup-input"
+                            type="text"
+                            value={this.state.username}
+                            onChange={this.handleInput('username')}
+                        />
                     </div>
-                        </label>
-
-                        <label>
-                            <div>
-                    <input      placeholder="Password"
-                                type="password"
-                                value={this.state.password}
-                                onChange={this.handleInput('password')}
-                            />
+                    <div>
+                        <input      
+                            placeholder="Password"
+                            className="signup-input"
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.handleInput('password')}
+                        />
                     </div>
-                            <button onClick={this.handleSubmit}>Sign Up!</button>
-                        </label>
-                    </form>
+                    <div>
+                        <button className="session-button" onClick={this.handleSubmit}>Sign Up</button>
+                    </div>
+                </form>
+                <div className="switch-session">
+                    Have an account? <Link to="/login" style={{ textDecoration: 'none' }}>Log in</Link>
                 </div>
             </div>
         );

@@ -125,6 +125,11 @@ html {
     -ms-text-size-adjust: 100%; /* 2 */
 }
 
+html, body {
+    height: 100vh;
+    background-color: #fafafa;
+}
+
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  */
