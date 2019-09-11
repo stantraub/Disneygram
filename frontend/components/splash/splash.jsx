@@ -1,7 +1,7 @@
 import React from 'react';
 import SignupFormContainer from "../session/signup_form_container";
 
-const splash = ({currentUser}) => {
+const splash = () => {
     return(
         <div>
             <SignupFormContainer />
