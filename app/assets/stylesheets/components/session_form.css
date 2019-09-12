@@ -30,10 +30,9 @@
     justify-content: center;
     margin: auto;
     margin-top: 25px;
-    font-size: 40px;
+    font-size: 55px;
     padding: 10px;
-    font-family: 'Grand Hotel', cursive;
-    font-weight: bold;
+    font-family: 'Cookie', cursive;
 }
 
 
@@ -116,3 +115,4 @@
     justify-content: center;
     padding-top: 100px;
 }
+

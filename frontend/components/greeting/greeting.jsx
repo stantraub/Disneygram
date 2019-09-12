@@ -2,28 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default ({ currentUser, logout }) => {
-    const display = currentUser ? (
-        // logged in
-        <div>
-            <h3>Welcome {currentUser.username}!</h3>
-            <button onClick={logout}> Logout</button>
-        </div>
-    ) : (
-            // not logged in
-            <div>
-                {/* <Link className="btn" to="/signup">Sign up</Link>
-                &nbsp; or &nbsp;
-                <Link className="btn" to="/login">Log in</Link> */}
-            </div>
+
+    let display;
+    console.log(currentUser)
+    if (currentUser) {
+        display = (
+            <nav>
+                <h2>{currentUser.username}</h2>
+                <button onClick={() => logout()}>Log Out</button>
+            </nav>
         );
+    } else {
+        display = (
+            <nav>
 
-    return (
-        <header className="greeting">
-            {/* <h1 className="logo">LOGO</h1> */}
-            <div>
-                {display}
-            </div>
-        </header>
-    )
-
+            </nav>
+        );
+    }
+    return display;
 };
