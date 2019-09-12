@@ -233,6 +233,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _session_session_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../session/session_form_container */ "./frontend/components/session/session_form_container.jsx");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
@@ -242,18 +244,10 @@ __webpack_require__.r(__webpack_exports__);
   react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Welcome ", currentUser.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: logout
   }, " Logout")) : // not logged in
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "btn",
-    to: "/signup"
-  }, "Sign up"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "btn",
-    to: "/login"
-  }, "Log in"));
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_session_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "greeting"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "logo"
-  }, "Disneygram"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display));
 });
 
 /***/ }),
@@ -494,128 +488,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   !*** ./frontend/components/session/session_form.jsx ***!
   \******************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-var SessionForm =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(SessionForm, _React$Component);
-
-  function SessionForm(props) {
-    var _this;
-
-    _classCallCheck(this, SessionForm);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SessionForm).call(this, props));
-    _this.state = {
-      username: '',
-      password: ''
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(SessionForm, [{
-    key: "handleInput",
-    value: function handleInput(type) {
-      var _this2 = this;
-
-      return function (e) {
-        _this2.setState(_defineProperty({}, type, e.target.value));
-      };
-    }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      var _this3 = this;
-
-      e.preventDefault();
-      this.props.signup(this.state).then(function () {
-        return _this3.props.history.push("/");
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "parent-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "iphone-image"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        width: "320px height=600px",
-        src: "https://library.kissclipart.com/20180830/ffw/kissclipart-android-phone-png-clipart-iphone-clip-art-af395bce23124e2d.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "signup-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "signup-form-inner"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "logo"
-      }, "Disneygram"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "signup-header"
-      }, "Sign up to see photos and videos from your friends."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        placeholder: "Username",
-        className: "signup-input",
-        type: "text",
-        value: this.state.username,
-        onChange: this.handleInput('username')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        placeholder: "Full Name",
-        className: "signup-input",
-        type: "text" // value={this.state.username}
-        // onChange={this.handleInput('username')}
-
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        placeholder: "Password",
-        className: "signup-input",
-        type: "password",
-        value: this.state.password,
-        onChange: this.handleInput('password')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "session-button",
-        onClick: this.handleSubmit
-      }, "Sign Up"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "switch-session"
-      }, "Have an account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/login",
-        style: {
-          textDecoration: 'none'
-        }
-      }, "Log in")))));
-    }
-  }]);
-
-  return SessionForm;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (SessionForm);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/stanleytraub/Desktop/Disneygram/Disneygram/frontend/components/session/session_form.jsx: Unexpected token (25:12)\n\n\u001b[0m \u001b[90m 23 | \u001b[39m        e\u001b[33m.\u001b[39mpreventDefault()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 24 | \u001b[39m        \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39msignup(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 | \u001b[39m            \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mhistory\u001b[33m.\u001b[39mpush(\u001b[32m\"/\"\u001b[39m))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 26 | \u001b[39m    }\u001b[0m\n\u001b[0m \u001b[90m 27 | \u001b[39m    render() {\u001b[0m\n\u001b[0m \u001b[90m 28 | \u001b[39m        \u001b[36mreturn\u001b[39m (\u001b[0m\n    at Object.raise (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:6387:17)\n    at Object.unexpected (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:7704:16)\n    at Object.parseExprAtom (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:8912:20)\n    at Object.parseExprAtom (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:3609:20)\n    at Object.parseExprSubscripts (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:8483:23)\n    at Object.parseMaybeUnary (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:8463:21)\n    at Object.parseExprOps (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:8329:23)\n    at Object.parseMaybeConditional (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:8302:23)\n    at Object.parseMaybeAssign (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:8249:21)\n    at Object.parseExpression (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:8197:23)\n    at Object.parseStatementContent (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10029:23)\n    at Object.parseStatement (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseBlock (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10447:10)\n    at Object.parseFunctionBody (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:9495:24)\n    at Object.parseFunctionBodyAndFinish (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:9465:10)\n    at Object.parseMethod (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:9419:10)\n    at Object.pushClassMethod (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10875:30)\n    at Object.parseClassMemberWithIsStatic (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10800:12)\n    at Object.parseClassMember (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10739:10)\n    at withTopicForbiddingContext (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10694:14)\n    at Object.withTopicForbiddingContext (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:9773:14)\n    at Object.parseClassBody (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10671:10)\n    at Object.parseClass (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10645:22)\n    at Object.parseStatementContent (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:9942:21)\n    at Object.parseStatement (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseTopLevel (/Users/stanleytraub/Desktop/Disneygram/Disneygram/node_modules/@babel/parser/lib/index.js:9829:10)");
 
 /***/ }),
 
