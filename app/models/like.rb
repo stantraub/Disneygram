@@ -3,7 +3,7 @@ class Like < ApplicationRecord
         foreign_key: :comment_id,
         class_name: :Comment
 
-    belongs_to :user.
+    belongs_to :user,
         foreign_key: :user_id,
         class_name: :User
 
