@@ -526,7 +526,6 @@ function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      console.log(this.props);
       this.props.signup(this.state).then(function () {
         return _this3.props.history.push("/");
       });
