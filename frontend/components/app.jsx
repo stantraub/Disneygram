@@ -14,7 +14,7 @@ const App = () => (
         </header>
         {/* <BrowserRouter> */}
             <Switch>
-                <AuthRoute exact path="/" component={GreetingContainer} />
+                <Route exact path="/" component={GreetingContainer} />
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                 {/* <ProtectedRoute path="/post-index" component={PostIndexContainer} /> */}

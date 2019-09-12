@@ -24,6 +24,12 @@ class SessionForm extends React.Component {
         this.props.login(this.state)
         .then(() => this.props.history.push("/"));
     }
+
+    handleDemo(e) {
+        e.preventDefault();
+        const demoUser = Object.assign({}, { username: 'DemoUser', password: '123456' });
+        this.props.processDemo(demoUser);
+    }
     render() {
         return (
             <div className="parent-div">
@@ -56,9 +62,9 @@ class SessionForm extends React.Component {
                             <div>
                                 <button className="session-button" onClick={this.handleSubmit}>Log in</button>
                             </div>
-                            <div>
-                                <button className="session-button" >Demo Login</button>
-                            </div>
+                            {/* <div>
+                                <button className="session-button" onClick={this.handleDemo.bind(this)}>Demo Login</button>
+                            </div> */}
                         </form>
                     
                         <div className="switch-session">

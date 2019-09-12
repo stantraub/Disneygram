@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
 
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
-            password: '',
+            password: '', 
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
+
     }
 
     handleInput(type) {
@@ -21,9 +24,17 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.signup(this.state)
+        this.props.processForm(this.state)
             .then(() => this.props.history.push("/"));
     }
+
+    handleDemo(e){
+        e.preventDefault();
+        const demoUser = Object.assign({}, {username: 'DemoUser', password: '123456'});
+        this.props.processDemo(demoUser)
+            .then(() => this.props.history.push("/"));
+    }
+
     render() {
         return (
             <div className="parent-div">
@@ -64,6 +75,9 @@ class SessionForm extends React.Component {
                             </div>
                             <div>
                                 <button className="session-button" onClick={this.handleSubmit}>Sign Up</button>
+                            </div>
+                            <div>
+                                <button className="session-button" onClick={this.handleDemo} >Demo Login</button>
                             </div>
                         </form>
                         <div className="switch-session">

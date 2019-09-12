@@ -3,7 +3,7 @@ class Post < ApplicationRecord
     validates :body, :author_id, :created_at, :updated_at, presence: true
 
 
-    has_one_attached :post
+    has_one_attached :photo
 
     belongs_to :user,
         foreign_key: :author_id,
