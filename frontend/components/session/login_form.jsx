@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     handleInput(type) {
@@ -21,14 +22,21 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state)
-        .then(() => this.props.history.push("/"));
+        const user = Object.assign({}, this.state);
+        this.props.login(user)
+            .then((res) => {
+                this.props.history.push(`/users/${res.user.id}`)
+            }
+            )
     }
 
     handleDemo(e) {
         e.preventDefault();
         const demoUser = Object.assign({}, { username: 'DemoUser', password: '123456' });
-        this.props.processDemo(demoUser);
+        this.props.processDemo(demoUser)
+            .then((res) => {
+                this.props.history.push(`/users/${res.user.id}`)
+            })
     }
     render() {
         return (
@@ -62,9 +70,9 @@ class SessionForm extends React.Component {
                             <div>
                                 <button className="session-button" onClick={this.handleSubmit}>Log in</button>
                             </div>
-                            {/* <div>
-                                <button className="session-button" onClick={this.handleDemo.bind(this)}>Demo Login</button>
-                            </div> */}
+                            <div>
+                                <button className="session-button" onClick={this.handleDemo} >Demo Login</button>
+                            </div>
                         </form>
                     
                         <div className="switch-session">

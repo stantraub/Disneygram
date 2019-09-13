@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignupFormContainer from "../session/session_form_container";
+import UserShowContainer from "../user_profile/user_show_container";
 
 export default ({ currentUser, logout }) => {
     const display = currentUser ? (
         // logged in
         <div>
-            <h3>Welcome {currentUser.username}!</h3>
-            <button onClick={logout}> Logout</button>
+            {/* <h3>Welcome {currentUser.username}!</h3> */}
+            <button onClick={logout}>Logout</button>
+            {/* <UserShowContainer /> */}
+            {/* <Link to={`/users/${currentUser.id}`}>my profile</Link> */}
         </div>
     ) : (
             // not logged in
@@ -15,17 +18,14 @@ export default ({ currentUser, logout }) => {
                 {/* <Link className="btn" to="/signup">Sign up</Link>
                 &nbsp;
                 <Link className="btn" to="/login">Log in</Link> */}
-                <SignupFormContainer />
+                {/* <SignupFormContainer /> */}
             </div>
         );
 
     return (
-        <header className="greeting">
-            {/* <h1 className="logo">Disneygram</h1> */}
             <div>
                 {display}
             </div>
-        </header>
     )
 
 };

@@ -7,6 +7,7 @@ import { withRouter } from "react-router";
 
 const mapStateToProps = (state, ownProps) => ({
     errors: state.errors,
+    user: state.entities.users[ownProps.match.params.id],
     formType: "signup"
 });
 

@@ -8,23 +8,23 @@ const receiveAllUsers = (users) => ({
     users
 })
 
-const receiveUser = ({ user, posts}) => ({
+const receiveUser = (user) => ({
     type: RECEIVE_USER,
-    user,
-    posts
+    user
+    // posts
 })
 
-export const fetchUsers = () => {
+export const fetchUsers = () => dispatch => {
     return APIUtil.fetchUsers()
         .then(users => dispatch(receiveAllUsers(users)))
 }
 
-export const fetchUser = (id) => {
+export const fetchUser = (id) => dispatch => {
     return APIUtil.fetchUser(id)
         .then(user => dispatch(receiveUser(user)))
 }
 
-export const updateUser = (user) => {
+export const updateUser = (user) => dispatch => {
     return APIUtil.updateUser(user)
         .then(user => dispatch(receiveUser(user)))
 }

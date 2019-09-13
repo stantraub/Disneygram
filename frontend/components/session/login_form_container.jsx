@@ -8,15 +8,11 @@ const mapStateToProps = (state, ownProps) => ({
     formType: "login"
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    // return({
-    //     processForm: (user) => dispatch(login(user)),
-    //     processDemo: (demoUser) => dispatch(login(demoUser))
-    // })
-        
-    login: (user) => (
-        dispatch(login(user))
-    )
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return({
+        login: (user) => dispatch(login(user)),
+        processDemo: (demoUser) => dispatch(login(demoUser))
+    })
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(loginForm);

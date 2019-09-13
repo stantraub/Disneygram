@@ -26,15 +26,22 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state)
-            .then(() => this.props.history.push("/"));
+        const user = Object.assign({}, this.state);
+        this.props.processForm(user)
+            .then((res) => {
+                this.props.history.push(`/users/${res.user.id}`)
+            } 
+            )
     }
 
     handleDemo(e){
         e.preventDefault();
         const demoUser = Object.assign({}, {username: 'DemoUser', password: '123456'});
         this.props.processDemo(demoUser)
-            .then(() => this.props.history.push("/"));
+            .then((res) => {
+                this.props.history.push(`/users/${res.user.id}`)
+            }
+            )
     }
 
     render() {
