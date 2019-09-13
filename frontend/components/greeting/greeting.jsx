@@ -8,7 +8,7 @@ export default ({ currentUser, logout }) => {
         // logged in
         <div>
             {/* <h3>Welcome {currentUser.username}!</h3> */}
-            <button onClick={logout}>Logout</button>
+            {/* <button onClick={logout}>Logout</button> */}
             {/* <UserShowContainer /> */}
             {/* <Link to={`/users/${currentUser.id}`}>my profile</Link> */}
         </div>

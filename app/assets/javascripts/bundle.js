@@ -279,9 +279,7 @@ __webpack_require__.r(__webpack_exports__);
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
   var display = currentUser ? // logged in
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: logout
-  }, "Logout")) : // not logged in
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null) : // not logged in
   react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display);
 });
@@ -641,7 +639,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "iphone-image"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        width: "320px height=600px",
+        width: "320px height=300px",
         src: "https://library.kissclipart.com/20180830/ffw/kissclipart-android-phone-png-clipart-iphone-clip-art-af395bce23124e2d.png"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form"

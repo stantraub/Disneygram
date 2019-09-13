@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
         return (
             <div className="parent-div">
                 <div className="iphone-image">
-                    <img width="320px height=600px" src="https://library.kissclipart.com/20180830/ffw/kissclipart-android-phone-png-clipart-iphone-clip-art-af395bce23124e2d.png" />
+                    <img width="320px height=300px" src="https://library.kissclipart.com/20180830/ffw/kissclipart-android-phone-png-clipart-iphone-clip-art-af395bce23124e2d.png" />
                     <div className="signup-form">
                         <form className="signup-form-inner">
                             <h1 className="logo">Disneygram</h1>
