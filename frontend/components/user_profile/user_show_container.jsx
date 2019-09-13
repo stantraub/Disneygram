@@ -9,7 +9,7 @@ const msp = (state, ownProps) => ({
 })
 
 const mdp = dispatch => ({
-    logout: () => dispatch(logout)
+    
 })
 
 export default withRouter(connect(msp, mdp)(UserShow));
