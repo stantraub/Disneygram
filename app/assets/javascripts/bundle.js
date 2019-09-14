@@ -807,15 +807,31 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-stats"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-information"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.users), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "user-show-btn"
-      }, "Edit Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Edit Bio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleLogout,
         className: "user-show-btn"
       }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "user-show-btn"
-      }, "Upload")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null))));
+      }, "Upload")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "follows"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "follow-stats"
+      }, "0 posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "follow-stats"
+      }, "0 follows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "follow-stats"
+      }, "0 following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-name-bio"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "full-name"
+      }, this.props.user.full_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.user.bio)))));
     }
   }]);
 
