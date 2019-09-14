@@ -34,7 +34,7 @@ class UserShow extends React.Component {
                     
                     <div className="follows">
                         <div className="follow-stats">0 posts</div>
-                        <div className="follow-stats">0 follows</div>
+                        <div className="follow-stats">0 followers</div>
                         <div className="follow-stats">0 following</div>
                     </div>
                     

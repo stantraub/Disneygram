@@ -825,7 +825,7 @@ function (_React$Component) {
         className: "follow-stats"
       }, "0 posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follow-stats"
-      }, "0 follows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "0 followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follow-stats"
       }, "0 following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-name-bio"
