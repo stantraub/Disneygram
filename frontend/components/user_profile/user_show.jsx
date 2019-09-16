@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import UserShowContainer from "./user_show_container";
+import NavBarContainer from "../navbar/navbar_container";
 
 class UserShow extends React.Component {
     constructor(props){
@@ -23,12 +24,13 @@ class UserShow extends React.Component {
         <div className="main-div">
             {/* <h3>Welcome {currentUser.username}!</h3>
             <button onClick={logout}>Logout</button> */}
+            
             <div className="user-top">
                 <div className="user-stats">
                     <div className="user-information">
                         <h1>{this.props.user.username}</h1>
                         <button className="user-show-btn">Edit Bio</button>
-                        <button onClick={this.handleLogout} className="user-show-btn">Log Out</button>
+                        {/* <button onClick={this.handleLogout} className="user-show-btn">Log Out</button> */}
                         <button className="user-show-btn">Upload</button>
                     </div>
                     
