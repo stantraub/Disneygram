@@ -836,7 +836,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-top"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-        className: "user-pic-stats"
+        className: "user-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-pic-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {

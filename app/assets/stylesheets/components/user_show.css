@@ -34,9 +34,10 @@
     flex-direction: row;
     box-sizing: border-box;
     position: relative;
+    transform: translateX(-150px);
 }
 
-.user-pic-stats {
+.user-header {
     display: flex;
     flex-direction: row;
     margin-bottom: 44px;
@@ -44,9 +45,10 @@
 
 .profile-pic-div {
     margin-right: 30px;
-    width: 230px;
+    width: 290px;
     display: flex;
     position: relative;
+    justify-content: center;
 }
 
 .profile-pic-img {
