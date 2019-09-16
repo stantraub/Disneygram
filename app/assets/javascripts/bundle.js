@@ -299,10 +299,12 @@ __webpack_require__.r(__webpack_exports__);
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: logout,
     className: "nav-right-button"
-  }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(currentUser.id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "user-icon",
     src: "https://cdn2.iconfinder.com/data/icons/instagram-17/32/8-user-512.png"
-  })))) : // not logged in
+  }))))) : // not logged in
   react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display);
 });
@@ -833,9 +835,14 @@ function (_React$Component) {
         className: "main-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        className: "user-pic-stats"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-stats"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-pic-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "profile-pic-img",
+        src: "https://scontent-sjc3-1.cdninstagram.com/vp/94afada8e7f9c18febf7caf71ff7a14a/5E083E00/t51.2885-19/s150x150/29717225_1767993243239982_6768584080121397248_n.jpg?_nc_ht=scontent-sjc3-1.cdninstagram.com"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-information"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "user-show-btn"
@@ -853,7 +860,7 @@ function (_React$Component) {
         className: "user-name-bio"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "full-name"
-      }, this.props.user.full_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.user.bio)))));
+      }, this.props.user.full_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.user.bio))))));
     }
   }]);
 

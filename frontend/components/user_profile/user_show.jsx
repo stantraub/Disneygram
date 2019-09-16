@@ -26,30 +26,34 @@ class UserShow extends React.Component {
             <button onClick={logout}>Logout</button> */}
             
             <div className="user-top">
-                <div className="user-stats">
-                    <div className="user-information">
-                        <h1>{this.props.user.username}</h1>
-                        <button className="user-show-btn">Edit Bio</button>
-                        {/* <button onClick={this.handleLogout} className="user-show-btn">Log Out</button> */}
-                        <button className="user-show-btn">Upload</button>
+                <header className="user-pic-stats">
+                    <div className="profile-pic-div">
+                            <img className ="profile-pic-img" src="https://scontent-sjc3-1.cdninstagram.com/vp/94afada8e7f9c18febf7caf71ff7a14a/5E083E00/t51.2885-19/s150x150/29717225_1767993243239982_6768584080121397248_n.jpg?_nc_ht=scontent-sjc3-1.cdninstagram.com" />
                     </div>
+                    <section>
+                        <div className="user-information">
+                            <h1>{this.props.user.username}</h1>
+                            <button className="user-show-btn">Edit Bio</button>
+                            <button className="user-show-btn">Upload</button>
+                        </div>
                     
-                    <div className="follows">
-                        <div className="follow-stats">0 posts</div>
-                        <div className="follow-stats">0 followers</div>
-                        <div className="follow-stats">0 following</div>
-                    </div>
+                        <div className="follows">
+                            <div className="follow-stats">0 posts</div>
+                            <div className="follow-stats">0 followers</div>
+                            <div className="follow-stats">0 following</div>
+                        </div>
                     
-                    <div className="user-name-bio">
-                        <h1 className="full-name">{this.props.user.full_name}</h1>
-                        <span>{this.props.user.bio}</span>
+                        <div className="user-name-bio">
+                            <h1 className="full-name">{this.props.user.full_name}</h1>
+                            <span>{this.props.user.bio}</span>
 
-                        {/* Full Name is a placeholder for now */}
-                    </div>
+                            {/* Full Name is a placeholder for now */}
+                        </div>
+                    </section>
                     
                         
                 
-                </div>
+                </header>
             </div>
 
         </div>

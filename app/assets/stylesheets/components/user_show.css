@@ -36,10 +36,21 @@
     position: relative;
 }
 
-.user-stats {
+.user-pic-stats {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+    flex-direction: row;
+    margin-bottom: 44px;
+}
+
+.profile-pic-div {
+    margin-right: 30px;
+    width: 230px;
+    display: flex;
+    position: relative;
+}
+
+.profile-pic-img {
+   border-radius: 50%;
 }
 
 .user-information {

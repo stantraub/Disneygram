@@ -21,13 +21,10 @@ export default ({ currentUser, logout }) => {
                 </div>
                 <div className="nav-right">
                     <button onClick={logout} className="nav-right-button">Logout</button>
-                    <img className="user-icon" src="https://cdn2.iconfinder.com/data/icons/instagram-17/32/8-user-512.png"></img>
+                    <Link to={`/users/${currentUser.id}`}>
+                        <img className="user-icon" src="https://cdn2.iconfinder.com/data/icons/instagram-17/32/8-user-512.png"></img>
+                    </Link> 
                 </div>
-                
-                    {/* <Link to={`/users/${currentUser.id}`}>
-                    <img className="Icon" src="https://icon-library.net/images/person-icon-transparent-background/person-icon-transparent-background-28.jpg" alt="" />
-                </Link> */}
-
             </div>
         </nav>
     ) : (
