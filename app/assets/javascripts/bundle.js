@@ -580,11 +580,13 @@ var PostIndexItem = function PostIndexItem(_ref) {
     className: "post-header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-user-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(post.user.id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "post-header-img",
     src: post.profile_pic
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/users/".concat(post.user_id),
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(post.user.id),
     className: "username-link"
   }, post.user.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-img"
@@ -1086,8 +1088,6 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      // console.log(this.props.user);
-      // console.log(this.props.posts);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1109,7 +1109,9 @@ function (_React$Component) {
         className: "follows"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follow-stats"
-      }, "0 posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stat"
+      }, Object.values(this.props.user.posts).length), " posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follow-stats"
       }, "0 followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follow-stats"

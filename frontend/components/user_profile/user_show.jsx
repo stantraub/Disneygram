@@ -20,13 +20,8 @@ class UserShow extends React.Component {
     }
 
     render(){
-        // console.log(this.props.user);
-        // console.log(this.props.posts);
         return(
-        <div className="main-div">
-            {/* <h3>Welcome {currentUser.username}!</h3>
-            <button onClick={logout}>Logout</button> */}
-            
+        <div className="main-div"> 
             <div className="user-top">
                 <header className="user-header">
                     <div className="profile-pic-div">
@@ -40,7 +35,7 @@ class UserShow extends React.Component {
                         </div>
                     
                         <div className="follows">
-                            <div className="follow-stats">0 posts</div>
+                                <div className="follow-stats"><div className="stat">{Object.values(this.props.user.posts).length}</div> posts</div>
                             <div className="follow-stats">0 followers</div>
                             <div className="follow-stats">0 following</div>
                         </div>

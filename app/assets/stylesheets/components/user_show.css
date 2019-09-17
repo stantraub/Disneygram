@@ -67,6 +67,11 @@
     font-weight: 300;
 }
 
+.stat {
+    font-weight: 600;
+    padding-right: 5px;
+}
+
 .follows {
     display: flex;
 }
