@@ -2,7 +2,8 @@ class Api::PostsController < ApplicationController
     before_action :require_logged_in!
 
     def create 
-        @post = current_user.post.new(post_params)
+        @post = Post.new(post_params)
+        @post.user_id = current_user.id
         if @post.save
             render :show
         else
@@ -46,6 +47,6 @@ class Api::PostsController < ApplicationController
     private 
 
     def post_params
-        params.require(:post).permit(:body)
+        params.require(:post).permit(:body, photos: [])
     end 
 end

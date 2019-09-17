@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_09_12_184157) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "body", null: false
+    t.string "body"
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

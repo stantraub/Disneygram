@@ -2,6 +2,7 @@
   height: 77px;
   display: flex;
   position: fixed;
+  top: 0;
   background-color: white;
   justify-content: space-between;
   flex-direction: row;
@@ -11,7 +12,6 @@
   width: 100%;
   z-index: 1;
   align-items: center;
-   
 }
 
 .main-navbar-logo {
@@ -24,6 +24,12 @@
     align-items: center;
     padding: 0px 10px;
     border-left: solid 1px gray;
+}
+
+.disneygram-link {
+    text-decoration: none;
+    color: black;
+    padding-top: 3.5px;
 }
 
 .nav-left {

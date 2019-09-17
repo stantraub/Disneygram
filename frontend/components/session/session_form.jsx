@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
 
     handleDemo(e){
         e.preventDefault();
-        const demoUser = Object.assign({}, {username: 'DemoUser', password: '123456'});
+        const demoUser = Object.assign({}, {username: 'forky', password: '123456'});
         this.props.processDemo(demoUser)
             .then((res) => {
                 this.props.history.push(`/users/${res.user.id}`)

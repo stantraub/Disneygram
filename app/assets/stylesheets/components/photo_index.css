@@ -1,0 +1,62 @@
+.post-index-all{
+    display: flex;
+    padding-top: 140px;
+    justify-content: center;
+    flex-direction: column;
+    /* transform: translateX(200px); */
+}
+.post {
+    display: flex;
+    
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    /* width: 614px;
+    height: 60px; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.post-header {
+    background-color: #ffffff;
+    font-weight: 600;
+    border: 1px solid #e6e6e6;
+    display: flex;
+    width: 614px;
+    height: 60px;
+    align-items: center;
+}
+
+.post-img {
+   border: 1px solid #e6e6e6;
+   border-top: none;
+   border-bottom: none;
+   width: 614px;
+   height: 614px;
+   display: flex;
+   object-fit: cover;
+}
+
+.post-body {
+    border: 1px solid #e6e6e6;
+    display: flex;
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    width: 614px;
+    min-height: 235px;
+}
+
+.post-body-username {
+    font-weight: 600;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.username-link {
+    text-decoration: none;
+    color: black;
+}
+
+.post-body-description {
+    margin-top: 10px;
+    padding-left: 5px;
+}

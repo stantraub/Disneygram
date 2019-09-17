@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UserShowContainer from "./user_show_container";
 import NavBarContainer from "../navbar/navbar_container";
+// import PostIndexContainer from "../post/post_index_container";
 
 class UserShow extends React.Component {
     constructor(props){
@@ -20,6 +21,7 @@ class UserShow extends React.Component {
 
     render(){
         console.log(this.props.user);
+        console.log(this.props.posts);
         return(
         <div className="main-div">
             {/* <h3>Welcome {currentUser.username}!</h3>
@@ -28,7 +30,7 @@ class UserShow extends React.Component {
             <div className="user-top">
                 <header className="user-header">
                     <div className="profile-pic-div">
-                            <img className ="profile-pic-img" src="https://scontent-sjc3-1.cdninstagram.com/vp/94afada8e7f9c18febf7caf71ff7a14a/5E083E00/t51.2885-19/s150x150/29717225_1767993243239982_6768584080121397248_n.jpg?_nc_ht=scontent-sjc3-1.cdninstagram.com" />
+                            <img className="profile-pic-img" src={this.props.user.profile_pic} />
                     </div>
                     <section>
                         <div className="user-information">
@@ -46,14 +48,29 @@ class UserShow extends React.Component {
                         <div className="user-name-bio">
                             <h1 className="full-name">{this.props.user.full_name}</h1>
                             <span>{this.props.user.bio}</span>
-
-                            {/* Full Name is a placeholder for now */}
                         </div>
                     </section>
                     
                         
                 
                 </header>
+
+                <div>
+
+                    {this.props.posts && this.props.post.map( post => {
+                        return (
+                            
+                            <Link key={post.id} to={`/users/${this.props.user.id}/${post.id}`}>
+                                <div key={post.id} className='post'>
+                                    <img  src={post.photo} />
+                    
+
+                                </div>
+                            </Link>
+                        )
+                    })}
+
+                </div>
             </div>
 
         </div>
