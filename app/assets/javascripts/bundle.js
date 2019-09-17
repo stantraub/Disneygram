@@ -497,7 +497,7 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props.posts);
+      // console.log(this.props.posts);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-index-all"
       }, this.props.posts && this.props.posts.map(function (post) {
@@ -579,11 +579,14 @@ var PostIndexItem = function PostIndexItem(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "post-header-img"
+    className: "post-user-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "post-header-img",
+    src: post.profile_pic
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(post.user_id),
     className: "username-link"
-  }, post.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, post.user.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-img"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "post-img",
@@ -1083,8 +1086,8 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      console.log(this.props.user);
-      console.log(this.props.posts);
+      // console.log(this.props.user);
+      // console.log(this.props.posts);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

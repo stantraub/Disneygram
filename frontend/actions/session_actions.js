@@ -21,6 +21,7 @@ const receiveErrors = (errors) => ({
 export const signup = (user) => dispatch => {
     return api_util.signup(user)
         .then(currentUser => dispatch(receiveCurrentUser(currentUser)))
+       
 }
 
 export const login = (user) => dispatch => {

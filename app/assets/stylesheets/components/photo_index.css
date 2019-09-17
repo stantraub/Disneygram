@@ -26,6 +26,16 @@
     align-items: center;
 }
 
+.post-user-info {
+    padding: 16px;
+}
+
+.post-header-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
 .post-img {
    border: 1px solid #e6e6e6;
    border-top: none;
@@ -52,6 +62,7 @@
 }
 
 .username-link {
+    margin-left: 16px;
     text-decoration: none;
     color: black;
 }

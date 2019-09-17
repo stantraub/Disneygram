@@ -20,8 +20,8 @@ class UserShow extends React.Component {
     }
 
     render(){
-        console.log(this.props.user);
-        console.log(this.props.posts);
+        // console.log(this.props.user);
+        // console.log(this.props.posts);
         return(
         <div className="main-div">
             {/* <h3>Welcome {currentUser.username}!</h3>

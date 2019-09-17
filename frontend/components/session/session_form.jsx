@@ -26,6 +26,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
             .then((res) => {
@@ -40,7 +41,7 @@ class SessionForm extends React.Component {
         this.props.processDemo(demoUser)
             .then((res) => {
                 this.props.history.push(`/users/${res.user.id}`)
-            }
+                }
             )
     }
 
