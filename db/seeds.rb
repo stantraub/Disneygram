@@ -19,11 +19,18 @@ ActiveRecord::Base.transaction do
     olaf_profile_pic = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/olaf-post1.png')
     olaf.profile_pic.attach(io: olaf_profile_pic, filename: 'olaf-post1.png')
     
+    # moana = User.create({username: "moannnnaaa", full_name: "Moana", password: "123456", bio: "I am Moana of Motunui. You will board my boat, sail across the sea, and restore the heart of Te Fiti."})
+    # moana_profile_pic = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/moana_profile_pic.png')
+    # moana.profile_pic.attach(io: moana_profile_pic, filename: 'moana_profile_pic.png')
+    
     post1 = Post.create!(body: "First post!", author_id: demo_user.id)
     post2 = Post.create!(body: "Summer's just around the corner!", author_id: olaf.id)
     post3 = Post.create!(body: "Date night!!", author_id: demo_user.id)
     post4 = Post.create!(body: "Some people are worth melting for.", author_id: olaf.id)
     post5 = Post.create!(body: "Carry me??", author_id: demo_user.id)
+
+    # post6 = Post.create!(body: "Carry me??", author_id: moana.id)
+    # post7 = Post.create!(body: "Carry me??", author_id: moana.id)
 
     file1 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/demo-post1.png')
     post1.photo.attach(io: file1, filename: 'demo-post1.png')

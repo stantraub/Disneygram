@@ -597,15 +597,40 @@ var PostIndexItem = function PostIndexItem(_ref) {
     className: "post-body"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     className: "likes-comments"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "post-button"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    width: "40px",
-    height: "40px",
+    className: "like",
     src: "https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "post-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "comment-icon",
+    src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "num-likes"
+  }, "2 likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post-body-div"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(post.user.id),
+    className: "username-link"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "post-body-username"
-  }, post.user.username, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, post.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "post-body-description"
-  }, " ", post.body)));
+  }, " ", post.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "comments"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "comment-div"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    className: "comment-form"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "comment-input",
+    placeholder: "Add a comment..."
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "post-comment-btn",
+    type: "submit"
+  }, "Post"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PostIndexItem);

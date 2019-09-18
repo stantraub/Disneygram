@@ -18,13 +18,30 @@ const PostIndexItem = ({ post, deletePost }) => {
 
       <div className="post-body">
         <section className="likes-comments">
-          {/* <button> */}
-            <img width="40px" height="40px" src="https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"/>
-          {/* </button> */}
+          <button className="post-button">
+            <img className="like" src="https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"/>
+          </button>
+          <button className="post-button">
+            <img className="comment-icon" src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
+          </button>
         </section>
-        <div className="post-body-username">{post.user.username} </div>
+        <section>
+          <div className="num-likes">2 likes</div>
+        </section>
+        <div className="post-body-div">
+          <Link to={`/users/${post.user.id}`} className="username-link"><p className="post-body-username">{post.user.username}</p></Link>
+          <p className="post-body-description"> {post.body}</p>
+        </div>
+        <div className="comments">
+          <div className="comment-div">
+            <form className="comment-form">
+              <input className="comment-input" placeholder="Add a comment..."></input>
+              <button className="post-comment-btn" type="submit">Post</button>
+            </form>
+          </div>
+        </div>
 
-        <p className="post-body-description"> {post.body}</p>
+        
       </div>
     </div>
     );
