@@ -63,9 +63,6 @@ class UserShow extends React.Component {
                                 <img width="290px" height="290px" src={post.photo} />
                             </div>
                         )
-                        
-
-
                     })}
                     </div>
                 </div>

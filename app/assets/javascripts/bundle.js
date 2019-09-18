@@ -595,7 +595,13 @@ var PostIndexItem = function PostIndexItem(_ref) {
     src: post.photoUrl
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "likes-comments"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    width: "40px",
+    height: "40px",
+    src: "https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-body-username"
   }, post.user.username, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "post-body-description"

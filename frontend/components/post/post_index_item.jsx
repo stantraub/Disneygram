@@ -15,7 +15,13 @@ const PostIndexItem = ({ post, deletePost }) => {
         </div>
       </div>
       <div className="post-img"><img className="post-img" src={post.photoUrl} /></div>
+
       <div className="post-body">
+        <section className="likes-comments">
+          {/* <button> */}
+            <img width="40px" height="40px" src="https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"/>
+          {/* </button> */}
+        </section>
         <div className="post-body-username">{post.user.username} </div>
 
         <p className="post-body-description"> {post.body}</p>
