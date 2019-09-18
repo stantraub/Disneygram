@@ -3,7 +3,7 @@
     padding-top: 140px;
     justify-content: center;
     flex-direction: column;
-    /* transform: translateX(200px); */
+    transform: translateX(33%);
 }
 .post {
     display: flex;
@@ -62,7 +62,6 @@
 }
 
 .username-link {
-    margin-left: 16px;
     text-decoration: none;
     color: black;
 }

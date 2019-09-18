@@ -9,6 +9,8 @@ const PostIndexItem = ({ post, deletePost }) => {
       <div className="post-header">
         <div className="post-user-info">
           <Link to={`/users/${post.user.id}`}><img className="post-header-img" src={post.profile_pic} /></Link>
+          &nbsp;
+          &nbsp;
           <Link to={`/users/${post.user.id}`} className="username-link">{post.user.username}</Link>
         </div>
       </div>

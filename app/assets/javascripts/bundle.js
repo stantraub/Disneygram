@@ -585,7 +585,7 @@ var PostIndexItem = function PostIndexItem(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "post-header-img",
     src: post.profile_pic
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  })), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(post.user.id),
     className: "username-link"
   }, post.user.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1086,7 +1086,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      if (!this.props.user) {
+        return null;
+      }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-div"
@@ -1111,25 +1113,32 @@ function (_React$Component) {
         className: "follow-stats"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "stat"
-      }, Object.values(this.props.user.posts).length), " posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, Object.values(this.props.user.posts).length, " \xA0"), " posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follow-stats"
-      }, "0 followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stat"
+      }, "0 \xA0"), " followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follow-stats"
-      }, "0 following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stat"
+      }, "0 \xA0"), " following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-name-bio"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "full-name"
-      }, this.props.user.full_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.user.bio)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.posts && this.props.post.map(function (post) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          key: post.id,
-          to: "/users/".concat(_this3.props.user.id, "/").concat(post.id)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.user.full_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.user.bio)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-posts-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-posts"
+      }, this.props.user.posts && Object.values(this.props.user.posts).map(function (post) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: post.id,
           className: "post"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          width: "290px",
+          height: "290px",
           src: post.photo
-        })));
-      }))));
+        }));
+      })))));
     }
   }]);
 

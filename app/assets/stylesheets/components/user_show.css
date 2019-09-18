@@ -29,26 +29,26 @@
 
 .user-top {
     display: flex;
+    flex-direction: column;
     margin-bottom: 44px;
     align-items: stretch;
-    flex-direction: row;
+    /* flex-direction: row; */
     box-sizing: border-box;
     position: relative;
-    transform: translateX(-150px);
 }
 
 .user-header {
     display: flex;
     flex-direction: row;
     margin-bottom: 44px;
+    /* transform: translateX(-140px); */
 }
 
 .profile-pic-div {
-    margin-right: 30px;
-    width: 290px;
+    margin-right: 80px;
+    /* width: 290px; */
     display: flex;
     position: relative;
-    justify-content: center;
 }
 
 .profile-pic-img {
@@ -69,7 +69,7 @@
 
 .stat {
     font-weight: 600;
-    padding-right: 5px;
+    color: #262626;
 }
 
 .follows {
@@ -96,4 +96,36 @@
     font-weight: 600;
 }
 
+/* .post-start {
+    width: 935px;
+    height: 52px;
+    border-top: 1px solid #efefef;
+} */
+
+.user-posts-div {
+    display: flex;
+    /* padding-top: 300px; */
+}
+
+.user-posts {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.post {
+    width: 30%;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    object-fit: cover; 
+    /* flex-wrap: wrap; */
+    /* height: 100px;
+    width: 100px; */
+}
+
+/* .post img {
+    width: 100%;
+    /* width: 290px;
+    height: 290px; */
+/* }  */
     

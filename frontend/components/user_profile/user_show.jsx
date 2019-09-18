@@ -20,6 +20,9 @@ class UserShow extends React.Component {
     }
 
     render(){
+        if (!this.props.user) {
+            return null
+        }
         return(
         <div className="main-div"> 
             <div className="user-top">
@@ -35,9 +38,9 @@ class UserShow extends React.Component {
                         </div>
                     
                         <div className="follows">
-                                <div className="follow-stats"><div className="stat">{Object.values(this.props.user.posts).length}</div> posts</div>
-                            <div className="follow-stats">0 followers</div>
-                            <div className="follow-stats">0 following</div>
+                                <div className="follow-stats"><div className="stat">{Object.values(this.props.user.posts).length} &nbsp;</div> posts</div>
+                                <div className="follow-stats"><div className="stat">0 &nbsp;</div> followers</div>
+                                <div className="follow-stats"><div className="stat">0 &nbsp;</div> following</div>
                         </div>
                     
                         <div className="user-name-bio">
@@ -50,21 +53,21 @@ class UserShow extends React.Component {
                 
                 </header>
 
-                <div>
+                {/* <div className="post-start"></div> */}
 
-                    {this.props.posts && this.props.post.map( post => {
-                        return (
-                            
-                            <Link key={post.id} to={`/users/${this.props.user.id}/${post.id}`}>
-                                <div key={post.id} className='post'>
-                                    <img  src={post.photo} />
-                    
-
-                                </div>
-                            </Link>
+                <div className="user-posts-div">
+                    <div className="user-posts">
+                    {this.props.user.posts && Object.values(this.props.user.posts).map( post => {
+                        return(
+                            <div key={post.id} className="post" >
+                                <img width="290px" height="290px" src={post.photo} />
+                            </div>
                         )
-                    })}
+                        
 
+
+                    })}
+                    </div>
                 </div>
             </div>
 

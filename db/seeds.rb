@@ -23,7 +23,8 @@ ActiveRecord::Base.transaction do
     post2 = Post.create!(body: "Summer's just around the corner!", author_id: olaf.id)
     post3 = Post.create!(body: "Date night!!", author_id: demo_user.id)
     post4 = Post.create!(body: "Some people are worth melting for.", author_id: olaf.id)
-    
+    post5 = Post.create!(body: "Carry me??", author_id: demo_user.id)
+
     file1 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/demo-post1.png')
     post1.photo.attach(io: file1, filename: 'demo-post1.png')
 
@@ -36,5 +37,7 @@ ActiveRecord::Base.transaction do
     file4 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/olaf-post1.png')
     post4.photo.attach(io: file4, filename: 'olaf-post1.png')
 
+    file5 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/forky-post-carryme.png')
+    post5.photo.attach(io: file5, filename: 'forky-post-carryme.png')
 
 end
