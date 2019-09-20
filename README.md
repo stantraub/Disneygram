@@ -1,24 +1,25 @@
-# README
+# Table of Contents
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Background and Overview
 
-Things you may want to cover:
+Disneygram is an Instagram close with a Disney-inspired twist. Users in the Disney universe are able to create accounts, login/logout, and view pictures. Post capability will be added in the near future. 
 
-* Ruby version
+Features cloned from Instagram include:
 
-* System dependencies
+User authentication
+Feed
+User Profile with picture grid layout
+Likes
+Comments
 
-* Configuration
+# Demo
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+# Technologies 
 
-* Services (job queues, cache servers, search engines, etc.)
+Disneygram was built with a variety of technologies. I used Ruby on Rails for my backend and React/Redux for my frontend. User information was stored in a database set up by PostgreSQL and images are stored via AWS S3. 
 
-* Deployment instructions
+# Website
 
-* ...
+
