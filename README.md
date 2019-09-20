@@ -28,4 +28,12 @@ The Signup/Sign In is an almost exact clone of the instagram web app user authen
 
 ![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/Screen+Shot+2019-09-20+at+11.53.12+AM.png)
 
+### Posts 
+
+Disneygram users can view other users' posts in a couple of ways. The first way is that users are presented (for now) a feed of all the users' posts in the app when they are logged in. The other way is that they have the ability to view the posts on another user's profile in a grid layout. In a future update, users will be able to click on individual posts on a user's profile and a modal will pop showing a bigger view of the picture as well as associated likes and comments.
+
+![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/user-feed.png)
+![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/user-profile-page.png)
+
+
 
