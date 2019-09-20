@@ -20,7 +20,7 @@ https://disneygram.herokuapp.com
 
 Disneygram was built with a variety of technologies. I used Ruby on Rails for my backend and React/Redux for my frontend. User information was stored in a database set up by PostgreSQL and images are stored via AWS S3. 
 
-## Website Elements
+## Website Features
 
 ### Signup/Sign In Page 
 
@@ -34,6 +34,7 @@ Disneygram users can view other users' posts in a couple of ways. The first way 
 
 ![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/user-feed.png)
 ![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/user-profile-page.png)
+
 
 
 
