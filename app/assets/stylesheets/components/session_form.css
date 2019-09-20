@@ -123,6 +123,7 @@
 .disney-gif {
     z-index: 1;
     position: absolute;
+    margin-left: 3px;
     width: 45%;
     height: 73%;
     padding-top: 80px;
