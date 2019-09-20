@@ -1,5 +1,6 @@
 class Like < ApplicationRecord
     belongs_to :comment,
+        optional: true,
         foreign_key: :comment_id,
         class_name: :Comment
 

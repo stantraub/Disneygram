@@ -60,7 +60,7 @@ class UserShow extends React.Component {
                     {this.props.user.posts && Object.values(this.props.user.posts).map( post => {
                         return(
                             <div key={post.id} className="post" >
-                                <img width="290px" height="290px" src={post.photo} />
+                                <img width="293px" height="293px" src={post.photo} />
                             </div>
                         )
                     })}

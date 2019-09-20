@@ -11,8 +11,6 @@ class PostIndex extends React.Component {
 
     render() {
         // console.log(this.props.posts);
- 
-
 
         return (
             <div className="post-index-all">

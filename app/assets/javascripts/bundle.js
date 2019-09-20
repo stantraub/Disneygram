@@ -86,6 +86,55 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/like_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/like_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_LIKE, REMOVE_LIKE, createLike, deleteLike */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_LIKE", function() { return RECEIVE_LIKE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_LIKE", function() { return REMOVE_LIKE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLike", function() { return createLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLike", function() { return deleteLike; });
+/* harmony import */ var _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/like_api_util */ "./frontend/util/like_api_util.js");
+
+var RECEIVE_LIKE = "RECEIVE_LIKE";
+var REMOVE_LIKE = "REMOVE_LIKE";
+
+var receiveLike = function receiveLike(like) {
+  return {
+    type: RECEIVE_LIKE,
+    like: like
+  };
+};
+
+var removeLike = function removeLike(likeId) {
+  return {
+    type: REMOVE_LIKE,
+    likeId: likeId
+  };
+};
+
+var createLike = function createLike(like) {
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["createLike"](like).then(function (like) {
+      return dispatch(receiveLike(like));
+    });
+  };
+};
+var deleteLike = function deleteLike(likeId) {
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteLike"](likeId).then(function (like) {
+      return dispatch(removeLike(like));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/post_actions.js":
 /*!******************************************!*\
   !*** ./frontend/actions/post_actions.js ***!
@@ -345,6 +394,167 @@ var App = function App() {
 
 /***/ }),
 
+/***/ "./frontend/components/like/like.jsx":
+/*!*******************************************!*\
+  !*** ./frontend/components/like/like.jsx ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Like =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Like, _React$Component);
+
+  function Like(props) {
+    var _this;
+
+    _classCallCheck(this, Like);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Like).call(this, props));
+    _this.handleLike = _this.handleLike.bind(_assertThisInitialized(_this));
+    _this.handleUnlike = _this.handleUnlike.bind(_assertThisInitialized(_this)); // this.state = this.props.post;
+    // this.state = { like: false }
+
+    return _this;
+  } // componentDidUpdate(prevProps){
+  //     debugger;
+  //     console.log(prevProps.post.likers.length);
+  //     console.log(this.state.likers.length);
+  //     if (this.state.likers !== prevProps.post.likers) {
+  //         this.fetchPost(this.state.id);
+  //     }
+  // }
+
+
+  _createClass(Like, [{
+    key: "handleLike",
+    value: function handleLike(e) {
+      e.preventDefault(); // this.setState({like: true})
+
+      console.log(this.props);
+      this.props.createLike({
+        post_id: this.props.post.id
+      }); // this.forceUpdate();
+      // .then(() => this.props.fetchPost(this.props.post.id))
+    }
+  }, {
+    key: "handleUnlike",
+    value: function handleUnlike(e) {
+      e.preventDefault(); // this.setState({ like: false })
+
+      console.log("I am unliked :(");
+      this.props.deleteLike(this.props.post.id); // this.forceUpdate();
+      // .then(() => { this.props.fetchPost(this.props.post.id)}
+      // )
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.post.likers === undefined || this.props.post.likers.filter(function (liker) {
+        return liker.id === _this2.props.currentUser.id;
+      }).length === 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.handleLike
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "liked",
+        src: "https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"
+      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.handleUnlike
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "unliked",
+        src: "https://apprecs.org/ios/images/app-icons/256/62/1185229666.jpg"
+      })));
+    }
+  }]);
+
+  return Like;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Like);
+
+/***/ }),
+
+/***/ "./frontend/components/like/like_container.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/like/like_container.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/like_actions */ "./frontend/actions/like_actions.js");
+/* harmony import */ var _like__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./like */ "./frontend/components/like/like.jsx");
+
+
+ // import { fetchPost } from '../../actions/post_actions';
+
+
+
+var msp = function msp(state, ownProps) {
+  return {
+    currentUser: state.entities.users[state.session.id],
+    post: ownProps.post
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    createLike: function createLike(like) {
+      return dispatch(Object(_actions_like_actions__WEBPACK_IMPORTED_MODULE_2__["createLike"])(like));
+    },
+    deleteLike: function deleteLike(id) {
+      return dispatch(Object(_actions_like_actions__WEBPACK_IMPORTED_MODULE_2__["deleteLike"])(id));
+    },
+    fetchPost: function (_fetchPost) {
+      function fetchPost(_x) {
+        return _fetchPost.apply(this, arguments);
+      }
+
+      fetchPost.toString = function () {
+        return _fetchPost.toString();
+      };
+
+      return fetchPost;
+    }(function (id) {
+      return dispatch(fetchPost(id));
+    })
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(_like__WEBPACK_IMPORTED_MODULE_3__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/navbar/navbar.jsx":
 /*!***********************************************!*\
   !*** ./frontend/components/navbar/navbar.jsx ***!
@@ -548,7 +758,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deletePost: function deletePost(id) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["deletePost"])(id));
-    }
+    } // fetchPost: (id) => dispatch(fetchPost(id))
+
   };
 };
 
@@ -568,70 +779,151 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _like_like_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../like/like_container */ "./frontend/components/like/like_container.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
-var PostIndexItem = function PostIndexItem(_ref) {
-  var post = _ref.post,
-      deletePost = _ref.deletePost;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "post"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "post-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "post-user-info"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/users/".concat(post.user.id)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "post-header-img",
-    src: post.profile_pic
-  })), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/users/".concat(post.user.id),
-    className: "username-link"
-  }, post.user.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "post-img"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "post-img",
-    src: post.photoUrl
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "post-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-    className: "likes-comments"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "post-button"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "like",
-    src: "https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "post-button"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "comment-icon",
-    src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "num-likes"
-  }, "2 likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "post-body-div"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/users/".concat(post.user.id),
-    className: "username-link"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "post-body-username"
-  }, post.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "post-body-description"
-  }, " ", post.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "comments"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "comment-div"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    className: "comment-form"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "comment-input",
-    placeholder: "Add a comment..."
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "post-comment-btn",
-    type: "submit"
-  }, "Post"))))));
-};
+
+
+var PostIndexItem =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PostIndexItem, _React$Component);
+
+  function PostIndexItem(props) {
+    _classCallCheck(this, PostIndexItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PostIndexItem).call(this, props));
+  } // componentDidUpdate(prevProps){
+  //   if (this.props.userID !== prevProps.userID) {
+  //     this.fetchData(this.props.userID);
+  //   }
+  // }
+
+
+  _createClass(PostIndexItem, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-user-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.post.user.id)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "post-header-img",
+        src: this.props.post.profile_pic
+      })), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.post.user.id),
+        className: "username-link"
+      }, this.props.post.user.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-img"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "post-img",
+        src: this.props.post.photoUrl
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "likes-comments"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "post-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_like_like_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        post: this.props.post
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "post-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "comment-icon",
+        src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "num-likes"
+      }, this.props.post.likers.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-body-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.post.user.id),
+        className: "username-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "post-body-username"
+      }, this.props.post.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "post-body-description"
+      }, " ", this.props.post.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comments"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comment-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "comment-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "comment-input",
+        placeholder: "Add a comment..."
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "post-comment-btn",
+        type: "submit"
+      }, "Post"))))));
+    }
+  }]);
+
+  return PostIndexItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // const PostIndexItem = ({ post, deletePost }) => {
+//   return (
+//     <div className="post">
+//       <div className="post-header">
+//         <div className="post-user-info">
+//           <Link to={`/users/${post.user.id}`}><img className="post-header-img" src={post.profile_pic} /></Link>
+//           &nbsp;
+//           &nbsp;
+//           <Link to={`/users/${post.user.id}`} className="username-link">{post.user.username}</Link>
+//         </div>
+//       </div>
+//       <div className="post-img"><img className="post-img" src={post.photoUrl} /></div>
+//       <div className="post-body">
+//         <section className="likes-comments">
+//           <button className="post-button">
+//             {/* <img className="like" src="https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"/> */}
+//             <LikeContainer post={post} />
+//           </button>
+//           <button className="post-button">
+//             <img className="comment-icon" src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
+//           </button>
+//         </section>
+//         <section>
+//           {/* <span></span> */}
+//           <div className="num-likes">{post.likers.length} likes</div>
+//         </section>
+//         <div className="post-body-div">
+//           <Link to={`/users/${post.user.id}`} className="username-link"><p className="post-body-username">{post.user.username}</p></Link>
+//           <p className="post-body-description"> {post.body}</p>
+//         </div>
+//         <div className="comments">
+//           <div className="comment-div">
+//             <form className="comment-form">
+//               <input className="comment-input" placeholder="Add a comment..."></input>
+//               <button className="post-comment-btn" type="submit">Post</button>
+//             </form>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//     );
+// };
+
 
 /* harmony default export */ __webpack_exports__["default"] = (PostIndexItem);
 
@@ -1165,8 +1457,8 @@ function (_React$Component) {
           key: post.id,
           className: "post"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          width: "290px",
-          height: "290px",
+          width: "293px",
+          height: "293px",
           src: post.photo
         }));
       })))));
@@ -1529,6 +1821,35 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/util/like_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/like_api_util.js ***!
+  \****************************************/
+/*! exports provided: createLike, deleteLike */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLike", function() { return createLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLike", function() { return deleteLike; });
+var createLike = function createLike(like) {
+  return $.ajax({
+    method: 'post',
+    url: '/api/likes',
+    data: {
+      like: like
+    }
+  });
+};
+var deleteLike = function deleteLike(id) {
+  return $.ajax({
+    method: 'delete',
+    url: "/api/likes/".concat(id)
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/util/post_api_util.js":
 /*!****************************************!*\
   !*** ./frontend/util/post_api_util.js ***!
@@ -1555,7 +1876,7 @@ var fetchPost = function fetchPost(id) {
     url: "/api/posts/".concat(id)
   });
 };
-var createPost = function createPost(id) {
+var createPost = function createPost(post) {
   return $.ajax({
     method: 'post',
     url: '/api/posts',
