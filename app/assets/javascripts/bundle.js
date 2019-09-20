@@ -1054,10 +1054,14 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "iphone-image"
+        className: "iphone"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        width: "320px height=600px",
+        className: "iphone-image",
+        width: "320px height=300px",
         src: "https://library.kissclipart.com/20180830/ffw/kissclipart-android-phone-png-clipart-iphone-clip-art-af395bce23124e2d.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "disney-gif",
+        src: "https://i.pinimg.com/originals/97/58/e7/9758e75cd16abb794749b4f1465dd847.gif"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1241,10 +1245,14 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "iphone-image"
+        className: "iphone"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "iphone-image",
         width: "320px height=300px",
         src: "https://library.kissclipart.com/20180830/ffw/kissclipart-android-phone-png-clipart-iphone-clip-art-af395bce23124e2d.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "disney-gif",
+        src: "https://i.pinimg.com/originals/97/58/e7/9758e75cd16abb794749b4f1465dd847.gif"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {

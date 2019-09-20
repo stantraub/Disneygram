@@ -41,8 +41,9 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div className="parent-div">
-                <div className="iphone-image">
-                    <img width="320px height=600px" src="https://library.kissclipart.com/20180830/ffw/kissclipart-android-phone-png-clipart-iphone-clip-art-af395bce23124e2d.png"/>
+                <div className="iphone">
+                    <img className="iphone-image" width="320px height=300px" src="https://library.kissclipart.com/20180830/ffw/kissclipart-android-phone-png-clipart-iphone-clip-art-af395bce23124e2d.png" />
+                    <img className="disney-gif" src="https://i.pinimg.com/originals/97/58/e7/9758e75cd16abb794749b4f1465dd847.gif" />
                     <div className="signup-form">
                         <form className="signup-form-inner">
                             <h1 className="logo">Disneygram</h1>

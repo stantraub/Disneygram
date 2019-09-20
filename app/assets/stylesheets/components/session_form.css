@@ -103,16 +103,28 @@
 
 }
 
-.iphone-image {
+.iphone {
     display: flex;
     align-content: center;
     position: relative;
 
 }
 
+.iphone-image {
+    z-index: 2;
+}
+
 .parent-div {
     display: flex;
     justify-content: center;
     padding-top: 100px;
+}
+
+.disney-gif {
+    z-index: 1;
+    position: absolute;
+    width: 45%;
+    height: 73%;
+    padding-top: 80px;
 }
 

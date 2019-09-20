@@ -19,21 +19,21 @@ ActiveRecord::Base.transaction do
     olaf_profile_pic = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/olaf-post1.png')
     olaf.profile_pic.attach(io: olaf_profile_pic, filename: 'olaf-post1.png')
     
-    # moana = User.create({username: "moannnnaaa", full_name: "Moana", password: "123456", bio: "I am Moana of Motunui. You will board my boat, sail across the sea, and restore the heart of Te Fiti."})
-    # moana_profile_pic = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/moana_profile_pic.png')
-    # moana.profile_pic.attach(io: moana_profile_pic, filename: 'moana_profile_pic.png')
+    moana = User.create({username: "moannnnaaa", full_name: "Moana", password: "123456", bio: "I am Moana of Motunui. You will board my boat, sail across the sea, and restore the heart of Te Fiti."})
+    moana_profile_pic = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/moana_profile_pic.png')
+    moana.profile_pic.attach(io: moana_profile_pic, filename: 'moana_profile_pic.png')
     
-    post1 = Post.create!(body: "First post!", author_id: demo_user.id)
+    post1 = Post.create!(body: "Carry me??", author_id: demo_user.id)
     post2 = Post.create!(body: "Summer's just around the corner!", author_id: olaf.id)
     post3 = Post.create!(body: "Date night!!", author_id: demo_user.id)
     post4 = Post.create!(body: "Some people are worth melting for.", author_id: olaf.id)
-    post5 = Post.create!(body: "Carry me??", author_id: demo_user.id)
+    post5 = Post.create!(body: "Some really tasty food!", author_id: demo_user.id)
 
-    # post6 = Post.create!(body: "Carry me??", author_id: moana.id)
+    post6 = Post.create!(body: "Saving the world with Maui!", author_id: moana.id)
     # post7 = Post.create!(body: "Carry me??", author_id: moana.id)
 
-    file1 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/demo-post1.png')
-    post1.photo.attach(io: file1, filename: 'demo-post1.png')
+    file1 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/forky-post-carryme.png')
+    post1.photo.attach(io: file1, filename: 'forky-post-carryme.png')
 
     file2 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/olaf-post2.png')
     post2.photo.attach(io: file2, filename: 'olaf-post2.png')
@@ -44,7 +44,10 @@ ActiveRecord::Base.transaction do
     file4 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/olaf-post1.png')
     post4.photo.attach(io: file4, filename: 'olaf-post1.png')
 
-    file5 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/forky-post-carryme.png')
-    post5.photo.attach(io: file5, filename: 'forky-post-carryme.png')
+    file5 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/demo-post1.png')
+    post5.photo.attach(io: file5, filename: 'demo-post1.png')
+
+    file6 = open('https://disneygram-seeds.s3-us-west-1.amazonaws.com/moana-post1.png')
+    post6.photo.attach(io: file6, filename: 'moana-post1.png')
 
 end
