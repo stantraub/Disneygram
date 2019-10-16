@@ -23,8 +23,10 @@ class Like extends React.Component {
         // this.setState({like: true})
         console.log(this.props);
         this.props.createLike({post_id: this.props.post.id})
-        // this.forceUpdate();
-            // .then(() => this.props.fetchPost(this.props.post.id))
+        // this.forceUpdate()
+        //     .then(() => { this.props.fetchPost(this.props.post.id)}
+        // )
+            
     }
 
     handleUnlike(e){
@@ -32,33 +34,37 @@ class Like extends React.Component {
         // this.setState({ like: false })
         console.log("I am unliked :(")
         this.props.deleteLike(this.props.post.id)
-        // this.forceUpdate();
+        // this.forceUpdate()
             // .then(() => { this.props.fetchPost(this.props.post.id)}
         // )
     }
         
 
     render() {
+        
         return (
             <div>
 
                 {(this.props.post.likers === undefined || this.props.post.likers.filter(liker => liker.id === this.props.currentUser.id).length === 0) 
         
                 ?
+    
                     (
-                        <div onClick={this.handleLike}>
-                            <img className="liked" src="https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png" />
+                      
+                        <div>
+                            <img onClick={this.handleLike} className="liked" src="https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png" />
                         </div>
                         
                     ): 
                     
                     (
-                        <div onClick={this.handleUnlike}>
+                        <div>
                             
-                            <img className="unliked" src="https://apprecs.org/ios/images/app-icons/256/62/1185229666.jpg" />
+                            <img onClick={this.handleUnlike} className="unliked" src="https://apprecs.org/ios/images/app-icons/256/62/1185229666.jpg" />
                         </div>
 
                     )}
+                
             </div>
         )
     }

@@ -8,17 +8,23 @@ const receiveLike = (like) => ({
     like
 })
 
-const removeLike = (likeId) => ({
+const removeLike = (like) => ({
     type: REMOVE_LIKE,
-    likeId
+    like
 })
 
 export const createLike = like => dispatch => {
     return APIUtil.createLike(like)
-        .then(like => dispatch(receiveLike(like)))
+        .then(
+        
+            like => {
+                // debugger;
+                dispatch(receiveLike(like));
+            }
+            )
 }
 
-export const deleteLike = likeId => dispatch => {
-    return APIUtil.deleteLike(likeId)
+export const deleteLike = postId => dispatch => {
+    return APIUtil.deleteLike(postId)
         .then(like => dispatch(removeLike(like)))
 }
