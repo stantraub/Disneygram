@@ -1693,7 +1693,7 @@ var PostsReducer = function PostsReducer() {
 
   switch (action.type) {
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_LIKE"]:
-      debugger;
+      // debugger;
       Object.values(newState).forEach(function (post) {
         if (post.id === action.like.post_id) {
           post.likes.push({
@@ -1704,8 +1704,13 @@ var PostsReducer = function PostsReducer() {
       return newState;
 
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_LIKE"]:
-      newState[action.like.post_id].likes = newState[action.like.post_id].likes.filter(function (id) {
-        return id !== action.like.user_id;
+      // newState[action.like.post_id].likes = newState[action.like.post_id].likes.filter(id => id !== action.like.user_id);
+      Object.values(newState).forEach(function (post) {
+        if (post.id === action.like.post_id) {
+          post.likes.pop({
+            user_id: action.like.user_id
+          });
+        }
       });
       return newState;
 
