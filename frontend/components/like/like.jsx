@@ -41,12 +41,12 @@ class Like extends React.Component {
         
 
     render() {
-        
+        // debugger
         return (
             <div>
 
-                {(this.props.post.likers === undefined || this.props.post.likers.filter(liker => liker.id === this.props.currentUser.id).length === 0) 
-        
+                {(this.props.post.likes.filter(liker => liker.user_id === this.props.currentUser.id).length === 0) 
+        //user_id
                 ?
     
                     (

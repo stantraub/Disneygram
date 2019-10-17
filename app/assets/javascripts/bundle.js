@@ -479,9 +479,11 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.post.likers === undefined || this.props.post.likers.filter(function (liker) {
-        return liker.id === _this2.props.currentUser.id;
-      }).length === 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      // debugger
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.post.likes.filter(function (liker) {
+        return liker.user_id === _this2.props.currentUser.id;
+      }).length === 0 ? //user_id
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         onClick: this.handleLike,
         className: "liked",
         src: "https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"
@@ -859,7 +861,7 @@ function (_React$Component) {
         src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "num-likes"
-      }, this.props.post.likers.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.post.likes.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-body-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/users/".concat(this.props.post.user.id),
@@ -1691,15 +1693,18 @@ var PostsReducer = function PostsReducer() {
 
   switch (action.type) {
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_LIKE"]:
+      debugger;
       Object.values(newState).forEach(function (post) {
         if (post.id === action.like.post_id) {
-          post.likers.push(action.like);
+          post.likes.push({
+            user_id: action.like.user_id
+          });
         }
       });
       return newState;
 
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_LIKE"]:
-      newState[action.like.post_id].likers = newState[action.like.post_id].likers.filter(function (id) {
+      newState[action.like.post_id].likes = newState[action.like.post_id].likes.filter(function (id) {
         return id !== action.like.user_id;
       });
       return newState;

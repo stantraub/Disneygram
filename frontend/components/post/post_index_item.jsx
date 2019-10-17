@@ -39,7 +39,7 @@ class PostIndexItem extends React.Component {
           </section>
           <section>
             {/* <span></span> */}
-            <div className="num-likes">{this.props.post.likers.length} likes</div>
+            <div className="num-likes">{this.props.post.likes.length} likes</div>
           </section>
           <div className="post-body-div">
             <Link to={`/users/${this.props.post.user.id}`} className="username-link"><p className="post-body-username">{this.props.post.user.username}</p></Link>
