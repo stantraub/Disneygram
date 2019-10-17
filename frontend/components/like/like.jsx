@@ -21,7 +21,7 @@ class Like extends React.Component {
     handleLike(e){
         e.preventDefault();
         // this.setState({like: true})
-        console.log(this.props);
+        // console.log(this.props);
         this.props.createLike({post_id: this.props.post.id})
         // this.forceUpdate()
         //     .then(() => { this.props.fetchPost(this.props.post.id)}
@@ -32,7 +32,7 @@ class Like extends React.Component {
     handleUnlike(e){
         e.preventDefault();
         // this.setState({ like: false })
-        console.log("I am unliked :(")
+        // console.log("I am unliked :(")
         this.props.deleteLike(this.props.post.id)
         // this.forceUpdate()
             // .then(() => { this.props.fetchPost(this.props.post.id)}

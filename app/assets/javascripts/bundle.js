@@ -456,8 +456,8 @@ function (_React$Component) {
     key: "handleLike",
     value: function handleLike(e) {
       e.preventDefault(); // this.setState({like: true})
+      // console.log(this.props);
 
-      console.log(this.props);
       this.props.createLike({
         post_id: this.props.post.id
       }); // this.forceUpdate()
@@ -468,8 +468,8 @@ function (_React$Component) {
     key: "handleUnlike",
     value: function handleUnlike(e) {
       e.preventDefault(); // this.setState({ like: false })
+      // console.log("I am unliked :(")
 
-      console.log("I am unliked :(");
       this.props.deleteLike(this.props.post.id); // this.forceUpdate()
       // .then(() => { this.props.fetchPost(this.props.post.id)}
       // )
