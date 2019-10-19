@@ -10,7 +10,11 @@ class Post < ApplicationRecord
     has_many :comments,
         foreign_key: :post_id,
         class_name: :Comment
-
+    
+    has_many :commenters,
+        through: :comments,
+        source: :user
+        
     has_many :likes,
         foreign_key: :post_id,
         class_name: :Like

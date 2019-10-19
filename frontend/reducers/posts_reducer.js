@@ -7,12 +7,25 @@ import {
     RECEIVE_LIKE,
     REMOVE_LIKE
 } from "../actions/like_actions";
+
+import {
+    RECEIVE_ALL_COMMENTS,
+    RECEIVE_COMMENT,
+    REMOVE_COMMENT
+} from '../actions/comment_actions';
+
 import merge from 'lodash/merge';
 
 const PostsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let newState = merge({}, oldState);
     switch (action.type) {
+        case RECEIVE_ALL_COMMENTS:
+            return merge({}, action.comments);
+        case REMOVE_COMMENT:
+            
+            delete newState[action.post.id.comment]
+            return newState;
         case RECEIVE_LIKE:
             // debugger;
             Object.values(newState).forEach(post => { if (post.id === action.like.post_id) { post.likes.push({user_id: action.like.user_id}) } })
