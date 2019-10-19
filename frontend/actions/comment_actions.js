@@ -10,10 +10,12 @@ const receiveComment = (comment) => ({
     comment: comment
 })
 
-const removeComment = (comment) => ({
-    type: REMOVE_COMMENT,
-    comment: comment
-})
+const removeComment = comment => {
+    return {
+        type: REMOVE_COMMENT,
+        commentId: comment.id
+    };
+};
 
 const receiveAllComments = (comments) => ({
     type: RECEIVE_ALL_COMMENTS,
