@@ -1,5 +1,4 @@
 import * as CommentAPIUtil from '../util/comment_api_util';
-import { REMOVE_LIKE } from './like_actions';
 
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
@@ -27,8 +26,8 @@ export const createComment = (comment) => dispatch (
         .then(comment => dispatch(receiveComment(comment)))
 )
 
-export const fetchComments = (comments) => dispatch => (
-    CommentAPIUtil.fetchComments(comments)
+export const fetchComments = () => dispatch => (
+    CommentAPIUtil.fetchComments()
         .then(comments => dispatch(receiveAllComments(comments)))
 )
 

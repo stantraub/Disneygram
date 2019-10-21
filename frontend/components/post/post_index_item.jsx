@@ -1,10 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LikeContainer from '../like/like_container';
+import CommentContainer from '../comment/comment_container';
 
 class PostIndexItem extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      body: ''
+    }
+  }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    }
   }
 
   // componentDidUpdate(prevProps){
@@ -44,14 +55,10 @@ class PostIndexItem extends React.Component {
           <div className="post-body-div">
             <Link to={`/users/${this.props.post.user.id}`} className="username-link"><p className="post-body-username">{this.props.post.user.username}</p></Link>
             <p className="post-body-description"> {this.props.post.body}</p>
+            
           </div>
           <div className="comments">
-            <div className="comment-div">
-              <form className="comment-form">
-                <input className="comment-input" placeholder="Add a comment..."></input>
-                <button className="post-comment-btn" type="submit">Post</button>
-              </form>
-            </div>
+            <CommentContainer postId={this.props.post.id} />
           </div>
 
 
