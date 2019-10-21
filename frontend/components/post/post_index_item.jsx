@@ -55,10 +55,17 @@ class PostIndexItem extends React.Component {
           <div className="post-body-div">
             <Link to={`/users/${this.props.post.user.id}`} className="username-link"><p className="post-body-username">{this.props.post.user.username}</p></Link>
             <p className="post-body-description"> {this.props.post.body}</p>
+            <CommentContainer postId={this.props.post.id} post={this.props.post} />
             
           </div>
           <div className="comments">
-            <CommentContainer postId={this.props.post.id} />
+            <div className="comment-div">
+
+              <form className="comment-form">
+                <input className="comment-input" placeholder="Add a comment..."></input>
+                <button className="post-comment-btn" type="submit">Post</button>
+              </form>
+            </div>
           </div>
 
 

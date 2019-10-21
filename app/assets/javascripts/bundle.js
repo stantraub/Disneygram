@@ -504,7 +504,8 @@ function (_React$Component) {
   _createClass(Comment, [{
     key: "renderComments",
     value: function renderComments() {
-      console.log(post.comments); // if (post.comments) {
+      var post = this.props.post;
+      console.log(post); // if (post.comments) {
       // }
     } // componentDidMount() {
     //     this.props.fetchComments();
@@ -513,18 +514,10 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "comment-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "comment-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "comment-input",
-        placeholder: "Add a comment..."
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "post-comment-btn",
-        type: "submit"
-      }, "Post"))));
+      var post = this.props.post;
+      console.log(post); // console.log(this.props)
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
     }
   }]);
 
@@ -1078,11 +1071,22 @@ function (_React$Component) {
         className: "post-body-username"
       }, this.props.post.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "post-body-description"
-      }, " ", this.props.post.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, " ", this.props.post.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        postId: this.props.post.id,
+        post: this.props.post
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comments"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        postId: this.props.post.id
-      }))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comment-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "comment-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "comment-input",
+        placeholder: "Add a comment..."
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "post-comment-btn",
+        type: "submit"
+      }, "Post"))))));
     }
   }]);
 
@@ -1787,6 +1791,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/comments_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/comments_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var commentsReducer = function commentsReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+  var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState);
+
+  switch (action.type) {
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_COMMENTS"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, action.comments);
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.comment.id, action.comment));
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_COMMENT"]:
+      delete newState[action.commentId];
+      return newState;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (commentsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -1799,15 +1846,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _posts_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./posts_reducer */ "./frontend/reducers/posts_reducer.js");
-/* harmony import */ var _likes_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./likes_reducer */ "./frontend/reducers/likes_reducer.js");
-/* harmony import */ var _likes_reducer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_likes_reducer__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
 
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1830,39 +1877,6 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
-
-/***/ }),
-
-/***/ "./frontend/reducers/likes_reducer.js":
-/*!********************************************!*\
-  !*** ./frontend/reducers/likes_reducer.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// import {
-//     RECEIVE_LIKE,
-//     REMOVE_LIKE
-// } from "../actions/like_actions";
-// import merge from 'lodash/merge';
-// const LikesReducer = (oldState ={}, action) => {
-//     Object.freeze(oldState);
-//     let newState = merge({}, oldState);
-//     switch (action.type) {
-//         case RECEIVE_LIKE:
-//             // console.log(newState);
-//             newState.likers.push(action.like)
-//             return newState
-//             // return merge({}, oldState, { [action.like.id]: action.likers });
-//         case REMOVE_LIKE:
-//             // console.log(newState);
-//             delete newState[action.likeId];
-//             return newState;
-//         default:
-//             return oldState;
-//     }
-// }
-// export default LikesReducer;
 
 /***/ }),
 

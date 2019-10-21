@@ -6,7 +6,8 @@ class Comment extends React.Component {
     }
 
     renderComments() {
-        console.log(post.comments)
+        let { post } = this.props
+        console.log(post);
         // if (post.comments) {
             
         // }
@@ -17,16 +18,12 @@ class Comment extends React.Component {
     // }
 
     render() {
-        console.log(this.props)
+        let { post } = this.props
+        console.log(post);
+        // console.log(this.props)
         return (
             <div>
-                <div className="comment-div">
 
-                    <form className="comment-form">
-                        <input className="comment-input" placeholder="Add a comment..."></input>
-                        <button className="post-comment-btn" type="submit">Post</button>
-                    </form>
-                </div>
             </div>
         )
     }
