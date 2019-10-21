@@ -10,6 +10,8 @@ class PostIndexItem extends React.Component {
     this.state = {
       body: ''
     }
+
+    // this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   update(field) {
@@ -18,11 +20,46 @@ class PostIndexItem extends React.Component {
     }
   }
 
+  // handleSubmit(e) {
+  //   // debugger
+
+  //   e.preventDefault();
+  //   // console.log(this.state)
+  //   this.props.createComment(this.state).then(() => this.setState({ body: '' }));
+  // }
+
+
   // componentDidUpdate(prevProps){
   //   if (this.props.userID !== prevProps.userID) {
   //     this.fetchData(this.props.userID);
   //   }
   // }
+
+  renderComments(post) {
+    // debugger
+    if (post.comments) {
+      return (
+        post.comments.map(comment => {
+          // debugger
+          return (
+            <div key={comment.id} className='feed-comment-list'>
+              <ul key={comment.id}>
+                <li key={comment.id}>
+                  <Link to={`/users/${comment.user_id}`}><span>{comment.username} </span></Link>
+                  <span>{comment.body}</span>
+                </li>
+              </ul>
+            </div>
+          )
+
+        })
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
+  }
 
   render(){
     return (
@@ -55,17 +92,11 @@ class PostIndexItem extends React.Component {
           <div className="post-body-div">
             <Link to={`/users/${this.props.post.user.id}`} className="username-link"><p className="post-body-username">{this.props.post.user.username}</p></Link>
             <p className="post-body-description"> {this.props.post.body}</p>
-            <CommentContainer postId={this.props.post.id} post={this.props.post} />
-            
+            <p className="post-body-description"> {this.props.post.comments}</p>
           </div>
           <div className="comments">
-            <div className="comment-div">
-
-              <form className="comment-form">
-                <input className="comment-input" placeholder="Add a comment..."></input>
-                <button className="post-comment-btn" type="submit">Post</button>
-              </form>
-            </div>
+            <div>{this.renderComments(this.props.post)}</div>
+            <CommentContainer postId={this.props.post.id} post={this.props.post} />
           </div>
 
 
