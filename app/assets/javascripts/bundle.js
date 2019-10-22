@@ -129,9 +129,11 @@ var receiveAllComments = function receiveAllComments(comments) {
 };
 
 var createComment = function createComment(comment) {
-  return dispatch(_util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["createComment"](comment).then(function (comment) {
-    return dispatch(receiveComment(comment));
-  }));
+  return function (dispatch) {
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["createComment"](comment).then(function (comment) {
+      return dispatch(receiveComment(comment));
+    });
+  };
 };
 var fetchComments = function fetchComments() {
   return function (dispatch) {
@@ -622,7 +624,7 @@ var msp = function msp(state, ownProps) {
   var currentUserId = state.session.id;
   var comment = {
     body: '',
-    user_id: currentUserId,
+    author_id: currentUserId,
     post_id: postId
   };
   return {
@@ -1978,6 +1980,7 @@ var commentsReducer = function commentsReducer() {
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, action.comments);
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
+      // debugger;
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.comment.id, action.comment));
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_COMMENT"]:
@@ -2090,9 +2093,12 @@ var PostsReducer = function PostsReducer() {
       return newState;
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      var newComment = lodash_merge__WEBPACK_IMPORTED_MODULE_3___default()({}, state[action.comment.post_id]);
-      newComment.comments.unshift(action.comment);
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_3___default()({}, state, _defineProperty({}, action.comment.post_id, newComment));
+      // debugger;
+      // const comment = merge({}, action.comment);
+      // comment.comments.unshift(action.comment);
+      var post = newState[action.comment.post_id];
+      post.comments.push(action.comment);
+      return newState;
 
     case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_POSTS"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_3___default()({}, action.posts);

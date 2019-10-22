@@ -21,10 +21,12 @@ const receiveAllComments = (comments) => ({
     comments: comments
 })
 
-export const createComment = (comment) => dispatch (
+export const createComment = (comment) => dispatch => {
+    return (
+
     CommentAPIUtil.createComment(comment)
         .then(comment => dispatch(receiveComment(comment)))
-)
+)}
 
 export const fetchComments = () => dispatch => (
     CommentAPIUtil.fetchComments()

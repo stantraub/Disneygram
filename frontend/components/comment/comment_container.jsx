@@ -9,10 +9,10 @@ const msp = (state, ownProps) => {
     let currentUserId = state.session.id;
     let comment = {
         body: '',
-        user_id: currentUserId,
+        author_id: currentUserId,
         post_id : postId
     }
-
+    
     return ({
         comment
     })
@@ -20,6 +20,7 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => {
+    
     return ({
         createComment: (comment) => dispatch(createComment(comment)),
         fetchComments: () => dispatch(fetchComments())

@@ -15,10 +15,11 @@ json.array! @posts do |post|
   json.comments do
       json.array!(post.comments) do |comment|
         json.id comment.id
-            json.username comment.user.username
+        
+            # json.username comment.user.username
             json.body comment.body
             json.post_id comment.post_id
-            json.user_id comment.user_id
+            json.author_id comment.author_id
       end
     end
 end

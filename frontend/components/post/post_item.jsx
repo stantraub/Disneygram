@@ -99,7 +99,6 @@ class PostIndexItem extends React.Component {
             <CommentContainer postId={this.props.post.id} post={this.props.post} />
           </div>
 
-
         </div>
       </div>
     );
