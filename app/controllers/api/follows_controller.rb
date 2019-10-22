@@ -24,7 +24,7 @@ class Api::FollowsController < ApplicationController
     end 
 
     def destroy 
-        @follow = Follow.find(params[:id])
+        @follow = Follow.find_by(follower_id: current_user.id, user_id: params[:id])
         if @follow.destroy
             render :show
         else
