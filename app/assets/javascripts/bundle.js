@@ -713,6 +713,134 @@ var mdp = function mdp(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/follow/follow.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/follow/follow.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Follow =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Follow, _React$Component);
+
+  function Follow(props) {
+    var _this;
+
+    _classCallCheck(this, Follow);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Follow).call(this, props));
+    _this.handleFollow = _this.handleFollow.bind(_assertThisInitialized(_this)); // this.update = this.update.bind(this);
+
+    return _this;
+  }
+
+  _createClass(Follow, [{
+    key: "handleFollow",
+    value: function handleFollow(e) {
+      e.preventDefault();
+      debugger; // if (this.props.profile.hasFollowed) {
+      //     // debugger
+      //     this.props.deleteFollow(this.props.profile.id)
+      // } else {
+
+      this.props.createFollow(this.props.user.id); // }
+    } // update(field) {
+    //     return e => this.setState({
+    //         [field]: e.target.value
+    //     })
+    // }
+
+  }, {
+    key: "render",
+    value: function render() {
+      // console.log(this.props)
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleFollow,
+        className: "user-show-btn"
+      }, "Follow"));
+    }
+  }]);
+
+  return Follow;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Follow);
+
+/***/ }),
+
+/***/ "./frontend/components/follow/follow_container.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/follow/follow_container.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _follow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./follow */ "./frontend/components/follow/follow.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/follow_actions */ "./frontend/actions/follow_actions.js");
+
+
+
+
+
+
+var msp = function msp(state, ownProps) {
+  var userId = ownProps.user.id;
+  return {
+    currentUserId: state.entities.users[state.session.id],
+    userId: userId
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    createFollow: function createFollow(follow) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["createFollow"])(follow));
+    },
+    fetchFollows: function fetchFollows() {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["fetchFollows"])());
+    },
+    deleteFollow: function deleteFollow(id) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["deleteFollow"])(id));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(_follow__WEBPACK_IMPORTED_MODULE_2__["default"])));
+
+/***/ }),
+
 /***/ "./frontend/components/like/like.jsx":
 /*!*******************************************!*\
   !*** ./frontend/components/like/like.jsx ***!
@@ -1799,6 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _user_show_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_show_container */ "./frontend/components/user_profile/user_show_container.jsx");
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../navbar/navbar_container */ "./frontend/components/navbar/navbar_container.jsx");
+/* harmony import */ var _follow_follow_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../follow/follow_container */ "./frontend/components/follow/follow_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1816,6 +1945,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1859,55 +1989,105 @@ function (_React$Component) {
         return null;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "main-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-top"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-        className: "user-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile-pic-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "profile-pic-img",
-        src: this.props.user.profile_pic
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-information"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "user-show-btn"
-      }, "Edit Bio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "user-show-btn"
-      }, "Upload")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "follows"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "follow-stats"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "stat"
-      }, Object.values(this.props.user.posts).length, " \xA0"), " posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "follow-stats"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "stat"
-      }, "0 \xA0"), " followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "follow-stats"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "stat"
-      }, "0 \xA0"), " following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-name-bio"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "full-name"
-      }, this.props.user.full_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.user.bio)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-posts-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-posts"
-      }, this.props.user.posts && Object.values(this.props.user.posts).map(function (post) {
+      if (this.props.user.id === this.props.currentUserId) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: post.id,
-          className: "post"
+          className: "main-div"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-top"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+          className: "user-header"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-pic-div"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          width: "293px",
-          height: "293px",
-          src: post.photo
-        }));
-      })))));
+          className: "profile-pic-img",
+          src: this.props.user.profile_pic
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-information"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "user-show-btn"
+        }, "Edit Bio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "user-show-btn"
+        }, "Upload")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follows"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-stats"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stat"
+        }, Object.values(this.props.user.posts).length, " \xA0"), " posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-stats"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stat"
+        }, "0 \xA0"), " followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-stats"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stat"
+        }, "0 \xA0"), " following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-name-bio"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "full-name"
+        }, this.props.user.full_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.user.bio)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-posts-div"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-posts"
+        }, this.props.user.posts && Object.values(this.props.user.posts).map(function (post) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: post.id,
+            className: "post"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            width: "293px",
+            height: "293px",
+            src: post.photo
+          }));
+        })))));
+      } else if (this.props.user.id !== this.props.currentUserId) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "main-div"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-top"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+          className: "user-header"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-pic-div"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "profile-pic-img",
+          src: this.props.user.profile_pic
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-information"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_follow_follow_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          user: this.props.user.id
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follows"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-stats"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stat"
+        }, Object.values(this.props.user.posts).length, " \xA0"), " posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-stats"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stat"
+        }, "0 \xA0"), " followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-stats"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stat"
+        }, "0 \xA0"), " following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-name-bio"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "full-name"
+        }, this.props.user.full_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.user.bio)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-posts-div"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-posts"
+        }, this.props.user.posts && Object.values(this.props.user.posts).map(function (post) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: post.id,
+            className: "post"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            width: "293px",
+            height: "293px",
+            src: post.photo
+          }));
+        })))));
+      }
     }
   }]);
 
@@ -1942,10 +2122,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  var currentSession = state.session.id;
+  // let currentSession = state.session.id;
   return {
     user: state.entities.users[ownProps.match.params.id],
-    currentSession: currentSession
+    currentUserId: state.entities.users[state.session.id].id // currentSession
+
   };
 };
 

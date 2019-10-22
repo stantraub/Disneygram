@@ -7,10 +7,11 @@ import UserShow from "./user_show";
 
 
 const msp = (state, ownProps) => {
-    let currentSession = state.session.id;
+    // let currentSession = state.session.id;
     return({
         user: state.entities.users[ownProps.match.params.id],
-        currentSession
+        currentUserId: state.entities.users[state.session.id].id,
+        // currentSession
     })
     
 }
