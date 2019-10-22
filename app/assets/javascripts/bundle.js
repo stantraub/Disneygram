@@ -779,10 +779,12 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.props)
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      console.log(this.props);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-information"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleFollow,
-        className: "user-show-btn"
+        className: "follow-btn"
       }, "Follow"));
     }
   }]);
@@ -2051,11 +2053,9 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "profile-pic-img",
           src: this.props.user.profile_pic
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-information"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_follow_follow_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          user: this.props.user.id
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_follow_follow_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          user: this.props.user
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "follows"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "follow-stats"

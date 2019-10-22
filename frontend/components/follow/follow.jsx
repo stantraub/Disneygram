@@ -28,10 +28,11 @@ class Follow extends React.Component {
 
 
     render() {
-        // console.log(this.props)
+        console.log(this.props)
         return (
-            <div>
-                <button onClick={this.handleFollow} className="user-show-btn">Follow</button>
+            <div className="user-information">
+                <h1>{this.props.user.username}</h1>
+                <button onClick={this.handleFollow} className="follow-btn">Follow</button>
             </div>
 
         )

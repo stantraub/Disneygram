@@ -82,10 +82,10 @@ class UserShow extends React.Component {
                                 <img className="profile-pic-img" src={this.props.user.profile_pic} />
                             </div>
                             <section>
-                                <div className="user-information">
-                                    <h1>{this.props.user.username}</h1>
-                                    <FollowContainer user={this.props.user.id}/>
-                                </div>
+                                {/* <div className="user-information">
+                                    <h1>{this.props.user.username}</h1> */}
+                                    <FollowContainer user={this.props.user}/>
+                                {/* </div> */}
 
                                 <div className="follows">
                                     <div className="follow-stats"><div className="stat">{Object.values(this.props.user.posts).length} &nbsp;</div> posts</div>
