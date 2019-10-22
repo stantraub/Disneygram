@@ -10,9 +10,10 @@ import Modal from './modal/modal';
 
 const App = () => (
     <div>
-        {/* <Modal /> */}
+       
         <ProtectedRoute path="/" component={NavBarContainer} />
         <ProtectedRoute exact path="/users/:id" component={UserShowContainer} /> 
+        <Modal />
         <Switch>
             
             <AuthRoute exact path="/login" component={LoginFormContainer} />

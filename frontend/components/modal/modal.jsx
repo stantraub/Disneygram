@@ -12,16 +12,16 @@ function Modal({ modal, closeModal }) {
     let component;
     switch (modal) {
         case 'login':
-            // component = <LoginFormContainer />;
+            component = 'hi';
             break;
         case 'signup':
-            // component = <SignupFormContainer />;
+            component = 'hi';
             break;
         default:
             return null;
     }
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-background">
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
