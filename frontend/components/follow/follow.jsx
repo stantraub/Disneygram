@@ -18,7 +18,7 @@ class Follow extends React.Component {
         //     // debugger
         //     this.props.deleteFollow(this.props.profile.id)
         // } else {
-            this.props.createFollow({follower_id:this.props.currentUser.id, following_id: this.props.user.id})
+            this.props.createFollow({follower_id: this.props.currentUser.id, following_id: this.props.user.id})
         // }
     }
 
@@ -32,7 +32,7 @@ class Follow extends React.Component {
 
 
     render() {
-        console.log(this.props)
+        // console.log('rendered')
         return (
             <div className="user-information">
                 <h1>{this.props.user.username}</h1>

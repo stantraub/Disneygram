@@ -787,7 +787,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
+      // console.log('rendered')
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-information"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1995,8 +1995,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
-
+      // let following = 0;
+      // let followers = 0;
+      // Object.values(this.props.follows).forEach(follow => {
+      //     if (follow.following_id) {
+      //     }
+      // });
+      // console.log());
       if (!this.props.user) {
         return null;
       }
@@ -2064,7 +2069,8 @@ function (_React$Component) {
           className: "profile-pic-img",
           src: this.props.user.profile_pic
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_follow_follow_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          user: this.props.user
+          user: this.props.user,
+          follows: this.props.follows
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "follows"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2132,7 +2138,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  // let currentSession = state.session.id;
+  console.log(state.entities.follows); // let currentSession = state.session.id;
+
   return {
     user: state.entities.users[ownProps.match.params.id],
     currentUserId: state.entities.users[state.session.id].id,

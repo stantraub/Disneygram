@@ -7,6 +7,7 @@ import UserShow from "./user_show";
 
 
 const msp = (state, ownProps) => {
+    console.log(state.entities.follows)
     // let currentSession = state.session.id;
     return({
         user: state.entities.users[ownProps.match.params.id],

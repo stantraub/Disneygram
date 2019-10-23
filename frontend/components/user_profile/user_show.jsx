@@ -16,12 +16,20 @@ class UserShow extends React.Component {
         this.props.action().then(() => this.props.history.push('/signup'));
     }
 
+
     componentDidMount(){
         this.props.fetchUser(this.props.match.params.id);
     }
 
     render(){
-        console.log(this.props);
+        // let following = 0;
+        // let followers = 0;
+        // Object.values(this.props.follows).forEach(follow => {
+        //     if (follow.following_id) {
+                
+        //     }
+        // });
+                // console.log());
         if (!this.props.user) {
             return null
         }
@@ -45,6 +53,7 @@ class UserShow extends React.Component {
                                     <div className="follow-stats"><div className="stat">{Object.values(this.props.user.posts).length} &nbsp;</div> posts</div>
                                     <div className="follow-stats"><div className="stat">0 &nbsp;</div> followers</div>
                                     <div className="follow-stats"><div className="stat">0 &nbsp;</div> following</div>
+                                    {/* <div className="follow-stats"><div className="stat">0 &nbsp;</div> following</div> */}
                             </div>
                         
                             <div className="user-name-bio">
@@ -85,7 +94,7 @@ class UserShow extends React.Component {
                             <section>
                                 {/* <div className="user-information">
                                     <h1>{this.props.user.username}</h1> */}
-                                    <FollowContainer user={this.props.user}/>
+                                    <FollowContainer user={this.props.user} follows={this.props.follows}/>
                                 {/* </div> */}
 
                                 <div className="follows">
