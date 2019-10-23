@@ -16,6 +16,6 @@ export const fetchFollows = () => (
 export const deleteFollow = (followId) => (
     $.ajax({
         method: 'delete',
-        url: `/api/follows/${Id}`
+        url: `/api/follows/${followId}`
     })
 )

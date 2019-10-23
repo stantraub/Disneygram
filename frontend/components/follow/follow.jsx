@@ -4,6 +4,7 @@ class Follow extends React.Component {
     constructor(props) {
         super(props);
         this.handleFollow = this.handleFollow.bind(this);
+        this.handleUnfollow = this.handleUnfollow.bind(this);
         // this.update = this.update.bind(this);
     }
 
@@ -22,6 +23,13 @@ class Follow extends React.Component {
         //    console.log(this.props)
             this.props.createFollow({follower_id: this.props.currentUser.id, following_id: this.props.user.id})
         // }
+    }
+
+    handleUnfollow(e) {
+        let followId = Object.values(this.props.follows).filter(follow => follow.follower_id === currentUser.id && follow.following_id === this.props.userId)[0].id;
+        // debugger
+        this.props.deleteFollow(followId);
+
     }
 
 
@@ -57,7 +65,7 @@ class Follow extends React.Component {
             return (
                 <div className="user-information">
                     <h1>{this.props.user.username}</h1>
-                    <button onClick={this.handleFollow} className="follow-btn">Unfollow</button>
+                    <button onClick={this.handleUnfollow} className="follow-btn">Unfollow</button>
                 </div>
 
             )

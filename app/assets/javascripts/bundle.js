@@ -755,7 +755,8 @@ function (_React$Component) {
     _classCallCheck(this, Follow);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Follow).call(this, props));
-    _this.handleFollow = _this.handleFollow.bind(_assertThisInitialized(_this)); // this.update = this.update.bind(this);
+    _this.handleFollow = _this.handleFollow.bind(_assertThisInitialized(_this));
+    _this.handleUnfollow = _this.handleUnfollow.bind(_assertThisInitialized(_this)); // this.update = this.update.bind(this);
 
     return _this;
   }
@@ -780,6 +781,17 @@ function (_React$Component) {
         follower_id: this.props.currentUser.id,
         following_id: this.props.user.id
       }); // }
+    }
+  }, {
+    key: "handleUnfollow",
+    value: function handleUnfollow(e) {
+      var _this2 = this;
+
+      var followId = Object.values(this.props.follows).filter(function (follow) {
+        return follow.follower_id === currentUser.id && follow.following_id === _this2.props.userId;
+      })[0].id; // debugger
+
+      this.props.deleteFollow(followId);
     } // update(field) {
     //     return e => this.setState({
     //         [field]: e.target.value
@@ -789,12 +801,12 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       console.log(this.props);
       var hasFollowed = false;
       this.props.user.followers.forEach(function (follower) {
-        if (follower.follower_id === _this2.props.currentUser.id) {
+        if (follower.follower_id === _this3.props.currentUser.id) {
           hasFollowed = true;
         }
       }); // if (this.props.user.followers) {
@@ -811,7 +823,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-information"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: this.handleFollow,
+          onClick: this.handleUnfollow,
           className: "follow-btn"
         }, "Unfollow"));
       }
@@ -2362,6 +2374,7 @@ var followsReducer = function followsReducer() {
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.follow.id, action.follow));
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_FOLLOW"]:
+      // console.log('hi')
       delete newState[action.followId];
       return newState;
 
@@ -2610,6 +2623,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
 /* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/follow_actions */ "./frontend/actions/follow_actions.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_3__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -2631,8 +2649,10 @@ var userReducer = function userReducer() {
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USER"]:
       newState[action.user.id] = action.user;
       return newState;
-    // case RECEIVE_FOLLOW:
-    //     debugger
+
+    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_FOLLOW"]:
+      // debugger
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_3___default()({}, state, _defineProperty({}, action.follow.id, action.follow));
 
     default:
       return state;
@@ -2737,7 +2757,7 @@ var fetchFollows = function fetchFollows() {
 var deleteFollow = function deleteFollow(followId) {
   return $.ajax({
     method: 'delete',
-    url: "/api/follows/".concat(Id)
+    url: "/api/follows/".concat(followId)
   });
 };
 
