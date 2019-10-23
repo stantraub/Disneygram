@@ -117,9 +117,21 @@
 }
 
 .post-body-description {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     display: inline;
     /* padding-left: 5px; */
+}
+
+.post-comments-div {
+    padding-top: 10px;
+        padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.comment-item {
+    padding-top: 5px;
 }
 
 .comment-div {

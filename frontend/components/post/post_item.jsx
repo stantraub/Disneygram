@@ -42,13 +42,11 @@ class PostIndexItem extends React.Component {
         post.comments.map(comment => {
           // debugger
           return (
-            <div key={comment.id} className='feed-comment-list'>
-              <ul key={comment.id}>
-                <li key={comment.id}>
-                  <Link to={`/users/${comment.user_id}`} className="username-link"><span className="post-body-username">{comment.username} </span></Link>
+            <div key={comment.id} className="comment-item">
+                  <Link to={`/users/${comment.user_id}`} className="username-link">
+                    <span className="post-body-username">{comment.username} </span>
+                  </Link>
                   <span>{comment.body}</span>
-                </li>
-              </ul>
             </div>
           )
 
@@ -94,11 +92,13 @@ class PostIndexItem extends React.Component {
             <Link to={`/users/${this.props.post.user.id}`} className="username-link"><p className="post-body-username">{this.props.post.user.username}</p></Link>
             <p className="post-body-description"> {this.props.post.body}</p>
             {/* <p className="post-body-description"> {this.props.post.comments}</p> */}
-            <div>{this.renderComments(this.props.post)}</div>
-
+            
+            
+          </div>
+          <div className="post-comments-div">
+            {this.renderComments(this.props.post)}
           </div>
           <div className="comments">
-            {/* <div>{this.renderComments(this.props.post)}</div> */}
             <CommentContainer postId={this.props.post.id} post={this.props.post} />
           </div>
 

@@ -1415,17 +1415,13 @@ function (_React$Component) {
           // debugger
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: comment.id,
-            className: "feed-comment-list"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-            key: comment.id
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            key: comment.id
+            className: "comment-item"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             to: "/users/".concat(comment.user_id),
             className: "username-link"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "post-body-username"
-          }, comment.username, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.body))));
+          }, comment.username, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.body));
         });
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
@@ -1478,7 +1474,9 @@ function (_React$Component) {
         className: "post-body-username"
       }, this.props.post.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "post-body-description"
-      }, " ", this.props.post.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderComments(this.props.post))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, " ", this.props.post.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments-div"
+      }, this.renderComments(this.props.post)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comments"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         postId: this.props.post.id,
@@ -2467,9 +2465,9 @@ var PostsReducer = function PostsReducer() {
       return newState;
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      // debugger;
-      // const comment = merge({}, action.comment);
+      debugger; // const comment = merge({}, action.comment);
       // comment.comments.unshift(action.comment);
+
       var post = newState[action.comment.post_id];
       post.comments.push(action.comment);
       return newState;
