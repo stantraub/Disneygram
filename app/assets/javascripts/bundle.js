@@ -1421,8 +1421,11 @@ function (_React$Component) {
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: comment.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            to: "/users/".concat(comment.user_id)
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.username, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.body))));
+            to: "/users/".concat(comment.user_id),
+            className: "username-link"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "post-body-username"
+          }, comment.username, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.body))));
         });
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);

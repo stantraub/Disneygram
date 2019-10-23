@@ -45,7 +45,7 @@ class PostIndexItem extends React.Component {
             <div key={comment.id} className='feed-comment-list'>
               <ul key={comment.id}>
                 <li key={comment.id}>
-                  <Link to={`/users/${comment.user_id}`}><span>{comment.username} </span></Link>
+                  <Link to={`/users/${comment.user_id}`} className="username-link"><span className="post-body-username">{comment.username} </span></Link>
                   <span>{comment.body}</span>
                 </li>
               </ul>
