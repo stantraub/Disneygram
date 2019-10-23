@@ -780,7 +780,10 @@ function (_React$Component) {
       this.props.createFollow({
         follower_id: this.props.currentUser.id,
         following_id: this.props.user.id
-      }); // }
+      }); // this.forceUpdate()
+      //     .then(() => { this.props.fetchPost(this.props.post.id)}
+      // )
+      // }
     }
   }, {
     key: "handleUnfollow",
@@ -791,19 +794,14 @@ function (_React$Component) {
         return follow.follower_id === currentUser.id && follow.following_id === _this2.props.userId;
       })[0].id; // debugger
 
-      this.props.deleteFollow(followId);
-    } // update(field) {
-    //     return e => this.setState({
-    //         [field]: e.target.value
-    //     })
-    // }
-
+      this.props.deleteFollow(followId); // this.props.fetchFollows();
+    }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      console.log(this.props);
+      // console.log(this.props)
       var hasFollowed = false;
       this.props.user.followers.forEach(function (follower) {
         if (follower.follower_id === _this3.props.currentUser.id) {
@@ -2354,8 +2352,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/follow_actions */ "./frontend/actions/follow_actions.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -2371,10 +2367,11 @@ var followsReducer = function followsReducer() {
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
       // debugger;
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.follow.id, action.follow));
+      newState[action.follow.id] = action.follow;
+      return newState;
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_FOLLOW"]:
-      // console.log('hi')
+      // console.log(newState)
       delete newState[action.followId];
       return newState;
 
@@ -2625,7 +2622,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/follow_actions */ "./frontend/actions/follow_actions.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_3__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+/* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/like_actions */ "./frontend/actions/like_actions.js");
 
 
 
@@ -2651,8 +2648,20 @@ var userReducer = function userReducer() {
       return newState;
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_FOLLOW"]:
-      // debugger
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_3___default()({}, state, _defineProperty({}, action.follow.id, action.follow));
+      Object.values(newState).forEach(function (user) {
+        if (user.id === action.follow.following_id) {
+          user.followers.push(action.follow);
+        }
+      });
+      return newState;
+
+    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_2__["REMOVE_FOLLOW"]:
+      Object.values(newState).forEach(function (user) {
+        if (user.followers.id === action.followId) {
+          user.followers.pop(action.followId);
+        }
+      });
+      return newState;
 
     default:
       return state;

@@ -3,6 +3,7 @@ import { RECEIVE_ALL_USERS, RECEIVE_USER } from "../actions/user_actions";
 import { RECEIVE_ALL_FOLLOWS, RECEIVE_FOLLOW, REMOVE_FOLLOW } from '../actions/follow_actions';
 
 import merge from 'lodash/merge';
+import { REMOVE_LIKE } from "../actions/like_actions";
 
 const userReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -17,8 +18,11 @@ const userReducer = (state = {}, action) => {
             newState[action.user.id] = action.user;
             return newState;
         case RECEIVE_FOLLOW:
-            // debugger
-            return merge({}, state, { [action.follow.id]: action.follow });
+            Object.values(newState).forEach(user => { if (user.id === action.follow.following_id) { user.followers.push(action.follow) } })
+            return newState;
+        case REMOVE_FOLLOW:
+            Object.values(newState).forEach(user => { if (user.followers.id === action.followId) { user.followers.pop(action.followId) } })
+            return newState;
         default:
             return state;
     }

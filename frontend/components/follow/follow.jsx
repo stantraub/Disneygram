@@ -21,7 +21,10 @@ class Follow extends React.Component {
         //     this.props.deleteFollow(this.props.profile.id)
         // } else {
         //    console.log(this.props)
-            this.props.createFollow({follower_id: this.props.currentUser.id, following_id: this.props.user.id})
+        this.props.createFollow({follower_id: this.props.currentUser.id, following_id: this.props.user.id})
+            // this.forceUpdate()
+        //     .then(() => { this.props.fetchPost(this.props.post.id)}
+        // )
         // }
     }
 
@@ -29,20 +32,13 @@ class Follow extends React.Component {
         let followId = Object.values(this.props.follows).filter(follow => follow.follower_id === currentUser.id && follow.following_id === this.props.userId)[0].id;
         // debugger
         this.props.deleteFollow(followId);
-
+        // this.props.fetchFollows();
     }
 
 
 
-    // update(field) {
-    //     return e => this.setState({
-    //         [field]: e.target.value
-    //     })
-    // }
-
-
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         let hasFollowed = false;
 
         this.props.user.followers.forEach(follower => {
