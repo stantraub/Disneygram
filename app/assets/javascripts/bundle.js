@@ -2034,11 +2034,11 @@ function (_React$Component) {
           className: "follow-stats"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "stat"
-        }, "0 \xA0"), " followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, Object.values(this.props.user.followers).length, " \xA0"), " followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "follow-stats"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "stat"
-        }, "0 \xA0"), " following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, Object.values(this.props.user.follows).length, " \xA0"), " following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-name-bio"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           className: "full-name"
@@ -2081,11 +2081,11 @@ function (_React$Component) {
           className: "follow-stats"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "stat"
-        }, "0 \xA0"), " followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, Object.values(this.props.user.followers).length, " \xA0"), " followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "follow-stats"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "stat"
-        }, "0 \xA0"), " following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, Object.values(this.props.user.follows).length, " \xA0"), " following")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-name-bio"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           className: "full-name"
@@ -2321,8 +2321,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/follow_actions */ "./frontend/actions/follow_actions.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -2336,9 +2334,8 @@ var followsReducer = function followsReducer() {
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_FOLLOWS"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, action.follows);
 
-    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
-      // debugger;
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.follow.id, action.follow));
+    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]: // debugger;
+    // return merge({}, oldState, { [action.follow.id]: action.follow });
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_FOLLOW"]:
       delete newState[action.followId];
@@ -2588,6 +2585,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/follow_actions */ "./frontend/actions/follow_actions.js");
+
 
 
 
@@ -2608,6 +2607,8 @@ var userReducer = function userReducer() {
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USER"]:
       newState[action.user.id] = action.user;
       return newState;
+    // case RECEIVE_FOLLOW:
+    //     debugger
 
     default:
       return state;

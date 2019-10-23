@@ -51,8 +51,8 @@ class UserShow extends React.Component {
                         
                             <div className="follows">
                                     <div className="follow-stats"><div className="stat">{Object.values(this.props.user.posts).length} &nbsp;</div> posts</div>
-                                    <div className="follow-stats"><div className="stat">0 &nbsp;</div> followers</div>
-                                    <div className="follow-stats"><div className="stat">0 &nbsp;</div> following</div>
+                                    <div className="follow-stats"><div className="stat">{Object.values(this.props.user.followers).length} &nbsp;</div> followers</div>
+                                    <div className="follow-stats"><div className="stat">{Object.values(this.props.user.follows).length} &nbsp;</div> following</div>
                                     {/* <div className="follow-stats"><div className="stat">0 &nbsp;</div> following</div> */}
                             </div>
                         
@@ -99,8 +99,8 @@ class UserShow extends React.Component {
 
                                 <div className="follows">
                                     <div className="follow-stats"><div className="stat">{Object.values(this.props.user.posts).length} &nbsp;</div> posts</div>
-                                    <div className="follow-stats"><div className="stat">0 &nbsp;</div> followers</div>
-                                    <div className="follow-stats"><div className="stat">0 &nbsp;</div> following</div>
+                                    <div className="follow-stats"><div className="stat">{Object.values(this.props.user.followers).length} &nbsp;</div> followers</div>
+                                    <div className="follow-stats"><div className="stat">{Object.values(this.props.user.follows).length} &nbsp;</div> following</div>
                                 </div>
 
                                 <div className="user-name-bio">
