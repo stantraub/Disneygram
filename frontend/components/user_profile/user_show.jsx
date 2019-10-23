@@ -61,9 +61,6 @@ class UserShow extends React.Component {
                                 <span>{this.props.user.bio}</span>
                             </div>
                         </section>
-                        
-                            
-                    
                     </header>
 
                     {/* <div className="post-start"></div> */}

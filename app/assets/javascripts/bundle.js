@@ -763,6 +763,7 @@ function (_React$Component) {
   _createClass(Follow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // console.log(this.props)
       this.props.fetchFollows();
     }
   }, {
@@ -774,6 +775,7 @@ function (_React$Component) {
       //     // debugger
       //     this.props.deleteFollow(this.props.profile.id)
       // } else {
+      //    console.log(this.props)
       this.props.createFollow({
         follower_id: this.props.currentUser.id,
         following_id: this.props.user.id
@@ -787,13 +789,32 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log('rendered')
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-information"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleFollow,
-        className: "follow-btn"
-      }, "Follow"));
+      var _this2 = this;
+
+      console.log(this.props);
+      var hasFollowed = false;
+      this.props.user.followers.forEach(function (follower) {
+        if (follower.follower_id === _this2.props.currentUser.id) {
+          hasFollowed = true;
+        }
+      }); // if (this.props.user.followers) {
+      // }
+
+      if (!hasFollowed) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-information"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.handleFollow,
+          className: "follow-btn"
+        }, "Follow"));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-information"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.handleFollow,
+          className: "follow-btn"
+        }, "Unfollow"));
+      }
     }
   }]);
 
@@ -2321,6 +2342,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/follow_actions */ "./frontend/actions/follow_actions.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2334,8 +2357,9 @@ var followsReducer = function followsReducer() {
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_FOLLOWS"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, action.follows);
 
-    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]: // debugger;
-    // return merge({}, oldState, { [action.follow.id]: action.follow });
+    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
+      // debugger;
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.follow.id, action.follow));
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_FOLLOW"]:
       delete newState[action.followId];
