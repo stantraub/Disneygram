@@ -62,6 +62,7 @@ class PostIndexItem extends React.Component {
   }
 
   render(){
+    console.log(this.props)
     return (
       <div className="post">
         <div className="post-header">
@@ -92,10 +93,12 @@ class PostIndexItem extends React.Component {
           <div className="post-body-div">
             <Link to={`/users/${this.props.post.user.id}`} className="username-link"><p className="post-body-username">{this.props.post.user.username}</p></Link>
             <p className="post-body-description"> {this.props.post.body}</p>
-            <p className="post-body-description"> {this.props.post.comments}</p>
+            {/* <p className="post-body-description"> {this.props.post.comments}</p> */}
+            <div>{this.renderComments(this.props.post)}</div>
+
           </div>
           <div className="comments">
-            <div>{this.renderComments(this.props.post)}</div>
+            {/* <div>{this.renderComments(this.props.post)}</div> */}
             <CommentContainer postId={this.props.post.id} post={this.props.post} />
           </div>
 

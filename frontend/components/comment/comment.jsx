@@ -32,7 +32,7 @@ class Comment extends React.Component {
     
     render() {
         let { post } = this.props
-        console.log(post);
+        // console.log(post);
         // console.log(this.props)
         return (
             <div>

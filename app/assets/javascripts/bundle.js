@@ -637,8 +637,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var post = this.props.post;
-      console.log(post); // console.log(this.props)
+      var post = this.props.post; // console.log(post);
+      // console.log(this.props)
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-div"
@@ -1431,6 +1431,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1474,11 +1475,9 @@ function (_React$Component) {
         className: "post-body-username"
       }, this.props.post.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "post-body-description"
-      }, " ", this.props.post.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "post-body-description"
-      }, " ", this.props.post.comments)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, " ", this.props.post.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderComments(this.props.post))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comments"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderComments(this.props.post)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         postId: this.props.post.id,
         post: this.props.post
       }))));
