@@ -24,12 +24,15 @@
     align-items: center;
     padding: 0px 10px;
     border-left: solid 1px gray;
+    outline: none;
 }
 
 .disneygram-link {
     text-decoration: none;
     color: black;
     padding-top: 3.5px;
+        outline: none;
+
 }
 
 .nav-left {
@@ -41,6 +44,9 @@
     width: 40px;
     height: 40px;
     margin-top: -1px;
+    outline: none;
+    border : 0;
+
 }
 
 .search-bar {

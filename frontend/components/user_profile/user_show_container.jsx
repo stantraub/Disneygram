@@ -11,6 +11,7 @@ const msp = (state, ownProps) => {
     return({
         user: state.entities.users[ownProps.match.params.id],
         currentUserId: state.entities.users[state.session.id].id,
+        follows: state.entities.follows
         // currentSession
     })
     

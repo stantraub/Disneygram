@@ -8,7 +8,7 @@ const msp = (state, ownProps) => {
     let userId = ownProps.user.id;
 
     return ({
-        currentUserId: state.entities.users[state.session.id],
+        currentUser: state.entities.users[state.session.id],
         userId
     })
 

@@ -167,7 +167,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFollow", function() { return createFollow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchFollows", function() { return fetchFollows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteFollow", function() { return deleteFollow; });
-/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/comment_api_util */ "./frontend/util/comment_api_util.js");
+/* harmony import */ var _util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/follow_api_util */ "./frontend/util/follow_api_util.js");
 
 var RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 var REMOVE_FOLLOW = 'REMOVE_FOLLOW';
@@ -196,21 +196,21 @@ var receiveAllFollows = function receiveAllFollows(follows) {
 
 var createFollow = function createFollow(follow) {
   return function (dispatch) {
-    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["createFollow"](follow).then(function (follow) {
+    return _util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__["createFollow"](follow).then(function (follow) {
       return dispatch(receiveFollow(follow));
     });
   };
 };
 var fetchFollows = function fetchFollows() {
   return function (dispatch) {
-    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchFollows"]().then(function (follows) {
+    return _util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchFollows"]().then(function (follows) {
       return dispatch(receiveAllFollows(follows));
     });
   };
 };
 var deleteFollow = function deleteFollow(followId) {
   return function (dispatch) {
-    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteFollow"](followId).then(function (follow) {
+    return _util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteFollow"](followId).then(function (follow) {
       return dispatch(removeFollow(follow));
     });
   };
@@ -761,15 +761,23 @@ function (_React$Component) {
   }
 
   _createClass(Follow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchFollows();
+    }
+  }, {
     key: "handleFollow",
     value: function handleFollow(e) {
-      e.preventDefault();
-      debugger; // if (this.props.profile.hasFollowed) {
+      // console.log(this.props.currentUser.id)
+      // debugger
+      // if (this.props.profile.hasFollowed) {
       //     // debugger
       //     this.props.deleteFollow(this.props.profile.id)
       // } else {
-
-      this.props.createFollow(this.props.user.id); // }
+      this.props.createFollow({
+        follower_id: this.props.currentUser.id,
+        following_id: this.props.user.id
+      }); // }
     } // update(field) {
     //     return e => this.setState({
     //         [field]: e.target.value
@@ -820,7 +828,7 @@ __webpack_require__.r(__webpack_exports__);
 var msp = function msp(state, ownProps) {
   var userId = ownProps.user.id;
   return {
-    currentUserId: state.entities.users[state.session.id],
+    currentUser: state.entities.users[state.session.id],
     userId: userId
   };
 };
@@ -1987,6 +1995,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.props);
+
       if (!this.props.user) {
         return null;
       }
@@ -2125,7 +2135,8 @@ var msp = function msp(state, ownProps) {
   // let currentSession = state.session.id;
   return {
     user: state.entities.users[ownProps.match.params.id],
-    currentUserId: state.entities.users[state.session.id].id // currentSession
+    currentUserId: state.entities.users[state.session.id].id,
+    follows: state.entities.follows // currentSession
 
   };
 };
@@ -2659,6 +2670,42 @@ var deleteComment = function deleteComment(commentId) {
   return $.ajax({
     method: 'delete',
     url: "/api/comments/".concat(Id)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/follow_api_util.js":
+/*!******************************************!*\
+  !*** ./frontend/util/follow_api_util.js ***!
+  \******************************************/
+/*! exports provided: createFollow, fetchFollows, deleteFollow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFollow", function() { return createFollow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchFollows", function() { return fetchFollows; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteFollow", function() { return deleteFollow; });
+var createFollow = function createFollow(follow) {
+  return $.ajax({
+    method: 'post',
+    url: "/api/follows",
+    data: {
+      follow: follow
+    }
+  });
+};
+var fetchFollows = function fetchFollows() {
+  return $.ajax({
+    url: "/api/follows",
+    method: 'get'
+  });
+};
+var deleteFollow = function deleteFollow(followId) {
+  return $.ajax({
+    method: 'delete',
+    url: "/api/follows/".concat(Id)
   });
 };
 

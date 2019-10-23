@@ -7,14 +7,18 @@ class Follow extends React.Component {
         // this.update = this.update.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchFollows();
+    }
+
     handleFollow(e) {
-        e.preventDefault();
-        debugger
+        // console.log(this.props.currentUser.id)
+        // debugger
         // if (this.props.profile.hasFollowed) {
         //     // debugger
         //     this.props.deleteFollow(this.props.profile.id)
         // } else {
-            this.props.createFollow(this.props.user.id)
+            this.props.createFollow({follower_id:this.props.currentUser.id, following_id: this.props.user.id})
         // }
     }
 
