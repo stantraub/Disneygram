@@ -2657,8 +2657,13 @@ var userReducer = function userReducer() {
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_2__["REMOVE_FOLLOW"]:
       Object.values(newState).forEach(function (user) {
-        if (user.followers.id === action.followId) {
-          user.followers.pop(action.followId);
+        // debugger
+        if (user.followers.length > 0) {
+          if (user.followers.filter(function (follower) {
+            return follower.id;
+          })[0].id === action.followId) {
+            user.followers.pop(action);
+          }
         }
       });
       return newState;

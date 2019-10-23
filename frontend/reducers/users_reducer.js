@@ -21,7 +21,15 @@ const userReducer = (state = {}, action) => {
             Object.values(newState).forEach(user => { if (user.id === action.follow.following_id) { user.followers.push(action.follow) } })
             return newState;
         case REMOVE_FOLLOW:
-            Object.values(newState).forEach(user => { if (user.followers.id === action.followId) { user.followers.pop(action.followId) } })
+            Object.values(newState).forEach(user => { 
+                // debugger
+                if (user.followers.length > 0) {
+                    if (user.followers.filter(follower => follower.id)[0].id === action.followId){ 
+                        
+                        user.followers.pop(action) 
+                    } 
+                }
+            })
             return newState;
         default:
             return state;
