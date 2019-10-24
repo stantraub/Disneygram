@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import UserShowContainer from "./user_show_container";
 import NavBarContainer from "../navbar/navbar_container";
 import FollowContainer from "../follow/follow_container";
+import { openModal } from '../../actions/modal_actions';
 // import PostIndexContainer from "../post/post_index_container";
 
 class UserShow extends React.Component {
@@ -46,7 +47,7 @@ class UserShow extends React.Component {
                             <div className="user-information">
                                 <h1>{this.props.user.username}</h1>
                                 <button className="user-show-btn">Edit Bio</button>
-                                <button className="user-show-btn">Upload</button>
+                                <button onClick={() => this.props.openModal('upload')} className="user-show-btn">Upload</button>
                             </div>
                         
                             <div className="follows">
