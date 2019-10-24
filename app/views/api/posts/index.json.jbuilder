@@ -14,6 +14,7 @@ json.array! @posts do |post|
     json.id post.user.id
     json.username post.user.username
   end
+  json.post_id post.id
   json.photoUrl url_for(post.photo)
   json.profile_pic url_for(post.user.profile_pic)
   json.comments post.comments do |comment|

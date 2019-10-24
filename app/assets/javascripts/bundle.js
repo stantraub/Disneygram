@@ -2614,7 +2614,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var PostsReducer = function PostsReducer() {
-  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(oldState);
   var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_3___default()({}, oldState);
@@ -2643,8 +2643,8 @@ var PostsReducer = function PostsReducer() {
       return newState;
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      var post = newState[action.comment.post_id - 1]; // debugger;
-
+      var post = newState[action.comment.post_id];
+      debugger;
       post.comments.push(action.comment);
       return newState;
 

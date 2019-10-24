@@ -13,7 +13,7 @@ import { RECEIVE_COMMENT} from '../actions/comment_actions';
 
 import merge from 'lodash/merge';
 
-const PostsReducer = (oldState = {}, action) => {
+const PostsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     let newState = merge({}, oldState);
     switch (action.type) {
@@ -27,8 +27,8 @@ const PostsReducer = (oldState = {}, action) => {
             return newState;
         case RECEIVE_COMMENT:
    
-            const post = newState[action.comment.post_id - 1];
-            // debugger;
+            const post = newState[action.comment.post_id];
+            debugger;
             post.comments.push(action.comment);
             return newState;
         case RECEIVE_ALL_POSTS:
