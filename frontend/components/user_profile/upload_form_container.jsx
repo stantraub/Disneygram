@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import UploadForm from './upload_form';
 import { createPost } from '../../actions/post_actions';
+import { closeModal } from '../../actions/modal_actions';
+
 import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => {
@@ -17,7 +19,8 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
     return({
-        createPost: (post) => dispatch(createPost(post))
+        createPost: (post) => dispatch(createPost(post)),
+        closeModal: () => dispatch(closeModal())
     })
 }
 

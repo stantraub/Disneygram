@@ -65,10 +65,10 @@ class PostIndexItem extends React.Component {
       <div className="post">
         <div className="post-header">
           <div className="post-user-info">
-            <Link to={`/users/${this.props.post.user.id}`}><img className="post-header-img" src={this.props.post.profile_pic} /></Link>
+            <Link to={`/users/${this.props.post.author_id}`}><img className="post-header-img" src={this.props.post.profile_pic} /></Link>
             &nbsp;
             &nbsp;
-          <Link to={`/users/${this.props.post.user.id}`} className="username-link">{this.props.post.user.username}</Link>
+          <Link to={`/users/${this.props.post.author_id}`} className="username-link">{this.props.post.user.username}</Link>
           </div>
         </div>
         <div className="post-img"><img className="post-img" src={this.props.post.photoUrl} /></div>
