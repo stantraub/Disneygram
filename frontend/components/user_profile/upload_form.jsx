@@ -7,8 +7,11 @@ class UploadForm extends React.Component {
 
     render() {
         return(
-            <div>
-                <h1>TESSSTTTTT</h1>
+            <div className='upload-modal-div'>
+                <form>
+                    <h1 className="upload-modal-heading">New Post</h1>
+                </form>
+                
             </div>
         )
     }
