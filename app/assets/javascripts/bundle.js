@@ -2006,7 +2006,15 @@ function (_React$Component) {
         className: "upload-modal-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "upload-modal-heading"
-      }, "New Post")));
+      }, "New Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        className: "post-caption-div",
+        type: "text",
+        placeholder: "Write a caption..."
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "modal-upload-btns"
+      }, "Upload Photo")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "modal-upload-btns"
+      }, "Share"))));
     }
   }]);
 
