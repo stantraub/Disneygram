@@ -692,7 +692,8 @@ var msp = function msp(state, ownProps) {
     body: '',
     author_id: currentUserId,
     post_id: postId
-  };
+  }; // debugger
+
   return {
     comment: comment
   };
@@ -2465,10 +2466,8 @@ var PostsReducer = function PostsReducer() {
       return newState;
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      debugger; // const comment = merge({}, action.comment);
-      // comment.comments.unshift(action.comment);
+      var post = newState[action.comment.post_id - 1]; // debugger;
 
-      var post = newState[action.comment.post_id];
       post.comments.push(action.comment);
       return newState;
 

@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { createComment, fetchComments, deleteComment} from "../../actions/comment_actions";
 
 const msp = (state, ownProps) => {
+   
     let postId = ownProps.postId;
     let currentUserId = state.session.id;
     let comment = {
@@ -12,7 +13,7 @@ const msp = (state, ownProps) => {
         author_id: currentUserId,
         post_id : postId
     }
-    
+    // debugger
     return ({
         comment
     })

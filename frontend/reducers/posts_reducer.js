@@ -26,10 +26,9 @@ const PostsReducer = (oldState = {}, action) => {
             Object.values(newState).forEach(post => { if (post.id === action.like.post_id) { post.likes.pop({ user_id: action.like.user_id }) } })
             return newState;
         case RECEIVE_COMMENT:
-            debugger;
-            // const comment = merge({}, action.comment);
-            // comment.comments.unshift(action.comment);
-            const post = newState[action.comment.post_id];
+   
+            const post = newState[action.comment.post_id - 1];
+            // debugger;
             post.comments.push(action.comment);
             return newState;
         case RECEIVE_ALL_POSTS:
