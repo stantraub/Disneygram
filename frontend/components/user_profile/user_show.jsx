@@ -68,7 +68,7 @@ class UserShow extends React.Component {
 
                     <div className="user-posts-div">
                         <div className="user-posts">
-                        {this.props.user.posts && Object.values(this.props.user.posts).map( post => {
+                        {this.props.user.posts && Object.values(this.props.user.posts).reverse().map( post => {
                             return(
                                 <div key={post.id} className="post-user-show" onClick={() => this.props.openShowModal('show', post.id)} >
                                     <img width="293px" height="293px" src={post.photo}  />
@@ -115,7 +115,7 @@ class UserShow extends React.Component {
 
                         <div className="user-posts-div">
                             <div className="user-posts">
-                                {this.props.user.posts && Object.values(this.props.user.posts).map(post => {
+                                {this.props.user.posts && Object.values(this.props.user.posts).reverse().map(post => {
                                     return (
                                         <div key={post.id} >
                                             <img className="post" width="293px" height="293px" src={post.photo} />

@@ -2551,7 +2551,7 @@ function (_React$Component) {
           className: "user-posts-div"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-posts"
-        }, this.props.user.posts && Object.values(this.props.user.posts).map(function (post) {
+        }, this.props.user.posts && Object.values(this.props.user.posts).reverse().map(function (post) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: post.id,
             className: "post-user-show",
@@ -2601,7 +2601,7 @@ function (_React$Component) {
           className: "user-posts-div"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-posts"
-        }, this.props.user.posts && Object.values(this.props.user.posts).map(function (post) {
+        }, this.props.user.posts && Object.values(this.props.user.posts).reverse().map(function (post) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: post.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
