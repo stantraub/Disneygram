@@ -15,10 +15,10 @@ export const closeModal = () => {
     };
 };
 
-export const openShowModal = (modal, id) => {
+export const openShowModal = (modal, post) => {
     return {
         type: OPEN_SHOW_MODAL,
         modal,
-        id
+        post
     }
 }

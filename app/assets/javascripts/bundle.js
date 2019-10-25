@@ -297,11 +297,11 @@ var closeModal = function closeModal() {
     type: CLOSE_MODAL
   };
 };
-var openShowModal = function openShowModal(modal, id) {
+var openShowModal = function openShowModal(modal, post) {
   return {
     type: OPEN_SHOW_MODAL,
     modal: modal,
-    id: id
+    post: post
   };
 };
 
@@ -1103,7 +1103,7 @@ function Modal(_ref) {
 
     case 'show':
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_post_show_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        postId: modal.postId
+        post: modal.post
       });
       break;
 
@@ -1597,18 +1597,23 @@ function (_React$Component) {
     _classCallCheck(this, PostShow);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(PostShow).call(this, props));
-  }
+  } // componentDidMount() {
+  //     this.props.fetchPost(this.props.postId);
+  // }
+
 
   _createClass(PostShow, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchPost(this.props.postId);
-    }
-  }, {
     key: "render",
     value: function render() {
       console.log(this.props);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "hi"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-show-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-img"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "post-img",
+        src: this.props.post.photo
+      })));
     }
   }]);
 
@@ -1641,13 +1646,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  var userId = state.session.id;
-  var postId = ownProps.postId;
-  console.log(ownProps); // debugger
+  var post = ownProps.post; // let post = Object.values(state.entities.users)[0].posts[postId]
+  // console.log(ownProps)
 
+  debugger;
   return {
-    userId: userId,
-    postId: postId
+    post: post
   };
 };
 
@@ -2556,7 +2560,7 @@ function (_React$Component) {
             key: post.id,
             className: "post-user-show",
             onClick: function onClick() {
-              return _this3.props.openShowModal('show', post.id);
+              return _this3.props.openShowModal('show', post);
             }
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             width: "293px",
@@ -2606,7 +2610,7 @@ function (_React$Component) {
             key: post.id,
             className: "post-user-show",
             onClick: function onClick() {
-              return _this3.props.openShowModal('show', post.id);
+              return _this3.props.openShowModal('show', post);
             }
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             width: "293px",
@@ -2651,8 +2655,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  console.log(state.entities.follows); // let currentSession = state.session.id;
-
+  // console.log(state.entities.follows) 
+  // let currentSession = state.session.id;
   return {
     user: state.entities.users[ownProps.match.params.id],
     currentUserId: state.entities.users[state.session.id].id,
@@ -2672,8 +2676,8 @@ var mdp = function mdp(dispatch) {
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])(modal));
     },
-    openShowModal: function openShowModal(modal, postId) {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openShowModal"])(modal, postId));
+    openShowModal: function openShowModal(modal, post) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openShowModal"])(modal, post));
     }
   };
 };
@@ -2899,9 +2903,10 @@ function modalReducer() {
     // case OPEN_SHOW:
 
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["OPEN_SHOW_MODAL"]:
+      // debugger
       return {
         modal: action.modal,
-        postId: action.id
+        post: action.post
       };
 
     default:

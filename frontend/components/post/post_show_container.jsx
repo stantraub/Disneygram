@@ -6,13 +6,12 @@ import { fetchPost, fetchPosts} from '../../actions/post_actions';
 
 const msp = (state, ownProps) => {
    
-    let userId = state.session.id;
-    let postId = ownProps.postId;
-    console.log(ownProps)
-    // debugger
+    let post = ownProps.post;
+    // let post = Object.values(state.entities.users)[0].posts[postId]
+    // console.log(ownProps)
+    debugger
     return({
-        userId: userId,
-        postId: postId
+        post: post
     })
 }
 

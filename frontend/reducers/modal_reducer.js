@@ -8,7 +8,8 @@ export default function modalReducer(state = null, action) {
             return null;
         // case OPEN_SHOW:
         case OPEN_SHOW_MODAL:
-            return { modal: action.modal, postId: action.id}
+            // debugger
+            return { modal: action.modal, post: action.post}
         default:
             return state;
     }

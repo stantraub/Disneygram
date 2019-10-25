@@ -18,7 +18,7 @@ function Modal({ modal, closeModal }) {
             component = <EditProfileContainer />;
             break;
         case 'show':
-            component = <PostShowContainer postId={modal.postId}/>
+            component = <PostShowContainer post={modal.post}/>
             break;
         default:
             return null;

@@ -8,7 +8,7 @@ import UserShow from "./user_show";
 
 
 const msp = (state, ownProps) => {
-    console.log(state.entities.follows)
+    // console.log(state.entities.follows) 
     // let currentSession = state.session.id;
     return({
         user: state.entities.users[ownProps.match.params.id],
@@ -23,7 +23,7 @@ const mdp = dispatch => ({
     action: () => dispatch(logout()),
     fetchUser: (id) => dispatch(fetchUser(id)),
     openModal: modal => dispatch(openModal(modal)),
-    openShowModal: (modal, postId) => dispatch(openShowModal(modal, postId))
+    openShowModal: (modal, post) => dispatch(openShowModal(modal, post))
 })
 
 export default withRouter(connect(msp, mdp)(UserShow));
