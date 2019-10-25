@@ -2603,9 +2603,12 @@ function (_React$Component) {
           className: "user-posts"
         }, this.props.user.posts && Object.values(this.props.user.posts).reverse().map(function (post) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            key: post.id
+            key: post.id,
+            className: "post-user-show",
+            onClick: function onClick() {
+              return _this3.props.openShowModal('show', post.id);
+            }
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "post",
             width: "293px",
             height: "293px",
             src: post.photo
