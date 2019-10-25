@@ -17,6 +17,9 @@ function Modal({ modal, closeModal }) {
         case 'edit':
             component = <EditProfileContainer />;
             break;
+        case 'show':
+            component = 'hi'
+            break;
         default:
             return null;
     }

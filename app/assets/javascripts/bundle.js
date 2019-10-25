@@ -1089,6 +1089,10 @@ function Modal(_ref) {
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_profile_edit_profile_container__WEBPACK_IMPORTED_MODULE_4__["default"], null);
       break;
 
+    case 'show':
+      component = 'hi';
+      break;
+
     default:
       return null;
   }
@@ -2006,6 +2010,7 @@ function (_React$Component) {
     _this.state = {
       id: _this.props.user.id,
       username: _this.props.user.username,
+      fullName: _this.props.user.full_name,
       bio: _this.props.user.bio,
       photoFile: null,
       profilePic: _this.props.user.profile_pic
@@ -2054,7 +2059,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.props);
+      console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "upload-modal-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -2475,9 +2480,9 @@ function (_React$Component) {
           className: "user-posts"
         }, this.props.user.posts && Object.values(this.props.user.posts).map(function (post) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            key: post.id,
-            className: "post"
+            key: post.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "post",
             width: "293px",
             height: "293px",
             src: post.photo
@@ -3336,9 +3341,9 @@ var updateUser = function updateUser(user) {
   return $.ajax({
     method: 'patch',
     url: "/api/users/".concat(user.id),
-    data: {
-      user: user
-    }
+    contentType: false,
+    processData: false,
+    data: user
   });
 };
 

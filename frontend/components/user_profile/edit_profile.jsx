@@ -6,6 +6,7 @@ class EditProfile extends React.Component {
         this.state = {
             id: this.props.user.id,
             username: this.props.user.username,
+            fullName: this.props.user.full_name,
             bio: this.props.user.bio,
             photoFile: null,
             profilePic: this.props.user.profile_pic
@@ -43,7 +44,7 @@ class EditProfile extends React.Component {
     }
 
     render() {
-        // console.log(this.props);
+        console.log(this.props);
         return(
             <div className='upload-modal-div'>
                 <h1 className="upload-modal-heading">Edit Profile</h1>

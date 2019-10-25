@@ -117,8 +117,8 @@ class UserShow extends React.Component {
                             <div className="user-posts">
                                 {this.props.user.posts && Object.values(this.props.user.posts).map(post => {
                                     return (
-                                        <div key={post.id} className="post" >
-                                            <img width="293px" height="293px" src={post.photo} />
+                                        <div key={post.id} >
+                                            <img className="post" width="293px" height="293px" src={post.photo} />
                                         </div>
                                     )
                                 })}
