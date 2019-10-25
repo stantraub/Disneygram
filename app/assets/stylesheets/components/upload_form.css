@@ -36,6 +36,10 @@
   padding-bottom: 15px;
 }
 
+.modal-upload-wrapper {
+  overflow: hidden;
+}
+
 .post-caption-div {
     resize: none;
     border-radius: 3.5px;

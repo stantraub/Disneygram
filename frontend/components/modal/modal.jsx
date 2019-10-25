@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import UploadFormContainer from '../user_profile/upload_form_container';
-
+import EditProfileContainer from '../user_profile/edit_profile_container';
 
 
 function Modal({ modal, closeModal }) {
@@ -15,7 +15,7 @@ function Modal({ modal, closeModal }) {
             component = <UploadFormContainer />;
             break;
         case 'edit':
-            component = 'hi';
+            component = <EditProfileContainer />;
             break;
         default:
             return null;

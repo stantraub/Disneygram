@@ -41,12 +41,12 @@ class UserShow extends React.Component {
                 <div className="user-top">
                     <header className="user-header">
                         <div className="profile-pic-div">
-                                <img className="profile-pic-img" src={this.props.user.profile_pic} />
+                            <img className="profile-pic-img" src={this.props.user.profile_pic} />
                         </div>
                         <section>
                             <div className="user-information">
                                 <h1>{this.props.user.username}</h1>
-                                <button className="user-show-btn">Edit Bio</button>
+                                <button onClick={() => this.props.openModal('edit')}className="user-show-btn">Edit Profile</button>
                                 <button onClick={() => this.props.openModal('upload')} className="user-show-btn">Upload</button>
                             </div>
                         
