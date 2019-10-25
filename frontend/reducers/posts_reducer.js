@@ -27,8 +27,8 @@ const PostsReducer = (oldState = [], action) => {
             return newState;
         case RECEIVE_COMMENT:
    
-            const post = newState[action.comment.post_id];
-            debugger;
+            const post = newState[action.comment.post_id - 1];
+            // debugger;
             post.comments.push(action.comment);
             return newState;
         case RECEIVE_ALL_POSTS:

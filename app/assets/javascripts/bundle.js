@@ -2643,8 +2643,8 @@ var PostsReducer = function PostsReducer() {
       return newState;
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      var post = newState[action.comment.post_id];
-      debugger;
+      var post = newState[action.comment.post_id - 1]; // debugger;
+
       post.comments.push(action.comment);
       return newState;
 
