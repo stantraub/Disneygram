@@ -5,11 +5,14 @@ import { withRouter } from 'react-router-dom';
 import { fetchPost, fetchPosts} from '../../actions/post_actions';
 
 const msp = (state, ownProps) => {
-    let userId = ownProps.match.params.id;
-    let postId = ownProps.match.params.postId;
+   
+    let userId = state.session.id;
+    let postId = ownProps.postId;
+    console.log(ownProps)
+    // debugger
     return({
         userId: userId,
-        post: state.entities.posts[postId]
+        postId: postId
     })
 }
 

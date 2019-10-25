@@ -10,8 +10,12 @@ class PostShow extends React.Component{
     }
 
     render() {
+        console.log(this.props);
         return(
-            <div><img className='post-show-image' src={this.props.post.photo} /></div>
+            <div>
+                <h1>hi</h1>
+                {/* <img className='post-show-image' src={this.props.post.photo} /> */}
+            </div>
         )
     }
 }

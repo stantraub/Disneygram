@@ -132,7 +132,7 @@
 }
 
 .post {
-    /* width: 30%; */
+    width: 30%;
     
     margin: 14px;
     position: relative;
@@ -143,7 +143,14 @@
     width: 100px; */
 }
 
- .post:after {
+.post-user-show {
+    margin: 14px;
+    position: relative;
+    cursor: pointer;
+    object-fit: cover; 
+}
+
+ .post-user-show:after {
     content: '\A';
     position: absolute;
     width: 100%; height:100%;
@@ -155,7 +162,7 @@
 }
 
 
- .post:hover:after {
+ .post-user-show:hover:after {
     opacity: 1;
 }
 

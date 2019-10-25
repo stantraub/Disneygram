@@ -70,8 +70,8 @@ class UserShow extends React.Component {
                         <div className="user-posts">
                         {this.props.user.posts && Object.values(this.props.user.posts).map( post => {
                             return(
-                                <div key={post.id} className="post" >
-                                    <img width="293px" height="293px" src={post.photo} />
+                                <div key={post.id} className="post-user-show" onClick={() => this.props.openShowModal('show', post.id)} >
+                                    <img width="293px" height="293px" src={post.photo}  />
                                 </div>
                             )
                         })}

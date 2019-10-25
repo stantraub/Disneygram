@@ -3,14 +3,14 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import UploadFormContainer from '../user_profile/upload_form_container';
 import EditProfileContainer from '../user_profile/edit_profile_container';
-
+import PostShowContainer from '../post/post_show_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
         return null;
     }
     let component;
-    switch (modal) {
+    switch (modal.modal) {
         case 'upload':
             component = <UploadFormContainer />;
             break;
@@ -18,7 +18,7 @@ function Modal({ modal, closeModal }) {
             component = <EditProfileContainer />;
             break;
         case 'show':
-            component = 'hi'
+            component = <PostShowContainer postId={modal.postId}/>
             break;
         default:
             return null;
@@ -41,6 +41,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         closeModal: () => dispatch(closeModal())
+        
     };
 };
 

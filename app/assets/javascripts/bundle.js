@@ -272,17 +272,20 @@ var deleteLike = function deleteLike(postId) {
 /*!*******************************************!*\
   !*** ./frontend/actions/modal_actions.js ***!
   \*******************************************/
-/*! exports provided: OPEN_MODAL, CLOSE_MODAL, openModal, closeModal */
+/*! exports provided: OPEN_MODAL, CLOSE_MODAL, OPEN_SHOW_MODAL, openModal, closeModal, openShowModal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_MODAL", function() { return OPEN_MODAL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLOSE_MODAL", function() { return CLOSE_MODAL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_SHOW_MODAL", function() { return OPEN_SHOW_MODAL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openShowModal", function() { return openShowModal; });
 var OPEN_MODAL = 'OPEN_MODAL';
 var CLOSE_MODAL = 'CLOSE_MODAL';
+var OPEN_SHOW_MODAL = 'OPEN_SHOW_MODAL';
 var openModal = function openModal(modal) {
   return {
     type: OPEN_MODAL,
@@ -292,6 +295,13 @@ var openModal = function openModal(modal) {
 var closeModal = function closeModal() {
   return {
     type: CLOSE_MODAL
+  };
+};
+var openShowModal = function openShowModal(modal, id) {
+  return {
+    type: OPEN_SHOW_MODAL,
+    modal: modal,
+    id: id
   };
 };
 
@@ -1064,6 +1074,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _user_profile_upload_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user_profile/upload_form_container */ "./frontend/components/user_profile/upload_form_container.jsx");
 /* harmony import */ var _user_profile_edit_profile_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../user_profile/edit_profile_container */ "./frontend/components/user_profile/edit_profile_container.jsx");
+/* harmony import */ var _post_post_show_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../post/post_show_container */ "./frontend/components/post/post_show_container.jsx");
+
 
 
 
@@ -1080,7 +1092,7 @@ function Modal(_ref) {
 
   var component;
 
-  switch (modal) {
+  switch (modal.modal) {
     case 'upload':
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_profile_upload_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], null);
       break;
@@ -1090,7 +1102,9 @@ function Modal(_ref) {
       break;
 
     case 'show':
-      component = 'hi';
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_post_show_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        postId: modal.postId
+      });
       break;
 
     default:
@@ -1540,6 +1554,112 @@ function (_React$Component) {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (PostIndexItem);
+
+/***/ }),
+
+/***/ "./frontend/components/post/post_show.jsx":
+/*!************************************************!*\
+  !*** ./frontend/components/post/post_show.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var PostShow =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PostShow, _React$Component);
+
+  function PostShow(props) {
+    _classCallCheck(this, PostShow);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PostShow).call(this, props));
+  }
+
+  _createClass(PostShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchPost(this.props.postId);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.props);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "hi"));
+    }
+  }]);
+
+  return PostShow;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (PostShow);
+
+/***/ }),
+
+/***/ "./frontend/components/post/post_show_container.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/components/post/post_show_container.jsx ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _post_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post_show */ "./frontend/components/post/post_show.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
+
+
+
+
+
+
+var msp = function msp(state, ownProps) {
+  var userId = state.session.id;
+  var postId = ownProps.postId;
+  console.log(ownProps); // debugger
+
+  return {
+    userId: userId,
+    postId: postId
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    fetchPost: function fetchPost(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_4__["fetchPost"])(id));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(_post_show__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 
@@ -2434,7 +2554,10 @@ function (_React$Component) {
         }, this.props.user.posts && Object.values(this.props.user.posts).map(function (post) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: post.id,
-            className: "post"
+            className: "post-user-show",
+            onClick: function onClick() {
+              return _this3.props.openShowModal('show', post.id);
+            }
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             width: "293px",
             height: "293px",
@@ -2545,6 +2668,9 @@ var mdp = function mdp(dispatch) {
     },
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])(modal));
+    },
+    openShowModal: function openShowModal(modal, postId) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openShowModal"])(modal, postId));
     }
   };
 };
@@ -2761,10 +2887,19 @@ function modalReducer() {
 
   switch (action.type) {
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["OPEN_MODAL"]:
-      return action.modal;
+      return {
+        modal: action.modal
+      };
 
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["CLOSE_MODAL"]:
       return null;
+    // case OPEN_SHOW:
+
+    case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["OPEN_SHOW_MODAL"]:
+      return {
+        modal: action.modal,
+        postId: action.id
+      };
 
     default:
       return state;
