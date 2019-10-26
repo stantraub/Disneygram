@@ -12,9 +12,9 @@ class PostShow extends React.Component{
 
     renderComments(post) {
         // debugger
-        if (user.posts.comments) {
+        if (this.props.user.posts.comments) {
             return (
-                post.comments.map(comment => {
+                this.props.user.post.comments.map(comment => {
                     // debugger
                     return (
                         <div key={comment.id} className="comment-item">
@@ -36,7 +36,7 @@ class PostShow extends React.Component{
 
     render() {
         console.log(this.props);
-        debugger
+        // debugger
         return(
             <div className='post-show-modal'>
                 <div>
@@ -48,6 +48,9 @@ class PostShow extends React.Component{
                         &nbsp;
                         &nbsp;
                         <Link to={`/users/${this.props.post.author_id}`} className="post-show-username">{this.props.user.username}</Link>
+                    </div>
+                    <div className="post-comments-div">
+                        {this.renderComments(this.props.post)}
                     </div>
                 </div>
                 {/* <img className='post-show-image' src={this.props.post.photo} /> */}

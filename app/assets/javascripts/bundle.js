@@ -1608,8 +1608,8 @@ function (_React$Component) {
     key: "renderComments",
     value: function renderComments(post) {
       // debugger
-      if (user.posts.comments) {
-        return post.comments.map(function (comment) {
+      if (this.props.user.posts.comments) {
+        return this.props.user.post.comments.map(function (comment) {
           // debugger
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: comment.id,
@@ -1628,8 +1628,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
-      debugger;
+      console.log(this.props); // debugger
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-show-modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1647,7 +1647,9 @@ function (_React$Component) {
       })), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/users/".concat(this.props.post.author_id),
         className: "post-show-username"
-      }, this.props.user.username))));
+      }, this.props.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments-div"
+      }, this.renderComments(this.props.post))));
     }
   }]);
 
