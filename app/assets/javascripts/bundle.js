@@ -1568,6 +1568,7 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1588,6 +1589,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var PostShow =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1603,17 +1605,49 @@ function (_React$Component) {
 
 
   _createClass(PostShow, [{
+    key: "renderComments",
+    value: function renderComments(post) {
+      // debugger
+      if (user.posts.comments) {
+        return post.comments.map(function (comment) {
+          // debugger
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: comment.id,
+            className: "comment-item"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            to: "/users/".concat(comment.user_id),
+            className: "username-link"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "post-body-username"
+          }, comment.username, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.body));
+        });
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       console.log(this.props);
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-show-modal"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-img"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "post-img",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "post-show-img",
         src: this.props.post.photo
-      })));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-show-side-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-show-user-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.post.author_id)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "post-header-img",
+        src: this.props.user.profile_pic
+      })), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.post.author_id),
+        className: "post-show-username"
+      }, this.props.user.username))));
     }
   }]);
 
@@ -1646,12 +1680,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  var post = ownProps.post; // let post = Object.values(state.entities.users)[0].posts[postId]
+  var post = ownProps.post;
+  var user = state.entities.users[post.author_id]; // let post = Object.values(state.entities.users)[0].posts[postId]
   // console.log(ownProps)
+  // debugger
 
-  debugger;
   return {
-    post: post
+    post: post,
+    user: user
   };
 };
 
