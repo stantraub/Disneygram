@@ -47,12 +47,36 @@
 }
 
 .post-show-comments {
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 6px;
   text-align: left;
   overflow-y: scroll;
 }
 
 .post-comment-item {
   padding-bottom: 10px;
+  padding-left: 16px;
+}
+
+.post-likes-comments-wrapper {
+  border-top: 1px solid #efefef;
+}
+
+.post-likes-comments {
+    padding-right: 16px;
+    flex-direction: row;
+    width: 100px;
+    margin-top: 4px;
+}
+
+
+.post-num-likes {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-weight: 600;
+    font-size: 14px;
+    /* margin-top: 5px; */
+    text-align: left;
+    margin-bottom: 10px;
 }
 

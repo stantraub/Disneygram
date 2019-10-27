@@ -58,8 +58,8 @@ class PostShow extends React.Component{
                     <div className="post-show-comments">
                         {this.renderComments(this.props.post)}
                     </div>
-                    <div>
-                        <section className="likes-comments">
+                    <div className="post-likes-comments-wrapper">
+                        <section className="post-likes-comments">
                             <button className="post-button">
                                 <LikeContainer post={this.props.post} />
                             </button>
@@ -69,7 +69,7 @@ class PostShow extends React.Component{
 
                         </section>
                         <section>
-                            <div className="num-likes">
+                            <div className="post-num-likes">
                                 {this.props.post.likes.length} likes
                             </div>
                         </section>
