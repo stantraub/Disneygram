@@ -12,13 +12,16 @@ class PostShow extends React.Component{
 
     renderComments(post) {
         // debugger
-        if (this.props.user.posts.comments) {
+        if (post.comments) {
             return (
-                this.props.user.post.comments.map(comment => {
+                post.comments.map(comment => {
                     // debugger
                     return (
                         <div key={comment.id} className="comment-item">
-                            <Link to={`/users/${comment.user_id}`} className="username-link">
+                            <Link to={`/users/${post.author_id}`}><img className="post-header-img" src={comment.profile_pic} /></Link>
+                            &nbsp;
+                            &nbsp;
+                            <Link to={`/users/${comment.author_id}`} className="username-link">
                                 <span className="post-body-username">{comment.username} </span>
                             </Link>
                             <span>{comment.body}</span>

@@ -1608,14 +1608,19 @@ function (_React$Component) {
     key: "renderComments",
     value: function renderComments(post) {
       // debugger
-      if (this.props.user.posts.comments) {
-        return this.props.user.post.comments.map(function (comment) {
+      if (post.comments) {
+        return post.comments.map(function (comment) {
           // debugger
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: comment.id,
             className: "comment-item"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            to: "/users/".concat(comment.user_id),
+            to: "/users/".concat(post.author_id)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "post-header-img",
+            src: comment.profile_pic
+          })), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            to: "/users/".concat(comment.author_id),
             className: "username-link"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "post-body-username"

@@ -10,6 +10,7 @@ json.set! :posts do
            json.comments post.comments do |comment|
             json.extract! comment, :id, :body, :post_id, :author_id
             json.username comment.user.username
+            json.profile_pic url_for(comment.user.profile_pic)
             end
          json.photo url_for(post.photo)
       end 
