@@ -45,3 +45,14 @@
   color: black;
   display: inline;
 }
+
+.post-show-comments {
+  padding: 16px;
+  text-align: left;
+  overflow-y: scroll;
+}
+
+.post-comment-item {
+  padding-bottom: 10px;
+}
+

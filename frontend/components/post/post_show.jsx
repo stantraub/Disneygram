@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LikeContainer from '../like/like_container';
+import CommentContainer from '../comment/comment_container';
+
 
 class PostShow extends React.Component{
     constructor(props){
@@ -17,7 +20,7 @@ class PostShow extends React.Component{
                 post.comments.map(comment => {
                     // debugger
                     return (
-                        <div key={comment.id} className="comment-item">
+                        <div key={comment.id} className="post-comment-item">
                             <Link to={`/users/${post.author_id}`}><img className="post-header-img" src={comment.profile_pic} /></Link>
                             &nbsp;
                             &nbsp;
@@ -52,8 +55,24 @@ class PostShow extends React.Component{
                         &nbsp;
                         <Link to={`/users/${this.props.post.author_id}`} className="post-show-username">{this.props.user.username}</Link>
                     </div>
-                    <div className="post-comments-div">
+                    <div className="post-show-comments">
                         {this.renderComments(this.props.post)}
+                    </div>
+                    <div>
+                        <section className="likes-comments">
+                            <button className="post-button">
+                                <LikeContainer post={this.props.post} />
+                            </button>
+                            <button className="post-button">
+                                <img className="comment-icon" src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
+                            </button>
+
+                        </section>
+                        <section>
+                            <div className="num-likes">
+                                {this.props.post.likes.length} likes
+                            </div>
+                        </section>
                     </div>
                 </div>
                 {/* <img className='post-show-image' src={this.props.post.photo} /> */}

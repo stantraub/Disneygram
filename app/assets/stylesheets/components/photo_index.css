@@ -113,7 +113,7 @@
     padding-right: 16px;
     font-size: 14px;
     white-space: nowrap;
-
+    overflow: hidden;
 }
 
 .post-body-description {
