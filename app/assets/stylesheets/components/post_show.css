@@ -27,6 +27,7 @@
   flex-direction: column;
   width: 335px;
   max-height: 600px;
+  justify-content: space-between;
   /* padding: 20px; */
 }
 

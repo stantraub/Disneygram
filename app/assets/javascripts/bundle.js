@@ -1669,10 +1669,10 @@ function (_React$Component) {
         src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-num-likes"
-      }, this.props.post.likes.length, " likes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, this.props.post.likes.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         postId: this.props.post.id,
         post: this.props.post
-      })));
+      }))));
     }
   }]);
 
