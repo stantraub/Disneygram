@@ -98,9 +98,9 @@ class PostIndexItem extends React.Component {
           <div className="post-comments-div">
             {this.renderComments(this.props.post)}
           </div>
-          <div className="comments">
+          {/* <div > */}
             <CommentContainer postId={this.props.post.id} post={this.props.post} />
-          </div>
+          {/* </div> */}
 
         </div>
       </div>

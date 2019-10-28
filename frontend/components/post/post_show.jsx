@@ -74,6 +74,9 @@ class PostShow extends React.Component{
                             </div>
                         </section>
                     </div>
+                    {/* <div className="comments"> */}
+                    <CommentContainer postId={this.props.post.id} post={this.props.post} />
+                    {/* </div> */}
                 </div>
                 {/* <img className='post-show-image' src={this.props.post.photo} /> */}
             </div>

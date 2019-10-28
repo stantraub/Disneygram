@@ -152,17 +152,12 @@
     min-height: 55px;
     display: flex;
     align-items: center;
-}
-
-.comment-form {
-    flex-direction: row;
-    position: relative;
-    width: 600px;
+    justify-content: space-between;
 }
 
 .comment-input {
     border: 0;
-    width: 540px;
+    
 }
 
 .post-comment-btn {
