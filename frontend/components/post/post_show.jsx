@@ -59,14 +59,16 @@ class PostShow extends React.Component{
                     <img className="post-show-img" src={this.props.post.photo} />
                 </div>
                 <div className="post-show-side-wrapper">
-                    <div className="post-show-user-info">
-                        <Link to={`/users/${this.props.post.author_id}`}><img className="post-header-img" src={this.props.user.profile_pic} /></Link>
-                        &nbsp;
-                        &nbsp;
-                        <Link to={`/users/${this.props.post.author_id}`} className="post-show-username">{this.props.user.username}</Link>
-                    </div>
-                    <div className="post-show-comments">
-                        {this.renderComments(this.props.post)}
+                    <div>
+                        <div className="post-show-user-info">
+                            <Link to={`/users/${this.props.post.author_id}`}><img className="post-header-img" src={this.props.user.profile_pic} /></Link>
+                            &nbsp;
+                            &nbsp;
+                            <Link to={`/users/${this.props.post.author_id}`} className="post-show-username">{this.props.user.username}</Link>
+                        </div>
+                        <div className="post-show-comments">
+                            {this.renderComments(this.props.post)}
+                        </div>
                     </div>
                     <div className="post-likes-comments-wrapper">
                         <section className="post-likes-comments">
