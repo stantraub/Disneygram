@@ -18,7 +18,8 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => ({
-    fetchPost: id => dispatch(fetchPost(id))
+    fetchPost: id => dispatch(fetchPost(id)),
+    createComment: comment => dispatch(createComment(comment))
 })
 
 export default withRouter(connect(msp, mdp)(PostShow))

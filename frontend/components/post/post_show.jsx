@@ -7,11 +7,21 @@ import CommentContainer from '../comment/comment_container';
 class PostShow extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            body: ''
+        }
     }
 
-    // componentDidMount() {
-    //     this.props.fetchPost(this.props.postId);
-    // }
+    update(field) {
+        return (e) => {
+            this.setState({ [field]: e.target.value });
+        }
+    }
+
+    componentDidMount() {
+        // debugger
+        this.props.fetchPost(this.props.post.id);
+    }
 
     renderComments(post) {
         // debugger

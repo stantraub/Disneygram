@@ -1568,6 +1568,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _comment_comment_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../comment/comment_container */ "./frontend/components/comment/comment_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1595,15 +1597,33 @@ function (_React$Component) {
   _inherits(PostShow, _React$Component);
 
   function PostShow(props) {
+    var _this;
+
     _classCallCheck(this, PostShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PostShow).call(this, props));
-  } // componentDidMount() {
-  //     this.props.fetchPost(this.props.postId);
-  // }
-
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PostShow).call(this, props));
+    _this.state = {
+      body: ''
+    };
+    return _this;
+  }
 
   _createClass(PostShow, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // debugger
+      this.props.fetchPost(this.props.post.id);
+    }
+  }, {
     key: "renderComments",
     value: function renderComments(post) {
       // debugger
@@ -1719,7 +1739,20 @@ var mdp = function mdp(dispatch) {
   return {
     fetchPost: function fetchPost(id) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_4__["fetchPost"])(id));
-    }
+    },
+    createComment: function (_createComment) {
+      function createComment(_x) {
+        return _createComment.apply(this, arguments);
+      }
+
+      createComment.toString = function () {
+        return _createComment.toString();
+      };
+
+      return createComment;
+    }(function (comment) {
+      return dispatch(createComment(comment));
+    })
   };
 };
 
@@ -3005,7 +3038,6 @@ var PostsReducer = function PostsReducer() {
 
   switch (action.type) {
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_LIKE"]:
-      // debugger;
       Object.values(newState).forEach(function (post) {
         if (post.id === action.like.post_id) {
           post.likes.push({
@@ -3029,9 +3061,7 @@ var PostsReducer = function PostsReducer() {
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
       var post = Object.values(newState).filter(function (post) {
         return post.post_id === action.comment.post_id;
-      })[0]; // const post = newState[action.comment.post_id - 1];
-      // debugger;
-
+      })[0];
       post.comments.push(action.comment);
       return newState;
 
