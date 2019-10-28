@@ -632,7 +632,6 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      // debugger
       e.preventDefault(); // console.log(this.state)
 
       this.props.createComment(this.state).then(function () {
@@ -658,7 +657,7 @@ function (_React$Component) {
         value: this.state.body,
         onChange: this.update("body")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleSubmit,
+        onClick: this.handleSubmit.bind(this),
         className: "post-comment-btn",
         type: "submit"
       }, "Post"));
@@ -3028,7 +3027,10 @@ var PostsReducer = function PostsReducer() {
       return newState;
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      var post = newState[action.comment.post_id - 1]; // debugger;
+      var post = Object.values(newState).filter(function (post) {
+        return post.post_id === action.comment.post_id;
+      })[0]; // const post = newState[action.comment.post_id - 1];
+      // debugger;
 
       post.comments.push(action.comment);
       return newState;

@@ -18,7 +18,6 @@ class Comment extends React.Component {
 
 
     handleSubmit(e) {
-        // debugger
 
         e.preventDefault();
         // console.log(this.state)
@@ -39,7 +38,7 @@ class Comment extends React.Component {
                 {/* <div className="comment-div"> */}
                     {/* <form className="comment-form">  */}
                         <input className="comment-input" placeholder="Add a comment..." value={this.state.body} onChange={this.update("body")}></input>
-                        <button onClick={this.handleSubmit} className="post-comment-btn" type="submit">Post</button>
+                        <button onClick={this.handleSubmit.bind(this)} className="post-comment-btn" type="submit">Post</button>
                     {/* </form> */}
                 {/* </div> */}
             </div>

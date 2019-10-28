@@ -26,8 +26,8 @@ const PostsReducer = (oldState = [], action) => {
             Object.values(newState).forEach(post => { if (post.id === action.like.post_id) { post.likes.pop({ user_id: action.like.user_id }) } })
             return newState;
         case RECEIVE_COMMENT:
-   
-            const post = newState[action.comment.post_id - 1];
+            const post = Object.values(newState).filter(post => post.post_id === action.comment.post_id)[0];
+            // const post = newState[action.comment.post_id - 1];
             // debugger;
             post.comments.push(action.comment);
             return newState;
