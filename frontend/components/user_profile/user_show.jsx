@@ -23,14 +23,6 @@ class UserShow extends React.Component {
     }
 
     render(){
-        // let following = 0;
-        // let followers = 0;
-        // Object.values(this.props.follows).forEach(follow => {
-        //     if (follow.following_id) {
-                
-        //     }
-        // });
-                // console.log());
         if (!this.props.user) {
             return null
         }

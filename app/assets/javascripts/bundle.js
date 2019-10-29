@@ -579,6 +579,7 @@ var App = function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -598,6 +599,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -800,8 +802,7 @@ function (_React$Component) {
 
       var followId = Object.values(this.props.follows).filter(function (follow) {
         return follow.follower_id === currentUser.id && follow.following_id === _this2.props.userId;
-      })[0].id; // debugger
-
+      })[0].id;
       this.props.deleteFollow(followId); // this.props.fetchFollows();
     }
   }, {
@@ -1414,18 +1415,7 @@ function (_React$Component) {
       return function (e) {
         _this2.setState(_defineProperty({}, field, e.target.value));
       };
-    } // handleSubmit(e) {
-    //   // debugger
-    //   e.preventDefault();
-    //   // console.log(this.state)
-    //   this.props.createComment(this.state).then(() => this.setState({ body: '' }));
-    // }
-    // componentDidUpdate(prevProps){
-    //   if (this.props.userID !== prevProps.userID) {
-    //     this.fetchData(this.props.userID);
-    //   }
-    // }
-
+    }
   }, {
     key: "renderComments",
     value: function renderComments(post) {
@@ -1504,49 +1494,7 @@ function (_React$Component) {
   }]);
 
   return PostIndexItem;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // const PostIndexItem = ({ post, deletePost }) => {
-//   return (
-//     <div className="post">
-//       <div className="post-header">
-//         <div className="post-user-info">
-//           <Link to={`/users/${post.user.id}`}><img className="post-header-img" src={post.profile_pic} /></Link>
-//           &nbsp;
-//           &nbsp;
-//           <Link to={`/users/${post.user.id}`} className="username-link">{post.user.username}</Link>
-//         </div>
-//       </div>
-//       <div className="post-img"><img className="post-img" src={post.photoUrl} /></div>
-//       <div className="post-body">
-//         <section className="likes-comments">
-//           <button className="post-button">
-//             {/* <img className="like" src="https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"/> */}
-//             <LikeContainer post={post} />
-//           </button>
-//           <button className="post-button">
-//             <img className="comment-icon" src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
-//           </button>
-//         </section>
-//         <section>
-//           {/* <span></span> */}
-//           <div className="num-likes">{post.likers.length} likes</div>
-//         </section>
-//         <div className="post-body-div">
-//           <Link to={`/users/${post.user.id}`} className="username-link"><p className="post-body-username">{post.user.username}</p></Link>
-//           <p className="post-body-description"> {post.body}</p>
-//         </div>
-//         <div className="comments">
-//           <div className="comment-div">
-//             <form className="comment-form">
-//               <input className="comment-input" placeholder="Add a comment..."></input>
-//               <button className="post-comment-btn" type="submit">Post</button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//     );
-// };
-
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (PostIndexItem);
 
@@ -1725,13 +1673,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state, ownProps) {
   var post = ownProps.post;
-  var user = state.entities.users[post.author_id]; // let post = Object.values(state.entities.users)[0].posts[postId]
+  var user = state.entities.users[post.author_id];
+  var modalPost = state.ui.modal.post; // let post = Object.values(state.entities.users)[0].posts[postId]
   // console.log(ownProps)
   // debugger
 
   return {
     post: post,
-    user: user
+    user: user,
+    modalPost: modalPost
   };
 };
 
@@ -2449,7 +2399,9 @@ function (_React$Component) {
         type: "text",
         placeholder: "Write a caption...",
         onChange: this.update("body")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "upload-btn-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "modal-upload-btns"
       }, "Upload Photo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
@@ -2591,13 +2543,6 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      // let following = 0;
-      // let followers = 0;
-      // Object.values(this.props.follows).forEach(follow => {
-      //     if (follow.following_id) {
-      //     }
-      // });
-      // console.log());
       if (!this.props.user) {
         return null;
       }
@@ -2996,7 +2941,6 @@ function modalReducer() {
     // case OPEN_SHOW:
 
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["OPEN_SHOW_MODAL"]:
-      // debugger
       return {
         modal: action.modal,
         post: action.post
@@ -3060,9 +3004,10 @@ var PostsReducer = function PostsReducer() {
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
       var post = Object.values(newState).filter(function (post) {
-        return post.post_id === action.comment.post_id;
+        return post.id === action.comment.post_id;
       })[0];
       post.comments.push(action.comment);
+      debugger;
       return newState;
 
     case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_POSTS"]:

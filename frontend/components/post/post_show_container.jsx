@@ -8,12 +8,14 @@ const msp = (state, ownProps) => {
    
     let post = ownProps.post;
     let user = state.entities.users[post.author_id]
+    let modalPost = state.ui.modal.post;
     // let post = Object.values(state.entities.users)[0].posts[postId]
     // console.log(ownProps)
     // debugger
     return({
         post: post,
-        user: user
+        user: user,
+        modalPost: modalPost
     })
 }
 

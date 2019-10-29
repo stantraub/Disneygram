@@ -44,11 +44,11 @@ class UploadForm extends React.Component {
                         placeholder="Write a caption..."
                         onChange={this.update("body")}
                     />
-                    <div>
-                    <button className="modal-upload-btns">
-                        Upload Photo
-                    </button>
-                    <input type="file" onChange={this.handleFile.bind(this)} />
+                    <div className="upload-btn-wrapper">
+                        <button className="modal-upload-btns">
+                            Upload Photo
+                        </button>
+                        <input type="file" onChange={this.handleFile.bind(this)} />
                     </div>
                     <div>
                         <input type='submit' className="modal-upload-btns" value='Share'/>

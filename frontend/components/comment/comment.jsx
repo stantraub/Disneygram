@@ -1,4 +1,5 @@
 import React from 'react';
+import { fetchComments } from '../../actions/comment_actions';
 
 class Comment extends React.Component {
     constructor(props) {
