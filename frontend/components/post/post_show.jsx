@@ -67,7 +67,7 @@ class PostShow extends React.Component{
                             <Link to={`/users/${this.props.post.author_id}`} className="post-show-username">{this.props.user.username}</Link>
                         </div>
                         <div className="post-show-comments">
-                            {this.renderComments(this.props.post)}
+                            {this.renderComments(this.props.modalPost)}
                         </div>
                     </div>
                     <div className="post-likes-comments-wrapper">
@@ -85,7 +85,7 @@ class PostShow extends React.Component{
                                 {this.props.post.likes.length} likes
                             </div>
                         </section>
-                        <CommentContainer postId={this.props.post.id} post={this.props.post} />
+                        <CommentContainer postId={this.props.post.id} post={this.props.modalPost}  />
                     </div>
                     {/* <div className="comments"> */}
                     

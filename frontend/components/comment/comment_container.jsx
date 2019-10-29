@@ -13,7 +13,6 @@ const msp = (state, ownProps) => {
         author_id: currentUserId,
         post_id : postId
     }
-    // debugger
     return ({
         comment
     })

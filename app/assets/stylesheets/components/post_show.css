@@ -54,6 +54,7 @@
   padding-bottom: 6px;
   text-align: left;
   overflow-y: scroll;
+  max-height: 380px;
 }
 
 .post-comment-item {

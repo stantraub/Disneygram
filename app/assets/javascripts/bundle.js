@@ -701,8 +701,7 @@ var msp = function msp(state, ownProps) {
     body: '',
     author_id: currentUserId,
     post_id: postId
-  }; // debugger
-
+  };
   return {
     comment: comment
   };
@@ -1100,6 +1099,7 @@ function Modal(_ref) {
       break;
 
     case 'show':
+      debugger;
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_post_show_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
         post: modal.post
       });
@@ -1122,7 +1122,8 @@ function Modal(_ref) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    post: state.ui.post
   };
 };
 
@@ -1621,7 +1622,7 @@ function (_React$Component) {
         className: "post-show-username"
       }, this.props.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-show-comments"
-      }, this.renderComments(this.props.post))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.renderComments(this.props.modalPost))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-likes-comments-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "post-likes-comments"
@@ -1638,7 +1639,7 @@ function (_React$Component) {
         className: "post-num-likes"
       }, this.props.post.likes.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         postId: this.props.post.id,
-        post: this.props.post
+        post: this.props.modalPost
       }))));
     }
   }]);
@@ -1674,7 +1675,7 @@ __webpack_require__.r(__webpack_exports__);
 var msp = function msp(state, ownProps) {
   var post = ownProps.post;
   var user = state.entities.users[post.author_id];
-  var modalPost = state.ui.modal.post; // let post = Object.values(state.entities.users)[0].posts[postId]
+  var modalPost = state.entities.users[1].posts[post.id]; // let post = Object.values(state.entities.users)[0].posts[postId]
   // console.log(ownProps)
   // debugger
 
@@ -3138,10 +3139,13 @@ var _nullSession = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
+/* harmony import */ var _posts_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./posts_reducer */ "./frontend/reducers/posts_reducer.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  post: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
@@ -36850,7 +36854,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
