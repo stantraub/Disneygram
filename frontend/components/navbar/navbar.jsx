@@ -20,9 +20,9 @@ export default ({ currentUser, logout }) => {
                     <div className="main-navbar-logo">Disneygram</div>
                     </Link>
                 </div>
-                <div className="search-bar">
+                {/* <div className="search-bar">
                     <input type="search" className="search-bar-input" placeholder="Search"/>
-                </div>
+                </div> */}
                 <div className="nav-right">
                     <button onClick={logout} className="nav-right-button">Logout</button>
                     <Link to={`/users/${currentUser.id}`}>

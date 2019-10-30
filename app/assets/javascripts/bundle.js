@@ -1175,12 +1175,6 @@ __webpack_require__.r(__webpack_exports__);
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-navbar-logo"
   }, "Disneygram"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "search-bar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "search",
-    className: "search-bar-input",
-    placeholder: "Search"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: logout,
