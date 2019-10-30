@@ -1597,6 +1597,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.props.post);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-show-modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -2949,12 +2950,16 @@ function modalReducer() {
       };
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      var post = Object.values(newState).filter(function (post) {
+      if (Object.values(newState).filter(function (post) {
         return post.id === action.comment.post_id;
-      })[0];
-      post.comments.push(action.comment);
-      debugger;
-      return newState;
+      })[0]) {
+        var post = Object.values(newState).filter(function (post) {
+          return post.id === action.comment.post_id;
+        })[0];
+        post.comments.push(action.comment);
+        debugger;
+        return newState;
+      }
 
     default:
       return state;

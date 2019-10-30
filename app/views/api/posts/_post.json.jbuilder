@@ -12,4 +12,6 @@ json.comments post.comments do |comment|
     json.body comment.body
     json.post_id comment.post_id
     json.id comment.id
+    json.profile_pic comment.user.profile_pic
+
 end

@@ -14,10 +14,13 @@ export default function modalReducer(state = [], action) {
         case OPEN_SHOW_MODAL:
             return { modal: action.modal, post: action.post}
         case RECEIVE_COMMENT:
-            const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
-            post.comments.push(action.comment);
-            debugger
-            return newState;
+            if (Object.values(newState).filter(post => post.id === action.comment.post_id)[0]) {
+                const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
+                post.comments.push(action.comment);
+                debugger
+                return newState;
+            }
+           
         default:
             return state;
     }
