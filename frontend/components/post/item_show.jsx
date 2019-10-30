@@ -18,9 +18,6 @@ class ItemShow extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.props.fetchPost(this.props.post.id);
-    }
 
     renderComments(post) {
         if (post.comments) {

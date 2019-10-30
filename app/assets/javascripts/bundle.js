@@ -1304,11 +1304,6 @@ function (_React$Component) {
       };
     }
   }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchPost(this.props.post.id);
-    }
-  }, {
     key: "renderComments",
     value: function renderComments(post) {
       if (post.comments) {
