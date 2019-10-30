@@ -44,7 +44,7 @@ class EditProfile extends React.Component {
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         return(
             <div className='upload-modal-div'>
                 <h1 className="upload-modal-heading">Edit Profile</h1>
