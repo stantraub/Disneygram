@@ -29,7 +29,7 @@ const PostsReducer = (oldState = [], action) => {
         case RECEIVE_COMMENT:
             const post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
             post.comments.push(action.comment);
-            debugger;
+            // debugger;
             return newState;
         case RECEIVE_ALL_POSTS:
             return merge({}, action.posts);

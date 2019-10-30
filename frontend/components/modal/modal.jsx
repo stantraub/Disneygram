@@ -18,7 +18,6 @@ function Modal({ modal, closeModal}) {
             component = <EditProfileContainer />;
             break;
         case 'show':
-            debugger
             component = <PostShowContainer post={modal.post}/>
             break;
         default:

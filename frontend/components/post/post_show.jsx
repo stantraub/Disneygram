@@ -19,16 +19,14 @@ class PostShow extends React.Component{
     }
 
     componentDidMount() {
-        // debugger
         this.props.fetchPost(this.props.post.id);
     }
 
     renderComments(post) {
-        // debugger
+        
         if (post.comments) {
             return (
                 post.comments.map(comment => {
-                    // debugger
                     return (
                         <div key={comment.id} className="post-comment-item">
                             <Link to={`/users/${post.author_id}`}><img className="post-header-img" src={comment.profile_pic} /></Link>
@@ -51,8 +49,6 @@ class PostShow extends React.Component{
     }
 
     render() {
-        console.log(this.props);
-        // debugger
         return(
             <div className='post-show-modal'>
                 <div>
@@ -67,7 +63,7 @@ class PostShow extends React.Component{
                             <Link to={`/users/${this.props.post.author_id}`} className="post-show-username">{this.props.user.username}</Link>
                         </div>
                         <div className="post-show-comments">
-                            {this.renderComments(this.props.modalPost)}
+                            {this.renderComments(this.props.post)}
                         </div>
                     </div>
                     <div className="post-likes-comments-wrapper">
@@ -85,7 +81,7 @@ class PostShow extends React.Component{
                                 {this.props.post.likes.length} likes
                             </div>
                         </section>
-                        <CommentContainer postId={this.props.post.id} post={this.props.modalPost}  />
+                        <CommentContainer postId={this.props.post.id} post={this.props.post}  />
                     </div>
                     {/* <div className="comments"> */}
                     

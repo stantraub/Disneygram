@@ -1099,7 +1099,6 @@ function Modal(_ref) {
       break;
 
     case 'show':
-      debugger;
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_post_show_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
         post: modal.post
       });
@@ -1569,16 +1568,13 @@ function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
       this.props.fetchPost(this.props.post.id);
     }
   }, {
     key: "renderComments",
     value: function renderComments(post) {
-      // debugger
       if (post.comments) {
         return post.comments.map(function (comment) {
-          // debugger
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: comment.id,
             className: "post-comment-item"
@@ -1601,8 +1597,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props); // debugger
-
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-show-modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1622,7 +1616,7 @@ function (_React$Component) {
         className: "post-show-username"
       }, this.props.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-show-comments"
-      }, this.renderComments(this.props.modalPost))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.renderComments(this.props.post))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-likes-comments-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "post-likes-comments"
@@ -1639,7 +1633,7 @@ function (_React$Component) {
         className: "post-num-likes"
       }, this.props.post.likes.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         postId: this.props.post.id,
-        post: this.props.modalPost
+        post: this.props.post
       }))));
     }
   }]);
@@ -2926,10 +2920,17 @@ var followsReducer = function followsReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modalReducer; });
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+
+
 
 function modalReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state);
 
   switch (action.type) {
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["OPEN_MODAL"]:
@@ -2946,6 +2947,14 @@ function modalReducer() {
         modal: action.modal,
         post: action.post
       };
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
+      var post = Object.values(newState).filter(function (post) {
+        return post.id === action.comment.post_id;
+      })[0];
+      post.comments.push(action.comment);
+      debugger;
+      return newState;
 
     default:
       return state;
@@ -3007,8 +3016,8 @@ var PostsReducer = function PostsReducer() {
       var post = Object.values(newState).filter(function (post) {
         return post.id === action.comment.post_id;
       })[0];
-      post.comments.push(action.comment);
-      debugger;
+      post.comments.push(action.comment); // debugger;
+
       return newState;
 
     case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_POSTS"]:
@@ -36854,7 +36863,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
