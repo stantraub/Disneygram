@@ -1072,6 +1072,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_profile_upload_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user_profile/upload_form_container */ "./frontend/components/user_profile/upload_form_container.jsx");
 /* harmony import */ var _user_profile_edit_profile_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../user_profile/edit_profile_container */ "./frontend/components/user_profile/edit_profile_container.jsx");
 /* harmony import */ var _post_post_show_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../post/post_show_container */ "./frontend/components/post/post_show_container.jsx");
+/* harmony import */ var _post_item_show_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../post/item_show_container */ "./frontend/components/post/item_show_container.jsx");
+
 
 
 
@@ -1100,6 +1102,12 @@ function Modal(_ref) {
 
     case 'show':
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_post_show_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        post: modal.post
+      });
+      break;
+
+    case 'index':
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_item_show_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
         post: modal.post
       });
       break;
@@ -1230,6 +1238,212 @@ var mdp = function mdp(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/post/item_show.jsx":
+/*!************************************************!*\
+  !*** ./frontend/components/post/item_show.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _like_like_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../like/like_container */ "./frontend/components/like/like_container.jsx");
+/* harmony import */ var _comment_comment_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../comment/comment_container */ "./frontend/components/comment/comment_container.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var ItemShow =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ItemShow, _React$Component);
+
+  function ItemShow(props) {
+    var _this;
+
+    _classCallCheck(this, ItemShow);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ItemShow).call(this, props));
+    _this.state = {
+      body: ''
+    };
+    return _this;
+  }
+
+  _createClass(ItemShow, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchPost(this.props.post.id);
+    }
+  }, {
+    key: "renderComments",
+    value: function renderComments(post) {
+      if (post.comments) {
+        return post.comments.map(function (comment) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: comment.id,
+            className: "post-comment-item"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            to: "/users/".concat(post.author_id)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "post-header-img",
+            src: comment.profile_pic
+          })), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            to: "/users/".concat(comment.author_id),
+            className: "username-link"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "post-body-username"
+          }, comment.username, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.body));
+        });
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.props);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-show-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "post-show-img",
+        src: this.props.post.photoUrl
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-show-side-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-show-user-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.post.author_id)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "post-header-img",
+        src: this.props.post.profile_pic
+      })), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.post.author_id),
+        className: "post-show-username"
+      }, this.props.post.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-show-comments"
+      }, this.renderComments(this.props.post))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-likes-comments-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "post-likes-comments"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "post-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_like_like_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        post: this.props.post
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "post-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "comment-icon",
+        src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-num-likes"
+      }, this.props.post.likes.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        postId: this.props.post.id,
+        post: this.props.post
+      }))));
+    }
+  }]);
+
+  return ItemShow;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ItemShow);
+
+/***/ }),
+
+/***/ "./frontend/components/post/item_show_container.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/components/post/item_show_container.jsx ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _item_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./item_show */ "./frontend/components/post/item_show.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
+
+
+
+
+
+
+var msp = function msp(state, ownProps) {
+  var post = ownProps.post;
+  var user = state.entities.users[post.author_id];
+  var modalPost = state.entities.users[1].posts[post.id]; // let post = Object.values(state.entities.users)[0].posts[postId]
+  // console.log(ownProps)
+  // debugger
+
+  return {
+    post: post,
+    user: user,
+    modalPost: modalPost
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    fetchPost: function fetchPost(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_4__["fetchPost"])(id));
+    },
+    createComment: function (_createComment) {
+      function createComment(_x) {
+        return _createComment.apply(this, arguments);
+      }
+
+      createComment.toString = function () {
+        return _createComment.toString();
+      };
+
+      return createComment;
+    }(function (comment) {
+      return dispatch(createComment(comment));
+    })
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(_item_show__WEBPACK_IMPORTED_MODULE_2__["default"])));
+
+/***/ }),
+
 /***/ "./frontend/components/post/post_index.jsx":
 /*!*************************************************!*\
   !*** ./frontend/components/post/post_index.jsx ***!
@@ -1291,7 +1505,8 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: post.id,
           post: post,
-          deletePost: _this.props.deletePost
+          deletePost: _this.props.deletePost,
+          openShowModal: _this.props.openShowModal
         });
       }));
     }
@@ -1316,6 +1531,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _post_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./post_index */ "./frontend/components/post/post_index.jsx");
 /* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
 
 
 
@@ -1335,6 +1552,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deletePost: function deletePost(id) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["deletePost"])(id));
+    },
+    openShowModal: function openShowModal(modal, post) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openShowModal"])(modal, post));
     } // fetchPost: (id) => dispatch(fetchPost(id))
 
   };
@@ -1434,7 +1654,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.props)
+      var _this3 = this;
+
+      console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1452,6 +1674,9 @@ function (_React$Component) {
       }, this.props.post.user.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        onClick: function onClick() {
+          return _this3.props.openShowModal('index', _this3.props.post);
+        },
         className: "post-img",
         src: this.props.post.photoUrl
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

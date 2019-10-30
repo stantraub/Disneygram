@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import UploadFormContainer from '../user_profile/upload_form_container';
 import EditProfileContainer from '../user_profile/edit_profile_container';
 import PostShowContainer from '../post/post_show_container';
-
+import ItemShowContainer from '../post/item_show_container';
 function Modal({ modal, closeModal}) {
     if (!modal) {
         return null;
@@ -19,6 +19,9 @@ function Modal({ modal, closeModal}) {
             break;
         case 'show':
             component = <PostShowContainer post={modal.post}/>
+            break;
+        case 'index':
+            component = <ItemShowContainer post={modal.post} />
             break;
         default:
             return null;

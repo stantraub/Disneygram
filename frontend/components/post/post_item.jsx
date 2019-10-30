@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LikeContainer from '../like/like_container';
 import CommentContainer from '../comment/comment_container';
 
+
 class PostIndexItem extends React.Component {
   constructor(props){
     super(props);
@@ -47,7 +48,7 @@ class PostIndexItem extends React.Component {
   }
 
   render(){
-    // console.log(this.props)
+    console.log(this.props)
     return (
       <div className="post">
         <div className="post-header">
@@ -58,7 +59,7 @@ class PostIndexItem extends React.Component {
           <Link to={`/users/${this.props.post.author_id}`} className="username-link">{this.props.post.user.username}</Link>
           </div>
         </div>
-        <div className="post-img"><img className="post-img" src={this.props.post.photoUrl} /></div>
+        <div className="post-img"><img onClick={() => this.props.openShowModal('index', this.props.post)} className="post-img" src={this.props.post.photoUrl} /></div>
 
         <div className="post-body">
           <section className="likes-comments">

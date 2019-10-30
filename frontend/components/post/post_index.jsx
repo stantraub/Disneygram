@@ -19,6 +19,7 @@ class PostIndex extends React.Component {
                         key={post.id}
                         post={post}
                         deletePost={this.props.deletePost}
+                        openShowModal={this.props.openShowModal}
                      />
                     )}
             </div>

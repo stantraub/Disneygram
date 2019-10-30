@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { fetchPost, deletePost } from '../../actions/post_actions';
 import { fetchComments, createComment, deleteComment } from '../../actions/comment_actions';
 import PostIndexItem from './feed_item';
-import { closeModal, openModal } from '../../../actions/modal_actions';
-
+import { openModal, openShowModal } from '../../actions/modal_actions';
 const mapStateToProps = (state, ownProps) => {
     const currentUser = state.entities.users[state.session.id];
     let comments;
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => {
         fetchComments: () => dispatch(fetchComments()),
         deleteComment: id => dispatch(deleteComment(id)),
         createComment: comment => dispatch(createComment(comment)),
+        openShowModal: (modal, post) => dispatch(openShowModal(modal, post))
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostIndexItem)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostIndexItem));
