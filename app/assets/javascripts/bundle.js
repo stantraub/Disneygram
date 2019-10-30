@@ -2924,6 +2924,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/like_actions */ "./frontend/actions/like_actions.js");
+
 
 
 
@@ -2957,9 +2959,29 @@ function modalReducer() {
           return post.id === action.comment.post_id;
         })[0];
         post.comments.push(action.comment);
-        debugger;
         return newState;
       }
+
+    case _actions_like_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_LIKE"]:
+      Object.values(newState).forEach(function (post) {
+        if (post.id === action.like.post_id) {
+          post.likes.push({
+            user_id: action.like.user_id
+          });
+        }
+      });
+      return newState;
+
+    case _actions_like_actions__WEBPACK_IMPORTED_MODULE_3__["REMOVE_LIKE"]:
+      // newState[action.like.post_id].likes = newState[action.like.post_id].likes.filter(id => id !== action.like.user_id);
+      Object.values(newState).forEach(function (post) {
+        if (post.id === action.like.post_id) {
+          post.likes.pop({
+            user_id: action.like.user_id
+          });
+        }
+      });
+      return newState;
 
     default:
       return state;
