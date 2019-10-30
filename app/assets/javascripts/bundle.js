@@ -1778,12 +1778,10 @@ function (_React$Component) {
       return function (e) {
         _this2.setState(_defineProperty({}, field, e.target.value));
       };
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchPost(this.props.post.id);
-    }
+    } // componentDidMount() {
+    //     this.props.fetchPost(this.props.post.id);
+    // }
+
   }, {
     key: "renderComments",
     value: function renderComments(post) {
