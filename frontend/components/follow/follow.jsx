@@ -29,10 +29,10 @@ class Follow extends React.Component {
     }
 
     handleUnfollow(e) {
-       
-        let followId = Object.values(this.props.follows).filter(follow => follow.follower_id === currentUser.id && follow.following_id === this.props.userId)[0].id;
+    //    debugger
+
         
-        this.props.deleteFollow(followId);
+        this.props.deleteFollow(Object.values(this.props.follows).filter(follow => follow.follower_id === this.props.currentUser.id && follow.following_id === this.props.userId)[0].id);
      
         // this.props.fetchFollows();
     }

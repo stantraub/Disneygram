@@ -6,7 +6,7 @@ import { createFollow, fetchFollows, deleteFollow } from "../../actions/follow_a
 
 const msp = (state, ownProps) => {
     let userId = ownProps.user.id;
-
+    
     return ({
         currentUser: state.entities.users[state.session.id],
         userId

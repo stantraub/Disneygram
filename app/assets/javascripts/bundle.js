@@ -799,10 +799,10 @@ function (_React$Component) {
     value: function handleUnfollow(e) {
       var _this2 = this;
 
-      var followId = Object.values(this.props.follows).filter(function (follow) {
-        return follow.follower_id === currentUser.id && follow.following_id === _this2.props.userId;
-      })[0].id;
-      this.props.deleteFollow(followId); // this.props.fetchFollows();
+      //    debugger
+      this.props.deleteFollow(Object.values(this.props.follows).filter(function (follow) {
+        return follow.follower_id === _this2.props.currentUser.id && follow.following_id === _this2.props.userId;
+      })[0].id); // this.props.fetchFollows();
     }
   }, {
     key: "render",
