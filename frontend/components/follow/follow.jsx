@@ -29,7 +29,7 @@ class Follow extends React.Component {
     }
 
     handleUnfollow(e) {
-
+       
         let followId = Object.values(this.props.follows).filter(follow => follow.follower_id === currentUser.id && follow.following_id === this.props.userId)[0].id;
         
         this.props.deleteFollow(followId);
@@ -40,12 +40,14 @@ class Follow extends React.Component {
 
 
     render() {
-        // console.log(this.props)
-        let hasFollowed = false;
+        console.log(this.props)
+        let hasFollowed;
 
         this.props.user.followers.forEach(follower => {
             if (follower.follower_id === this.props.currentUser.id) {
                 hasFollowed = true;
+            } else {
+                hasFollowed = false;
             }
         });
         // if (this.props.user.followers) {

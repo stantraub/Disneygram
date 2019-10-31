@@ -809,11 +809,13 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      // console.log(this.props)
-      var hasFollowed = false;
+      console.log(this.props);
+      var hasFollowed;
       this.props.user.followers.forEach(function (follower) {
         if (follower.follower_id === _this3.props.currentUser.id) {
           hasFollowed = true;
+        } else {
+          hasFollowed = false;
         }
       }); // if (this.props.user.followers) {
       // }
@@ -3450,12 +3452,13 @@ var userReducer = function userReducer() {
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_2__["REMOVE_FOLLOW"]:
       Object.values(newState).forEach(function (user) {
-        // debugger
         if (user.followers.length > 0) {
-          if (user.followers.filter(function (follower) {
-            return follower.id;
-          })[0].id === action.followId) {
-            user.followers.pop(action);
+          var follow = user.followers.filter(function (follower) {
+            return follower.id === action.followId;
+          });
+
+          if (follow) {
+            user.followers.pop(follow);
           }
         }
       });
