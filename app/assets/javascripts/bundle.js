@@ -975,18 +975,18 @@ function (_React$Component) {
       var _this2 = this;
 
       // debugger
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.post.likes.filter(function (liker) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "like-btn"
+      }, this.props.post.likes.filter(function (liker) {
         return liker.user_id === _this2.props.currentUser.id;
       }).length === 0 ? //user_id
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        onClick: this.handleLike,
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "liked",
-        src: "https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png"
-      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        onClick: this.handleUnlike,
+        onClick: this.handleLike
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u2661")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "unliked",
-        src: "https://apprecs.org/ios/images/app-icons/256/62/1185229666.jpg"
-      })));
+        onClick: this.handleUnlike
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u2665")));
     }
   }]);
 
@@ -1685,6 +1685,9 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "post-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        onClick: function onClick() {
+          return _this3.props.openShowModal('index', _this3.props.post);
+        },
         className: "comment-icon",
         src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

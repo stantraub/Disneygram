@@ -43,7 +43,7 @@ class Like extends React.Component {
     render() {
         // debugger
         return (
-            <div>
+            <div className="like-btn">
 
                 {(this.props.post.likes.filter(liker => liker.user_id === this.props.currentUser.id).length === 0) 
         //user_id
@@ -51,16 +51,15 @@ class Like extends React.Component {
     
                     (
                       
-                        <div>
-                            <img onClick={this.handleLike} className="liked" src="https://www.fourjay.org/myphoto/s/57/575755_instagram-icon-png-transparent-background.png" />
+                        <div className="liked" onClick={this.handleLike}>
+                            <span >&#9825;</span>
                         </div>
                         
                     ): 
                     
                     (
-                        <div>
-                            
-                            <img onClick={this.handleUnlike} className="unliked" src="https://apprecs.org/ios/images/app-icons/256/62/1185229666.jpg" />
+                        <div className="unliked" onClick={this.handleUnlike}>
+                            <span>&#9829;</span>
                         </div>
 
                     )}

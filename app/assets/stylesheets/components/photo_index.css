@@ -72,15 +72,23 @@
     padding: 0;
 }
 
+.like-btn {
+    padding-left: 8px;
+    color: black;
+    font-size: 28px;
+    transform: translateY(5px);
+}
+
 .liked {
-    height: 40px;
-    width: 40px;
+    color: black;
+    transform: scale(1.2, 1.1);
+    font-weight: 200;
 }
 
 .unliked {
-    height: 50px;
-    width: 50px;
-    
+    color: red;
+    transform: scale(1.2, 1.1);
+    font-weight: 200;
 }
 
 .comment-icon {

@@ -68,7 +68,7 @@ class PostIndexItem extends React.Component {
               <LikeContainer post={this.props.post} />
             </button>
             <button className="post-button">
-              <img className="comment-icon" src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
+              <img onClick={() => this.props.openShowModal('index', this.props.post)} className="comment-icon" src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
             </button>
 
           </section>
