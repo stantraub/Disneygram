@@ -1,4 +1,6 @@
-# Table of Contents
+# README
+
+(picture here of splash page)
 
 ## Background and Overview
 
