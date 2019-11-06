@@ -12,19 +12,26 @@ const userReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
-        // case RECEIVE_LIKE:
-        //     debugger;
-            
-        //         const userPostLike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
-        //         userPostLike.likes.push(action.like);
-        //         return newState;
+        case RECEIVE_LIKE:
+
+                let userLike = Object.values(newState).filter(user => user.id === action.like.author_id)[0];
+                // debugger
+                let userPostLike = Object.values(userLike.posts).filter(post => post.id === action.like.post_id)[0];
+                // debugger
+                userPostLike.likes.push(action.like);
+                return newState;
 
             
-        // case REMOVE_LIKE:
-           
-        //         const userPostUnlike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
-        //         userPostUnlike.likes.pop(action.like);
-        //         return newState;
+        case REMOVE_LIKE:
+            let userUnlike = Object.values(newState).filter(user => user.id === action.like.author_id)[0];
+            // debugger
+            let userPostUnlike = Object.values(userUnlike.posts).filter(post => post.id === action.like.post_id)[0];
+            // debugger
+            userPostUnlike.likes.pop(action.like);
+            return newState;
+                // const userPostUnlike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
+                // userPostUnlike.likes.pop(action.like);
+                // return newState;
             
 
         case RECEIVE_CURRENT_USER:

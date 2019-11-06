@@ -6,6 +6,7 @@ class PostIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchPosts();
+        this.props.fetchUsers();
         // this.props.fetchUser(this.props.id);
     }
 
@@ -20,6 +21,7 @@ class PostIndex extends React.Component {
                         post={post}
                         deletePost={this.props.deletePost}
                         openShowModal={this.props.openShowModal}
+                        fetchUser={this.props.fetchUser}
                      />
                     )}
             </div>

@@ -1488,7 +1488,8 @@ function (_React$Component) {
   _createClass(PostIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchPosts(); // this.props.fetchUser(this.props.id);
+      this.props.fetchPosts();
+      this.props.fetchUsers(); // this.props.fetchUser(this.props.id);
     }
   }, {
     key: "render",
@@ -1503,7 +1504,8 @@ function (_React$Component) {
           key: post.id,
           post: post,
           deletePost: _this.props.deletePost,
-          openShowModal: _this.props.openShowModal
+          openShowModal: _this.props.openShowModal,
+          fetchUser: _this.props.fetchUser
         });
       }));
     }
@@ -1528,7 +1530,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _post_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./post_index */ "./frontend/components/post/post_index.jsx");
 /* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
 
 
 
@@ -1547,11 +1551,17 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchPosts: function fetchPosts() {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPosts"])());
     },
+    fetchUser: function fetchUser(id) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["fetchUser"])(id));
+    },
+    fetchUsers: function fetchUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["fetchUsers"])());
+    },
     deletePost: function deletePost(id) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["deletePost"])(id));
     },
     openShowModal: function openShowModal(modal, post) {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openShowModal"])(modal, post));
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openShowModal"])(modal, post));
     } // fetchPost: (id) => dispatch(fetchPost(id))
 
   };
@@ -1628,6 +1638,12 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // debugger
+      this.props.fetchUser(this.props.post.author_id);
+    }
+  }, {
     key: "renderComments",
     value: function renderComments(post) {
       // debugger
@@ -1653,7 +1669,7 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      console.log(this.props);
+      // console.log(this.props)
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3429,15 +3445,33 @@ var userReducer = function userReducer() {
   var newState = Object.assign({}, state);
 
   switch (action.type) {
-    // case RECEIVE_LIKE:
-    //     debugger;
-    //         const userPostLike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
-    //         userPostLike.likes.push(action.like);
-    //         return newState;
-    // case REMOVE_LIKE:
-    //         const userPostUnlike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
-    //         userPostUnlike.likes.pop(action.like);
-    //         return newState;
+    case _actions_like_actions__WEBPACK_IMPORTED_MODULE_4__["RECEIVE_LIKE"]:
+      var userLike = Object.values(newState).filter(function (user) {
+        return user.id === action.like.author_id;
+      })[0]; // debugger
+
+      var userPostLike = Object.values(userLike.posts).filter(function (post) {
+        return post.id === action.like.post_id;
+      })[0]; // debugger
+
+      userPostLike.likes.push(action.like);
+      return newState;
+
+    case _actions_like_actions__WEBPACK_IMPORTED_MODULE_4__["REMOVE_LIKE"]:
+      var userUnlike = Object.values(newState).filter(function (user) {
+        return user.id === action.like.author_id;
+      })[0]; // debugger
+
+      var userPostUnlike = Object.values(userUnlike.posts).filter(function (post) {
+        return post.id === action.like.post_id;
+      })[0]; // debugger
+
+      userPostUnlike.likes.pop(action.like);
+      return newState;
+    // const userPostUnlike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
+    // userPostUnlike.likes.pop(action.like);
+    // return newState;
+
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       newState[action.user.id] = action.user;
       return newState;

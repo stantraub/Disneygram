@@ -21,6 +21,11 @@ class PostIndexItem extends React.Component {
     }
   }
 
+  componentDidMount() {
+    // debugger
+    this.props.fetchUser(this.props.post.author_id);
+  }
+
 
 
   renderComments(post) {
@@ -48,7 +53,7 @@ class PostIndexItem extends React.Component {
   }
 
   render(){
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div className="post">
         <div className="post-header">

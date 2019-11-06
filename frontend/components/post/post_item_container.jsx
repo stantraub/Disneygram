@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchPost, deletePost } from '../../actions/post_actions';
+import { fetchUser } from '../../actions/user_actions';
 import { fetchComments, createComment, deleteComment } from '../../actions/comment_actions';
 import PostIndexItem from './feed_item';
 import { openModal, openShowModal } from '../../actions/modal_actions';
@@ -19,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return ({
         fetchPost: id => dispatch(fetchPost(id)),
+        fetchUser: id => dispatch(fetchUser(id)),
         deletePost: id => dispatch(deletePost(id)),
         fetchComments: () => dispatch(fetchComments()),
         deleteComment: id => dispatch(deleteComment(id)),
