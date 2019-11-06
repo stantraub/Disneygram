@@ -1488,8 +1488,8 @@ function (_React$Component) {
   _createClass(PostIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchPosts();
-      this.props.fetchUsers(); // this.props.fetchUser(this.props.id);
+      this.props.fetchPosts(); // this.props.fetchUsers();
+      // this.props.fetchUser(this.props.id);
     }
   }, {
     key: "render",
