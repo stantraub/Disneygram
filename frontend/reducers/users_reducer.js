@@ -3,12 +3,30 @@ import { RECEIVE_ALL_USERS, RECEIVE_USER } from "../actions/user_actions";
 import { RECEIVE_ALL_FOLLOWS, RECEIVE_FOLLOW, REMOVE_FOLLOW } from '../actions/follow_actions';
 
 import merge from 'lodash/merge';
-import { REMOVE_LIKE } from "../actions/like_actions";
+import {
+    RECEIVE_LIKE,
+    REMOVE_LIKE
+} from "../actions/like_actions";
 
 const userReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
+        // case RECEIVE_LIKE:
+        //     debugger;
+            
+        //         const userPostLike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
+        //         userPostLike.likes.push(action.like);
+        //         return newState;
+
+            
+        // case REMOVE_LIKE:
+           
+        //         const userPostUnlike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
+        //         userPostUnlike.likes.pop(action.like);
+        //         return newState;
+            
+
         case RECEIVE_CURRENT_USER:
             newState[action.user.id] = action.user;
             return newState;

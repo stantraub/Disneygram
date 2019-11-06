@@ -3181,10 +3181,8 @@ function modalReducer() {
 
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_LIKE"]:
       Object.values(newState).forEach(function (post) {
-        if (post.id === action.like.post_id) {
-          post.likes.push({
-            user_id: action.like.user_id
-          });
+        if (post.id === action.like.post_id && post.likes.length === 0) {
+          post.likes.push(action.like);
         }
       });
       return newState;
@@ -3193,9 +3191,7 @@ function modalReducer() {
       // newState[action.like.post_id].likes = newState[action.like.post_id].likes.filter(id => id !== action.like.user_id);
       Object.values(newState).forEach(function (post) {
         if (post.id === action.like.post_id) {
-          post.likes.pop({
-            user_id: action.like.user_id
-          });
+          post.likes.pop(action.like);
         }
       });
       return newState;
@@ -3236,11 +3232,10 @@ var PostsReducer = function PostsReducer() {
 
   switch (action.type) {
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_LIKE"]:
+      // debugger
       Object.values(newState).forEach(function (post) {
         if (post.id === action.like.post_id) {
-          post.likes.push({
-            user_id: action.like.user_id
-          });
+          post.likes.push(action.like);
         }
       });
       return newState;
@@ -3249,20 +3244,23 @@ var PostsReducer = function PostsReducer() {
       // newState[action.like.post_id].likes = newState[action.like.post_id].likes.filter(id => id !== action.like.user_id);
       Object.values(newState).forEach(function (post) {
         if (post.id === action.like.post_id) {
-          post.likes.pop({
-            user_id: action.like.user_id
-          });
+          post.likes.pop(action.like);
         }
       });
       return newState;
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      var post = Object.values(newState).filter(function (post) {
+      // debugger
+      if (Object.values(newState).filter(function (post) {
         return post.id === action.comment.post_id;
-      })[0];
-      post.comments.push(action.comment); // debugger;
+      })[0] !== undefined) {
+        var post = Object.values(newState).filter(function (post) {
+          return post.id === action.comment.post_id;
+        })[0];
+        post.comments.push(action.comment); // debugger;
 
-      return newState;
+        return newState;
+      }
 
     case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_POSTS"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_3___default()({}, action.posts);
@@ -3431,6 +3429,15 @@ var userReducer = function userReducer() {
   var newState = Object.assign({}, state);
 
   switch (action.type) {
+    // case RECEIVE_LIKE:
+    //     debugger;
+    //         const userPostLike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
+    //         userPostLike.likes.push(action.like);
+    //         return newState;
+    // case REMOVE_LIKE:
+    //         const userPostUnlike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
+    //         userPostUnlike.likes.pop(action.like);
+    //         return newState;
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       newState[action.user.id] = action.user;
       return newState;

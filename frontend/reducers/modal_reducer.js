@@ -24,13 +24,13 @@ export default function modalReducer(state = [], action) {
                 return newState;
             }
         case RECEIVE_LIKE:
-            Object.values(newState).forEach(post => { if (post.id === action.like.post_id) { post.likes.push({ user_id: action.like.user_id }) } })
+            Object.values(newState).forEach(post => { if (post.id === action.like.post_id && post.likes.length === 0) { post.likes.push(action.like ) } })
        
             return newState;
         case REMOVE_LIKE:
 
             // newState[action.like.post_id].likes = newState[action.like.post_id].likes.filter(id => id !== action.like.user_id);
-            Object.values(newState).forEach(post => { if (post.id === action.like.post_id) { post.likes.pop({ user_id: action.like.user_id }) } })
+            Object.values(newState).forEach(post => { if (post.id === action.like.post_id) { post.likes.pop(action.like) } })
             return newState;
         default:
             return state;
