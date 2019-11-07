@@ -26,11 +26,14 @@ https://disneygram.herokuapp.com
 - React
 - Redux
 - AWS S3
+- Webpack
+- JSON
+- Jbuilder
 - HTML/CSS
 - NPM
 - PostgreSQL
 
-Disneygram's backend utilizes Ruby on Rails and PostgreSQL, allowing database queries to get executed efficiently through RESTful API routes. The frontend incorporates the React framework with Redux for global state managment. Redux allows for the state of the application to be stored and accessed, thus letting changes to state persist while navigating through the app. Finally, I used Amazon Web Services S3 cloud storage for image hosting. 
+Disneygram's backend utilizes Ruby on Rails and PostgreSQL, allowing database queries to get executed efficiently through RESTful API routes. I used Jbuilder to render JSON objects as the views of my backend which would then be passed along to the frontend. The frontend incorporates the React framework with Redux for global state managment. Redux allows for the state of the application to be stored and accessed, thus letting changes to state persist while navigating through the app. Finally, I used Amazon Web Services S3 cloud storage for image hosting. 
 
 
 ## Website Features
