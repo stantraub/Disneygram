@@ -1,6 +1,6 @@
 # README
 
-![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/Screen+Shot+2019-09-20+at+11.53.12+AM.png)
+![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/login-page.png)
 
 ## Background and Overview
 
@@ -27,8 +27,8 @@ Disneygram was built with a variety of technologies. I used Ruby on Rails for my
 ### Signup/Sign In Page 
 
 The Signup/Sign In is an almost exact clone of the instagram web app user authentication page. The font and background color are the same to match Instagram's website style. The iPhone template features a Disney castle gif superimposed on the phone. 
-![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/login-page.png)
 
+![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/Screen+Shot+2019-09-20+at+11.53.12+AM.png)
 
 ### Posts 
 
