@@ -2467,11 +2467,10 @@ function (_React$Component) {
         placeholder: "Update bio...",
         onChange: this.update("bio")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-upload-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "modal-upload-btns"
-      }, "Change Profile Picture"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "edit-btn-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
+        className: "edit-file-input",
         onChange: this.handleFile.bind(this)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
@@ -2629,10 +2628,9 @@ function (_React$Component) {
         onChange: this.update("body")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "upload-btn-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "modal-upload-btns"
-      }, "Upload Photo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
+        className: "upload-file-input",
         onChange: this.handleFile.bind(this)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",

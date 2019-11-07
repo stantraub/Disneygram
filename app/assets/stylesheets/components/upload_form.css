@@ -48,6 +48,42 @@
     padding: 7px;
 }
 
+.upload-file-input::-webkit-file-upload-button  {
+  visibility: hidden;
+}
+
+.upload-file-input::before {
+  content: 'Upload Photo';
+  display: inline-block;
+  /* background: linear-gradient(top, #f9f9f9, #e3e3e3); */
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 600;
+  font-size: 10pt;
+  color: #262626;
+}
+.upload-file-input:hover::before {
+  border-color: black;
+}
+.upload-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+input[type='file'] {
+  color: transparent;    /* Hides your "No File Selected" */
+  /* direction: rtl;        Sets the Control to Right-To-Left */
+}
+
+.upload-btn-wrapper {
+  margin-left: 37.5%;
+  margin-top: 5%;
+}
 
 
 .modal-upload-btns {
@@ -63,5 +99,29 @@
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin-top: 15px;
+}
+
+.modal-upload-btns::before {
+  /* content: 'Upload Photo'; */
+  display: inline-block;
+  /* background: linear-gradient(top, #f9f9f9, #e3e3e3); */
+  /* border: 1px solid #dbdbdb; */
+  /* border-radius: 3px;
+  padding: 5px 8px; */
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  /* font-weight: 600; */
+  font-size: 10pt;
+  color: #262626;
+}
+
+.modal-upload-btns:hover {
+  border-color: black;
+}
+.modal-upload-btns:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 

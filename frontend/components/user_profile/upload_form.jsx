@@ -45,10 +45,13 @@ class UploadForm extends React.Component {
                         onChange={this.update("body")}
                     />
                     <div className="upload-btn-wrapper">
-                        <button className="modal-upload-btns">
+                        {/* <div className="modal-upload-btns">
                             Upload Photo
-                        </button>
-                        <input type="file" onChange={this.handleFile.bind(this)} />
+                            
+                        </div> */}
+                        <input type="file" className="upload-file-input" onChange={this.handleFile.bind(this)} />
+                        
+                        
                     </div>
                     <div>
                         <input type='submit' className="modal-upload-btns" value='Share'/>

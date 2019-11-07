@@ -55,11 +55,11 @@ class EditProfile extends React.Component {
                         placeholder="Update bio..."
                         onChange={this.update("bio")}
                     />
-                    <div className="modal-upload-wrapper">
-                        <button className="modal-upload-btns">
+                    <div className="edit-btn-wrapper">
+                        {/* <div className="modal-upload-btns">
                                 Change Profile Picture
-                        </button>
-                        <input type="file" onChange={this.handleFile.bind(this)} />
+                        </div> */}
+                        <input type="file" className="edit-file-input" onChange={this.handleFile.bind(this)} />
                     </div>
                     <div>
                         <input type='submit' className="modal-upload-btns" value='Submit' />

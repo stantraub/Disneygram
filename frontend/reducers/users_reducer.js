@@ -14,11 +14,10 @@ const userReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_LIKE:
-
-                let userLike = Object.values(newState).filter(user => user.id === action.like.author_id)[0];
-                let userPostLike = Object.values(userLike.posts).filter(post => post.id === action.like.post_id)[0];
-                userPostLike.likes.push(action.like);
-                return newState;
+            let userLike = Object.values(newState).filter(user => user.id === action.like.author_id)[0];
+            let userPostLike = Object.values(userLike.posts).filter(post => post.id === action.like.post_id)[0];
+            userPostLike.likes.push(action.like);
+            return newState;
 
             
         case REMOVE_LIKE:
