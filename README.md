@@ -22,8 +22,16 @@ Features cloned from Instagram include:
 https://disneygram.herokuapp.com
 
 ## Technologies 
+- Ruby on Rails
+- React
+- Redux
+- AWS S3
+- HTML/CSS
+- NPM
+- PostgreSQL
 
-Disneygram was built with a variety of technologies. I used Ruby on Rails for my backend and React/Redux for my frontend. User information was stored in a database set up by PostgreSQL and images are stored via AWS S3. 
+Disneygram's backend utilizes Ruby on Rails and PostgreSQL, allowing database queries to get executed efficiently through RESTful API routes. The frontend incorporates the React framework with Redux for global state managment. Redux allows for the state of the application to be stored and accessed, thus letting changes to state persist while navigating through the app. Finally, I used Amazon Web Services S3 cloud storage for image hosting. 
+
 
 ## Website Features
 
