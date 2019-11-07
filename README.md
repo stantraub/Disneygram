@@ -103,7 +103,6 @@ Users are able to follow/unfollow one another's profiles. A follow/unfollow butt
 
 ```
     render() {
-        console.log(this.props)
         let hasFollowed;
 
         this.props.user.followers.forEach(follower => {
@@ -113,9 +112,7 @@ Users are able to follow/unfollow one another's profiles. A follow/unfollow butt
                 hasFollowed = false;
             }
         });
-        // if (this.props.user.followers) {
-            
-        // }
+   
         if (!hasFollowed) {
             return (
                 <div className="user-information">
