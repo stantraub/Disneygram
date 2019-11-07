@@ -59,6 +59,9 @@ Since I went with a modal that used its own reducers, actions, and its own slice
 
 As you can see in the below code snippet, it took quite a bit of coding jiu-jitsu in order to find the exact post that a user was clicking on in order to update its state. Not only did I have to make sure that 3 different reducers were updating their respective slices of state, but also I had to keep track of the order they were being hit in order to not have likes/comments save twice. Since the users reducer was being hit first and updating the state, I had to add in additional logic for the comments in my modal reducer to see if the comment was already added so as to not add it again
 
+![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/index-regular-likes.png)
+![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/index-modal-likes.png)
+
 
 ```
 //users reducer
@@ -103,6 +106,7 @@ As you can see in the below code snippet, it took quite a bit of coding jiu-jits
 Users are able to follow/unfollow one another's profiles. A follow/unfollow button will render if user is on another user's profile. In addition, there are user stats which update based on the lenght of the stat's array. For instance, if a user's followers array has 3 followers, the length of that array will be reflected (see code snippet below).  If the user is on their own profile, they will see edit bio/upload buttons instead.
 
 ![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/follows.png)
+
 
 ```
     render() {
