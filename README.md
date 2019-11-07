@@ -101,7 +101,41 @@ Users are able to follow/unfollow one another's profiles. A follow/unfollow butt
 
 ![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/follows.png)
 
+```
+    render() {
+        console.log(this.props)
+        let hasFollowed;
 
+        this.props.user.followers.forEach(follower => {
+            if (follower.follower_id === this.props.currentUser.id) {
+                hasFollowed = true;
+            } else {
+                hasFollowed = false;
+            }
+        });
+        // if (this.props.user.followers) {
+            
+        // }
+        if (!hasFollowed) {
+            return (
+                <div className="user-information">
+                    <h1>{this.props.user.username}</h1>
+                    <button onClick={this.handleFollow} className="follow-btn">Follow</button>
+                </div>
+
+            )
+        } else {
+            return (
+                <div className="user-information">
+                    <h1>{this.props.user.username}</h1>
+                    <button onClick={this.handleUnfollow} className="follow-btn">Unfollow</button>
+                </div>
+
+            )
+        }
+        
+    }
+```
 
 
 
