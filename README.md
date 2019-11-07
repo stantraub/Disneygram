@@ -50,8 +50,54 @@ Users are also able to access a show modal of each post on the feed by either cl
 
 ### Likes & Comments
 
+Users have the ability to like and comment on a post in three different places: the feed, a feed item modal, and on the user's profile page post show modal. Implementing this feature was perhaps the most difficult part of the project for me. 
+
+Since I went with a modal that used its own reducers, actions, and its own slice of state, I had a very hard time with state management. In hindsight, I should have created my own CSS modal, but I was able to learn a lot more about Redux state in the process of trying to implement the features.
+
+As you can see in the below code snippet, it took quite a bit of coding jiu-jitsu in order to find the exact post that a user was clicking on in order to update its state. Not only did I have to make sure that 3 different reducers were updating their respective slices of state, but also I had to keep track of the order they were being hit in order to not have likes/comments save twice. Since the users reducer was being hit first and updating the state, I had to add in additional logic for the comments in my modal reducer to see if the comment was already added so as to not add it again
+
+
+```
+//users reducer
+
+        case RECEIVE_LIKE:
+            let userLike = Object.values(newState).filter(user => user.id === action.like.author_id)[0];
+            let userPostLike = Object.values(userLike.posts).filter(post => post.id === action.like.post_id)[0];
+            userPostLike.likes.push(action.like);
+            return newState;
+
+            
+        case REMOVE_LIKE:
+            let userUnlike = Object.values(newState).filter(user => user.id === action.like.author_id)[0]
+            let userPostUnlike = Object.values(userUnlike.posts).filter(post => post.id === action.like.post_id)[0]
+            userPostUnlike.likes.pop(action.like);
+            return newState;
+        
+        case RECEIVE_COMMENT:
+            let userComment = Object.values(newState).filter(user => user.id === action.comment.post_author)[0];
+            let userPostComment = Object.values(userComment.posts).filter(post => post.id === action.comment.post_id)[0];
+            userPostComment.comments.push(action.comment);
+            return newState;
+           
+```
+
+```
+//modal reducer
+        case RECEIVE_COMMENT:
+            // debugger
+            if (Object.values(newState).filter(post => post.id === action.comment.post_id)[0]) {
+                if (newState.post.comments.filter(comment => comment.id === action.comment.id).length === 0) {
+                    let post = Object.values(newState).filter(post => post.id === action.comment.post_id)[0];
+                    post.comments.push(action.comment);
+                    return newState;
+                }
+                return newState;
+            }
+```
+
 ### Follows 
-Users are able to follow/unfollow one another's profiles. A follow/unfollow button will render if user is on another user's profile. If the user is on their own profile, they will see edit bio/upload buttons in its place.
+
+Users are able to follow/unfollow one another's profiles. A follow/unfollow button will render if user is on another user's profile. In addition, there are user stats which update based on the lenght of the stat's array. For instance, if a user's followers array has 3 followers, the length of that array will be reflected (see code snippet below).  If the user is on their own profile, they will see edit bio/upload buttons instead.
 
 ![alt text](https://disneygram-seeds.s3-us-west-1.amazonaws.com/follows.png)
 
