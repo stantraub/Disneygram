@@ -1332,7 +1332,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-show-modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -3185,13 +3184,20 @@ function modalReducer() {
       };
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
+      // debugger
       if (Object.values(newState).filter(function (post) {
         return post.id === action.comment.post_id;
       })[0]) {
-        var post = Object.values(newState).filter(function (post) {
-          return post.id === action.comment.post_id;
-        })[0];
-        post.comments.push(action.comment);
+        if (newState.post.comments.filter(function (comment) {
+          return comment.id === action.comment.id;
+        }).length === 0) {
+          var post = Object.values(newState).filter(function (post) {
+            return post.id === action.comment.post_id;
+          })[0];
+          post.comments.push(action.comment);
+          return newState;
+        }
+
         return newState;
       }
 
@@ -3432,6 +3438,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/like_actions */ "./frontend/actions/like_actions.js");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+
 
 
 
@@ -3448,29 +3456,33 @@ var userReducer = function userReducer() {
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_4__["RECEIVE_LIKE"]:
       var userLike = Object.values(newState).filter(function (user) {
         return user.id === action.like.author_id;
-      })[0]; // debugger
-
+      })[0];
       var userPostLike = Object.values(userLike.posts).filter(function (post) {
         return post.id === action.like.post_id;
-      })[0]; // debugger
-
+      })[0];
       userPostLike.likes.push(action.like);
       return newState;
 
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_4__["REMOVE_LIKE"]:
       var userUnlike = Object.values(newState).filter(function (user) {
         return user.id === action.like.author_id;
-      })[0]; // debugger
-
+      })[0];
       var userPostUnlike = Object.values(userUnlike.posts).filter(function (post) {
         return post.id === action.like.post_id;
-      })[0]; // debugger
-
+      })[0];
       userPostUnlike.likes.pop(action.like);
       return newState;
-    // const userPostUnlike = Object.values(Object.values(newState)[0].posts).filter(post => post.id === action.like.post_id)[0];
-    // userPostUnlike.likes.pop(action.like);
-    // return newState;
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_5__["RECEIVE_COMMENT"]:
+      var userComment = Object.values(newState).filter(function (user) {
+        return user.id === action.comment.post_author;
+      })[0];
+      var userPostComment = Object.values(userComment.posts).filter(function (post) {
+        return post.id === action.comment.post_id;
+      })[0]; // debugger
+
+      userPostComment.comments.push(action.comment);
+      return newState;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       newState[action.user.id] = action.user;

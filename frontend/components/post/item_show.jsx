@@ -45,7 +45,6 @@ class ItemShow extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className='post-show-modal'>
                 <div>

@@ -34,7 +34,6 @@ const PostsReducer = (oldState = [], action) => {
                 // debugger;
                 return newState;
             }
-          
         case RECEIVE_ALL_POSTS:
             return merge({}, action.posts);
         case RECEIVE_POST:
