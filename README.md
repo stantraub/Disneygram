@@ -8,14 +8,14 @@ Disneygram is an Instagram clone with a Disney-inspired twist. Users in the Disn
 
 Features cloned from Instagram include:
 
--User authentication
--Feed
--User Profile with picture grid layout
--Follows
--Post show modals on feed and user profile pages
--Posting capability and profile editing
--Likes
--Comments
+- User authentication
+- Feed
+- User Profile with picture grid layout
+- Follows
+- Post show modals on feed and user profile pages
+- Posting capability and profile editing
+- Likes
+- Comments
 
 ## Demo
 
