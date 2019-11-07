@@ -1359,11 +1359,6 @@ function (_React$Component) {
         className: "post-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_like_like_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
         post: this.props.post
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "post-button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "comment-icon",
-        src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-num-likes"
       }, this.props.post.likes.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -1857,11 +1852,6 @@ function (_React$Component) {
         className: "post-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_like_like_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
         post: this.props.post
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "post-button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "comment-icon",
-        src: "https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-num-likes"
       }, this.props.post.likes.length, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_comment_container__WEBPACK_IMPORTED_MODULE_3__["default"], {

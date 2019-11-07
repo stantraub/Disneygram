@@ -67,8 +67,9 @@
 }
 
 .post-likes-comments {
-    padding-right: 16px;
+    padding-left: 8px;
     flex-direction: row;
+    text-align: left;
     width: 100px;
     margin-top: 4px;
 }
@@ -81,6 +82,7 @@
     font-size: 14px;
     /* margin-top: 5px; */
     text-align: left;
+    margin-top: 6px;
     margin-bottom: 10px;
 }
 

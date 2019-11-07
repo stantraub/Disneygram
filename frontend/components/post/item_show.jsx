@@ -67,10 +67,9 @@ class ItemShow extends React.Component {
                             <button className="post-button">
                                 <LikeContainer post={this.props.post} />
                             </button>
-                            <button className="post-button">
+                            {/* <button className="post-button">
                                 <img className="comment-icon" src="https://icon-library.net/images/instagram-comment-icon/instagram-comment-icon-15.jpg" />
-                            </button>
-
+                            </button> */}
                         </section>
                         <section>
                             <div className="post-num-likes">
