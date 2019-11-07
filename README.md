@@ -4,15 +4,18 @@
 
 ## Background and Overview
 
-Disneygram is an Instagram clone with a Disney-inspired twist. Users in the Disney universe are able to create accounts, login/logout, and view pictures. Post capability will be added in the near future. 
+Disneygram is an Instagram clone with a Disney-inspired twist. Users in the Disney universe are able to create accounts, login/logout, and view pictures. 
 
 Features cloned from Instagram include:
 
-User authentication
-Feed
-User Profile with picture grid layout
-Likes
-Comments
+-User authentication
+-Feed
+-User Profile with picture grid layout
+-Follows
+-Post show modals on feed and user profile pages
+-Posting capability and profile editing
+-Likes
+-Comments
 
 ## Demo
 
