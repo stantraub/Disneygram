@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   background-color: white;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
   padding: 26px 20px;
   box-sizing: border-box;
