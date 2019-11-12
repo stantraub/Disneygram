@@ -26,7 +26,7 @@ class UploadForm extends React.Component {
         formData.append("post[photo]", this.state.photoFile);
         this.props.createPost(formData)
             .then(() => {
-                this.props.history.push("/feed")
+                this.props.history.push("/")
             }).then(() => {
                 this.props.closeModal()
             });

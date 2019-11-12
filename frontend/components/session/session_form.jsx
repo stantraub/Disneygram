@@ -30,7 +30,7 @@ class SessionForm extends React.Component {
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
             .then((res) => {
-               this.props.history.push(`/feed`);
+               this.props.history.push(`/`);
             } 
             )
     }
@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
         this.props.processDemo(demoUser)
             .then((res) => {
                 // this.props.history.push(`/users/${res.user.id}`)
-                  this.props.history.push(`/feed`);
+                  this.props.history.push(`/`);
                 }
             )
     }

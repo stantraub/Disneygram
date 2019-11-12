@@ -2222,7 +2222,7 @@ function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user).then(function (res) {
-        _this3.props.history.push("/feed");
+        _this3.props.history.push("/");
       });
     }
   }, {
@@ -2237,7 +2237,7 @@ function (_React$Component) {
       });
       this.props.processDemo(demoUser).then(function (res) {
         // this.props.history.push(`/users/${res.user.id}`)
-        _this4.props.history.push("/feed");
+        _this4.props.history.push("/");
       });
     }
   }, {
@@ -2597,7 +2597,7 @@ function (_React$Component) {
       formData.append("post[body]", this.state.body);
       formData.append("post[photo]", this.state.photoFile);
       this.props.createPost(formData).then(function () {
-        _this3.props.history.push("/feed");
+        _this3.props.history.push("/");
       }).then(function () {
         _this3.props.closeModal();
       });
