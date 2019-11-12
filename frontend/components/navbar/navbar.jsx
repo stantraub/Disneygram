@@ -13,10 +13,10 @@ export default ({ currentUser, logout }) => {
                     <img className="Icon" src="https://images.vexels.com/media/users/3/141955/isolated/preview/d0f766bbe2603124417ed31d027b14c8-camera-icon-or-logo-by-vexels.png" alt="" />
                 </Link> */}
                 <div className="nav-left">
-                    <Link to={`/feed`} >
+                    <Link to={`/`} >
                     <img className="castle-logo" src="https://images-na.ssl-images-amazon.com/images/I/61ANd%2BEXorL._SX466_.jpg" />
                     </Link>
-                    <Link to={`/feed`} className="disneygram-link" >
+                    <Link to={`/`} className="disneygram-link" >
                     <div className="main-navbar-logo">Disneygram</div>
                     </Link>
                 </div>

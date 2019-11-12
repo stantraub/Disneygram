@@ -559,7 +559,7 @@ var App = function App() {
     component: _session_session_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
     exact: true,
-    path: "/feed",
+    path: "/",
     component: _post_post_index_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   })));
 };
@@ -1175,12 +1175,12 @@ __webpack_require__.r(__webpack_exports__);
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/feed"
+    to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "castle-logo",
     src: "https://images-na.ssl-images-amazon.com/images/I/61ANd%2BEXorL._SX466_.jpg"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/feed",
+    to: "/",
     className: "disneygram-link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-navbar-logo"
@@ -2030,7 +2030,7 @@ function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.login(user).then(function (res) {
-        _this3.props.history.push("/feed");
+        _this3.props.history.push("/");
       });
     }
   }, {
@@ -2045,7 +2045,7 @@ function (_React$Component) {
       });
       this.props.processDemo(demoUser).then(function (res) {
         // this.props.history.push(`/users/${res.user.id}`)
-        _this4.props.history.push("/feed");
+        _this4.props.history.push("/");
       });
     }
   }, {
