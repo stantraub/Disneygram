@@ -36,7 +36,7 @@ class PostIndexItem extends React.Component {
           // debugger
           return (
             <div key={comment.id} className="comment-item">
-                  <Link to={`/users/${comment.user_id}`} className="username-link">
+                  <Link to={`/users/${comment.author_id}`} className="username-link">
                     <span className="post-body-username">{comment.username} </span>
                   </Link>
                   <span>{comment.body}</span>

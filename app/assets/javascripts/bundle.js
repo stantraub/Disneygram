@@ -1648,7 +1648,7 @@ function (_React$Component) {
             key: comment.id,
             className: "comment-item"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            to: "/users/".concat(comment.user_id),
+            to: "/users/".concat(comment.author_id),
             className: "username-link"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "post-body-username"
